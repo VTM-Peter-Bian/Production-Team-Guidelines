@@ -35,6 +35,17 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group">
+            <span class="nav-group-label">開發規範</span>
+            <ul class="nav-sublist">
+              <li>
+                <a href="#version-numbering" class="nav-link" data-section="version-numbering">版本號規範</a>
+              </li>
+              <li>
+                <a href="#changelog" class="nav-link" data-section="changelog">CHANGELOG 規範</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <footer class="sidebar-footer">
@@ -326,13 +337,238 @@
 
         <aside class="note-box">
           <h4>注意事項</h4>
-          <p>請在每日 18:00 前完成當日代碼提交（參閱 <a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a>）。Summary 須包含日期與簡要說明，Description 須清楚列出各項變更，便於追溯與審閱。</p>
+          <p>請在每日 18:00 前完成當日代碼提交（參閱 <a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a>）。Summary 須包含日期與簡要說明，Description 須清楚列出各項變更，便於追溯與審閱。SDK 版本發布時須同步遵循 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a> 與 <a href="#changelog" class="section-ref" data-section="changelog">CHANGELOG 規範</a>。</p>
+        </aside>
+      </article>
+
+      <article class="section" id="version-numbering" data-section="version-numbering">
+        <header class="section-header">
+          <span class="section-label">規範 05 · 開發規範</span>
+          <h2>版本號規範</h2>
+          <p class="section-desc">VTM Unity SDK 採用語義化版本（SemVer 2.0）管理版本號，依變更類型遞增 MAJOR、MINOR、PATCH。</p>
+        </header>
+
+        <div class="content-block">
+          <h3>參考標準</h3>
+          <p>遵循 <a href="https://semver.org/lang/zh-TW/" target="_blank" rel="noopener noreferrer">語義化版本 2.0.0（SemVer）</a> 規範，版本號格式為 <span class="code-inline">MAJOR.MINOR.PATCH</span>。</p>
+        </div>
+
+        <div class="content-block">
+          <h3>版本號遞增規則</h3>
+          <table class="spec-table spec-table-wide">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>段名</th>
+                <th>變更場景</th>
+                <th>示例（基於 SDK 結構）</th>
+                <th>版本號變更</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><strong>MAJOR</strong><br>（主版本）</td>
+                <td>
+                  <ul class="table-list">
+                    <li>核心模組（<span class="code-inline">VTM_Core</span>）不兼容 API 變更</li>
+                    <li>整體架構重構（如模組拆分 / 合併、目錄結構大調）</li>
+                    <li>底層框架（<span class="code-inline">Frameworks</span>）不兼容升級</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul class="table-list">
+                    <li><span class="code-inline">VTM_Core</span> 核心類 <span class="code-inline">VTM.Core</span> 建構函數參數變更</li>
+                    <li>移除 <span class="code-inline">VTM_iOS</span> 模組的 CPP 舊架構，替換為新編譯邏輯</li>
+                    <li>重構 <span class="code-inline">Frameworks/Graphic</span> 核心渲染邏輯</li>
+                  </ul>
+                </td>
+                <td><span class="code-inline">1.0.0 → 2.0.0</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><strong>MINOR</strong><br>（次版本）</td>
+                <td>
+                  <ul class="table-list">
+                    <li>新增功能模組（如新增 <span class="code-inline">VTM_Android</span> 模組）</li>
+                    <li>現有模組新增兼容 API / 功能（不影響舊邏輯）</li>
+                    <li>新增資源 / 模板（<span class="code-inline">Resources</span> / <span class="code-inline">Prefabs</span> / <span class="code-inline">Template</span>）</li>
+                    <li>編輯器工具（<span class="code-inline">Editor</span> 目錄）新增核心功能</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul class="table-list">
+                    <li>新增 <span class="code-inline">VTM_XR</span> 模組的 <span class="code-inline">XRA</span> 腳本與 UI 模板</li>
+                    <li><span class="code-inline">VTM_iOS</span> 模組新增 <span class="code-inline">Frameworks/Graphic</span> 擴充功能</li>
+                    <li><span class="code-inline">Documents</span> 目錄新增 <span class="code-inline">SDK_Guide</span> 多語言版本</li>
+                    <li><span class="code-inline">VTM_Core.Editor</span> 新增資源批量匯入工具</li>
+                  </ul>
+                </td>
+                <td><span class="code-inline">1.2.3 → 1.3.0</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><strong>PATCH</strong><br>（修補版本）</td>
+                <td>
+                  <ul class="table-list">
+                    <li>模組 bug 修復（不涉及 API 變更）</li>
+                    <li>效能優化（如 <span class="code-inline">Scripts</span> 執行效率、DLL 載入速度）</li>
+                    <li>文件糾錯、小範圍資源調整（<span class="code-inline">Prefabs</span> / UI 細節優化）</li>
+                    <li>編輯器工具（<span class="code-inline">Editor</span>）小功能修復</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul class="table-list">
+                    <li>修復 <span class="code-inline">VTM_XR</span> 模組 DLL 載入異常的 bug</li>
+                    <li>優化 <span class="code-inline">VTM_Core</span> 腳本執行效率，降低 CPU 佔用</li>
+                    <li>修正 <span class="code-inline">Documents/License_Agreement</span> 條款表述錯誤</li>
+                    <li>修復 <span class="code-inline">VTM_iOS.Editor</span> 打包工具的路徑識別問題</li>
+                  </ul>
+                </td>
+                <td><span class="code-inline">1.3.1 → 1.3.2</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="note-box">
+          <h4>注意事項</h4>
+          <p>發布新版本時，須同步更新 <span class="code-inline">CHANGELOG.md</span>（詳見 <a href="#changelog" class="section-ref" data-section="changelog">CHANGELOG 規範</a>）。若同一次發布同時包含多種變更類型，以最高優先級為準：MAJOR &gt; MINOR &gt; PATCH。</p>
+        </aside>
+      </article>
+
+      <article class="section" id="changelog" data-section="changelog">
+        <header class="section-header">
+          <span class="section-label">規範 06 · 開發規範</span>
+          <h2>CHANGELOG 規範</h2>
+          <p class="section-desc"><span class="code-inline">CHANGELOG.md</span> 記錄 VTM Unity SDK 各版本的重大變更，按版本倒序排列，並以「模組 + 目錄」分類。</p>
+        </header>
+
+        <div class="content-block">
+          <h3>撰寫原則</h3>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>原則</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>版本倒序</td>
+                <td>最新版本置頂，依時間由新到舊排列</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>模組分類</td>
+                <td>每條變更以 <span class="code-inline">【模組名】</span> 標記所屬模組與目錄</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>變更類型</td>
+                <td>使用 <span class="code-inline">Added</span>、<span class="code-inline">Changed</span>、<span class="code-inline">Fixed</span> 三類分組</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>參考標準</td>
+                <td>基於 <a href="https://semver.org/spec/v2.0.0.html" target="_blank" rel="noopener noreferrer">語義化版本控制</a> 與 <a href="https://www.conventionalcommits.org/" target="_blank" rel="noopener noreferrer">約定式提交</a> 規範</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>條目格式</h3>
+          <p>每條變更條目格式如下：</p>
+          <pre class="code-example code-block">- 【模組名】變更描述（含目錄路徑，使用 `反引號` 標記）</pre>
+          <p>範例：</p>
+          <pre class="code-example code-block">- 【XR 模組】新增 `VTM_XR` 模組：含 `XRA` 腳本、`Resources/Prefabs` 基礎預製體、`UI` 模板
+- 【編輯器】修復 `VTM_Core.Editor` 工具在 Unity 2021.3 版本下的相容性問題</pre>
+        </div>
+
+        <div class="content-block">
+          <h3>完整範例</h3>
+          <p>以下為 <span class="code-inline">CHANGELOG.md</span> 的標準結構範例：</p>
+          <pre class="code-example code-block changelog-example"># Changelog
+
+所有 VTM Unity SDK 的重大變更都將記錄在此文件中。
+基於 [語義化版本控制](https://semver.org/spec/v2.0.0.html) 與 [約定式提交](https://www.conventionalcommits.org/) 規範。
+
+## [1.0.0] - 2025-12-15
+
+### Added
+- 【核心模組】初始發布 `VTM_Core` 模組：包含 `VTM.Core` 核心類、`Editor/VTM_Core.Editor` 編輯器工具及對應 DLL
+- 【XR 模組】新增 `VTM_XR` 模組：含 `XRA` 腳本、`Resources/Prefabs` 基礎預製體、`UI` 模板
+- 【iOS 模組】新增 `VTM_iOS` 模組：包含 `VTM.iOS` 核心邏輯、CPP 底層支援、`Frameworks/Graphic` 適配
+- 【文件】新增 `Documents` 目錄：含 `Change_Log` 初始版本、`SDK_Guide` 接入文件、`License_Agreement` 授權協議
+- 【框架】新增 `Frameworks` 目錄：包含 Graphic 核心框架、`Framework_Guide` 使用說明
+
+### Changed
+- 【統一配置】標準化所有模組的目錄結構（Editor/DLL/核心邏輯/Resources 分層）
+- 【UI 規範】統一 `Scripts/UI` 目錄下的元件命名與介面設計
+
+### Fixed
+- 【編輯器】修復 `VTM_Core.Editor` 工具在 Unity 2021.3 版本下的相容性問題
+- 【iOS 模組】解決 `VTM_iOS` 模組 `Prefabs` 載入路徑錯誤的 bug
+
+## [0.3.0] - 2025-11-30
+
+### Added
+- 【XR 模組】新增 `VTM_XR` 模組的 `XRA` 場景模板（`Template` 目錄）
+- 【編輯器】新增 `VTM_XR.Editor` 工具：支援 XR 設備參數可視化配置
+- 【文件】新增 `Frameworks/Graphic` 模組的詳細使用指南（`Framework_Guide`）
+
+### Changed
+- 【效能優化】調整 `VTM_Core` 模組 `Scripts` 的執行頻率，降低效能開銷
+- 【資源優化】壓縮 `VTM_iOS/Resources/Prefabs` 中的預製體體積
+
+### Fixed
+- 【XR 模組】修復 `VTM_XR` 模組 DLL 依賴缺失導致的啟動崩潰問題
+- 【UI】修復 `VTM_iOS/Scripts/UI` 元件自適應佈局異常的 bug
+
+## [0.2.0] - 2025-11-15
+
+### Added
+- 【iOS 模組】初始搭建 `VTM_iOS` 模組框架：包含 `Editor` 工具、`VTM.iOS` 核心類、CPP 底層目錄
+- 【資源】新增 `VTM_iOS/Resources/Prefabs` 基礎預製體（如啟動頁、彈窗模板）
+- 【腳本】新增 `VTM_iOS/Scripts/UI` 基礎元件（按鈕、輸入框、列表）
+
+### Changed
+- 【目錄規範】調整 `VTM_Core` 模組的 DLL 存放路徑，統一為 `模組名/DLL` 目錄
+- 【文件】更新 `SDK_Guide`，補充 `VTM_iOS` 模組的接入流程
+
+### Fixed
+- 【核心模組】修復 `VTM_Core` 模組中 `VTM.Core` 類的空指標異常
+- 【編輯器】解決 `VTM_Core.Editor` 工具匯出配置失敗的問題
+
+## [0.1.0] - 2025-10-30
+
+### Added
+- 【核心模組】初始搭建 `VTM_Core` 模組：含 `VTM.Core` 核心邏輯、`Editor/VTM_Core.Editor` 基礎工具
+- 【框架】新增 `Frameworks` 基礎目錄：包含 Graphic 核心框架雛形
+- 【文件】初始建立 `Documents` 目錄：含 `Change_Log` 模板、`License_Agreement` 基礎條款
+
+### Fixed
+- 【基礎兼容】修復 `VTM_Core` 模組在 Unity 2020.3 版本下的編譯錯誤
+
+## [0.0.1] - 2025-10-15
+
+### Added
+- 【專案初始化】建立 SDK 根目錄結構：`Assets/VTM/VTM_Unity` 核心目錄，包含模組佔位符、文件目錄雛形
+- 【基礎配置】初始化 `VTM_Core` 模組的目錄結構（Editor/DLL/核心邏輯分層）</pre>
+        </div>
+
+        <aside class="note-box">
+          <h4>注意事項</h4>
+          <p>每次發布新版本時，須在 <span class="code-inline">CHANGELOG.md</span> 頂部新增對應版本區塊，並依 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a> 決定版本號遞增類型。變更描述須具體到模組與目錄路徑，避免僅寫「修復 bug」等模糊表述。</p>
         </aside>
       </article>
 
       <article class="section" id="work-habits" data-section="work-habits">
         <header class="section-header">
-          <span class="section-label">規範 05</span>
+          <span class="section-label">規範 07</span>
           <h2>工作習慣</h2>
           <p class="section-desc">開發組日常工作溝通與整理習慣，持續更新補充。</p>
         </header>
