@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>開發組規範文檔</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <header class="sidebar-header">
+        <h1 class="site-title">開發組規範文檔</h1>
+        <p class="site-subtitle">Production Team Guidelines</p>
+      </header>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li>
+            <a href="#daily-workflow" class="nav-link active" data-section="daily-workflow">每日工作流程</a>
+          </li>
+          <li>
+            <a href="#work-habits" class="nav-link" data-section="work-habits">工作習慣</a>
+          </li>
+          <li class="nav-group">
+            <span class="nav-group-label">源代碼與版本控制</span>
+            <ul class="nav-sublist">
+              <li>
+                <a href="#github-account" class="nav-link" data-section="github-account">GitHub 帳戶規範</a>
+              </li>
+              <li>
+                <a href="#github-repo" class="nav-link" data-section="github-repo">GitHub Repository 創建規範</a>
+              </li>
+              <li>
+                <a href="#github-desktop" class="nav-link" data-section="github-desktop">GitHub Desktop 提交規範</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <footer class="sidebar-footer">
+        <p>持續更新中</p>
+        <a href="#doc-style" class="footer-link section-ref" data-section="doc-style">文檔書寫規範</a>
+      </footer>
+    </aside>
+
+    <main class="main">
+      <article class="section active" id="daily-workflow" data-section="daily-workflow">
+        <header class="section-header">
+          <span class="section-label">規範 01</span>
+          <h2>每日工作流程</h2>
+          <p class="section-desc">開發組成員每日到崗、離崗的標準工作節奏與匯報要求。</p>
+        </header>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-content">
+              <h3>到達公司，開始工作</h3>
+              <p>到崗後依序完成以下事項：</p>
+              <ul>
+                <li>在公司門口<strong>打卡機刷臉打卡</strong></li>
+                <li>查看 <strong>Outlook</strong> 郵件與行事曆，並按 <span class="reaction-mark">👍</span> 標記已讀（詳見 <a href="#habit-01" class="section-ref" data-section="work-habits" data-anchor="habit-01">工作習慣 01</a>）</li>
+                <li>瀏覽 <strong>SharePoint</strong> 最新資訊</li>
+                <li>查看 <strong>Teams</strong> 訊息，並按 <span class="reaction-mark">👍</span> 標記已讀（詳見 <a href="#habit-01" class="section-ref" data-section="work-habits" data-anchor="habit-01">工作習慣 01</a>）</li>
+                <li>更新 <strong>T&amp;P</strong>（Task &amp; Progress，用於管理同事的工作進度）</li>
+                <li>回覆相關訊息與待辦內容（須標記序號，詳見 <a href="#habit-03" class="section-ref" data-section="work-habits" data-anchor="habit-03">工作習慣 03</a>）</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">13:00 – 14:00</div>
+            <div class="timeline-content">
+              <h3>午飯時間</h3>
+              <p>午休時段，暫停工作事項。</p>
+            </div>
+          </div>
+
+          <div class="timeline-item highlight">
+            <div class="timeline-time">17:00 前</div>
+            <div class="timeline-content">
+              <h3>每日進度匯報</h3>
+              <p>下班前須完成以下匯報工作：</p>
+              <ul>
+                <li>更新 <strong>T&amp;P</strong>（Task &amp; Progress）</li>
+                <li>在 <strong>Planner</strong> 對應的 Task 上進行每日工作進度匯報</li>
+                <li>附上支撐材料，例如：
+                  <ul class="sub-list">
+                    <li>APK 安裝包</li>
+                    <li>截圖 / 圖片</li>
+                    <li>錄影 / 影片</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item highlight">
+            <div class="timeline-time">18:00 前</div>
+            <div class="timeline-content">
+              <h3>代碼提交</h3>
+              <p>使用 <strong>GitHub Desktop</strong> 將當日代碼更變提交至 <strong>GitHub</strong>，詳見 <a href="#github-desktop" class="section-ref" data-section="github-desktop">GitHub Desktop 提交規範</a>。</p>
+            </div>
+          </div>
+
+          <div class="timeline-item highlight">
+            <div class="timeline-time">18:00</div>
+            <div class="timeline-content">
+              <h3>下班</h3>
+              <p>完成當日工作後，依序完成以下事項再離開公司：</p>
+              <table class="spec-table">
+                <thead>
+                  <tr>
+                    <th>序號</th>
+                    <th>事項</th>
+                    <th>說明</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>關閉設備</td>
+                    <td>關閉個人<strong>電腦</strong>及<strong>顯示屏</strong></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>刷臉打卡</td>
+                    <td>離開前在公司門口<strong>打卡機刷臉打卡</strong></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>關閉 Logo 燈</td>
+                    <td>18:00 下班後<strong>第一位離開</strong>公司的人，請關掉公司 Logo 燈</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>檢查座位區域</td>
+                    <td>如附近座位同事已離開，請確保所屬座位附近的<strong>燈光</strong>及<strong>冷氣</strong>已全部關閉</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>最後離開檢查</td>
+                    <td>如為全公司<strong>最後一位</strong>下班，請再次檢查所有燈光及冷氣已關閉，並<strong>鎖上大門</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <aside class="note-box">
+          <h4>注意事項</h4>
+          <p>進度匯報須有明確的支撐材料，確保工作成果可追溯、可驗證。<a href="#github-desktop" class="section-ref" data-section="github-desktop">代碼提交</a>請在 18:00 前完成，避免累積未推送的變更。18:00 準時下班，離開前請完成刷臉打卡，並關閉個人電腦及顯示屏。</p>
+        </aside>
+      </article>
+
+      <article class="section" id="github-account" data-section="github-account">
+        <header class="section-header">
+          <span class="section-label">規範 02 · 源代碼與版本控制</span>
+          <h2>GitHub 帳戶規範</h2>
+          <p class="section-desc">GitHub 帳戶註冊與個人資料設定標準。</p>
+        </header>
+
+        <div class="content-block">
+          <h3>帳戶註冊</h3>
+          <ul class="content-list">
+            <li>使用<strong>公司提供的個人郵箱</strong>進行註冊</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>帳戶設置</h3>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>設定</th>
+                <th>範例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Display name</strong></td>
+                <td>英文名全名</td>
+                <td>Peter Bian</td>
+              </tr>
+              <tr>
+                <td><strong>Username</strong></td>
+                <td>VTM-英文名全名（以連字號分隔）</td>
+                <td>VTM-Peter-Bian</td>
+              </tr>
+              <tr>
+                <td><strong>頭像</strong></td>
+                <td colspan="2">使用 <strong>Teams</strong> 同款頭像</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="ref-line">相關規範：<a href="#github-repo" class="section-ref" data-section="github-repo">GitHub Repository 創建規範</a>、<a href="#github-desktop" class="section-ref" data-section="github-desktop">GitHub Desktop 提交規範</a></p>
+        </div>
+      </article>
+
+      <article class="section" id="github-repo" data-section="github-repo">
+        <header class="section-header">
+          <span class="section-label">規範 03 · 源代碼與版本控制</span>
+          <h2>GitHub Repository 創建規範</h2>
+          <p class="section-desc">新建 Repository 時的命名規則、建立設定與權限配置標準。</p>
+        </header>
+
+        <div class="content-block">
+          <h3>Repository 命名規則</h3>
+          <p>命名格式：</p>
+          <p class="code-example">Production Code - Client - Content name - Module Code</p>
+          <p>範例：</p>
+          <p class="code-example">P26F-AAHK-Fire-Extinguisher-Operation-Training-A01</p>
+        </div>
+
+        <div class="content-block">
+          <h3>Module Type Code</h3>
+          <p>Module Code 末尾字母代表模組類型，編號從 01 起：</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>代碼</th>
+                <th>類型</th>
+                <th>範例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>V</strong></td>
+                <td>VR</td>
+                <td>V01</td>
+              </tr>
+              <tr>
+                <td><strong>M</strong></td>
+                <td>MR</td>
+                <td>M01</td>
+              </tr>
+              <tr>
+                <td><strong>A</strong></td>
+                <td>iPad / iOS / Exe</td>
+                <td>A01</td>
+              </tr>
+              <tr>
+                <td><strong>W</strong></td>
+                <td>Web-Based</td>
+                <td>W01</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>創建設定</h3>
+          <ul class="content-list">
+            <li><strong>Owner</strong> 必須選擇 <strong>VTM-Digital-Limited</strong></li>
+            <li>創建時必須填寫 <strong>Description</strong></li>
+            <li><strong>Visibility</strong> 設為 <strong>Private</strong></li>
+            <li>勾選 <strong>Add README</strong></li>
+            <li>若為 Unity 項目，須添加 <strong>.gitignore</strong> 並選擇 <strong>Unity</strong></li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>權限設定</h3>
+          <p>Repository 創建完成後，進入 <strong>Settings → Collaborators and teams</strong> 配置權限：</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>對象</th>
+                <th>權限</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>VTM Technical Department</strong></td>
+                <td>Admin</td>
+              </tr>
+              <tr>
+                <td><strong>Victor Dao</strong></td>
+                <td>Admin</td>
+              </tr>
+              <tr>
+                <td>其餘同事</td>
+                <td>Read / Write</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="note-box">
+          <h4>注意事項</h4>
+          <p>請嚴格遵守命名規則與 Owner 設定，確保所有項目統一歸屬於 VTM-Digital-Limited 組織。Unity 項目務必選用 Unity 專用 .gitignore，避免提交不必要的本地與快取檔案。新建 Repository 前請先完成 <a href="#github-account" class="section-ref" data-section="github-account">GitHub 帳戶規範</a> 中的帳戶設定。</p>
+        </aside>
+      </article>
+
+      <article class="section" id="github-desktop" data-section="github-desktop">
+        <header class="section-header">
+          <span class="section-label">規範 04 · 源代碼與版本控制</span>
+          <h2>GitHub Desktop 提交規範</h2>
+          <p class="section-desc">使用 GitHub Desktop 進行日常代碼提交與推送的操作標準。</p>
+        </header>
+
+        <div class="content-block">
+          <h3>帳戶註冊</h3>
+          <ul class="content-list">
+            <li>使用<strong>公司提供的個人郵箱</strong>進行註冊（帳戶資料設定詳見 <a href="#github-account" class="section-ref" data-section="github-account">GitHub 帳戶規範</a>）</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>Commit Summary 格式</h3>
+          <p>格式：</p>
+          <p class="code-example">yyyy-mm-dd Content Summary...</p>
+          <p>範例：</p>
+          <p class="code-example">2026-07-07 Update VTM Unity SDK</p>
+        </div>
+
+        <div class="content-block">
+          <h3>Commit Description</h3>
+          <p>以 <strong>list</strong> 方式列出本次提交的具體內容，例如：</p>
+          <pre class="code-example code-block">- Update VTM Unity SDK to v2.1.0
+- Fix scene loading issue in Module A01
+- Refactor player controller script</pre>
+        </div>
+
+        <aside class="note-box">
+          <h4>注意事項</h4>
+          <p>請在每日 18:00 前完成當日代碼提交（參閱 <a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a>）。Summary 須包含日期與簡要說明，Description 須清楚列出各項變更，便於追溯與審閱。</p>
+        </aside>
+      </article>
+
+      <article class="section" id="work-habits" data-section="work-habits">
+        <header class="section-header">
+          <span class="section-label">規範 05</span>
+          <h2>工作習慣</h2>
+          <p class="section-desc">開發組日常工作溝通與整理習慣，持續更新補充。</p>
+        </header>
+
+        <div class="content-block">
+          <h3>習慣一覽</h3>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>編號</th>
+                <th>習慣</th>
+                <th>摘要</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>01</strong></td>
+                <td>已讀標記 <span class="reaction-mark">👍</span></td>
+                <td>看到 Teams / Outlook 訊息後按 👍，代表已讀</td>
+              </tr>
+              <tr>
+                <td><strong>02</strong></td>
+                <td>表格整理</td>
+                <td>習慣以表格形式整理內容，表格須含序號欄</td>
+              </tr>
+              <tr>
+                <td><strong>03</strong></td>
+                <td>序號標記</td>
+                <td>回覆時以 1) 2) 3) 格式標記各項內容</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="habit-block" id="habit-01">
+          <h3 class="habit-title"><span class="habit-num">01</span> 已讀標記 <span class="reaction-mark">👍</span></h3>
+          <p>在看到訊息後，須按 <span class="reaction-mark">👍</span> 作為回應。</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>適用範圍</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Teams</strong> 訊息</td>
+                <td>閱讀後按 <span class="reaction-mark">👍</span> 標記已讀</td>
+              </tr>
+              <tr>
+                <td><strong>Outlook</strong> 郵件</td>
+                <td>閱讀後按 <span class="reaction-mark">👍</span> 標記已讀</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th><span class="reaction-mark">👍</span> 代表</th>
+                <th><span class="reaction-mark">👍</span> 不代表</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>已看到訊息</td>
+                <td>認同內容</td>
+              </tr>
+              <tr>
+                <td>已讀確認</td>
+                <td>喜歡內容</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>其他含義</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="habit-block" id="habit-02">
+          <h3 class="habit-title"><span class="habit-num">02</span> 表格整理</h3>
+          <p>習慣以<strong>表格</strong>的形式整理內容，使資訊結構清晰、易於閱讀與對照。表格須包含<strong>序號</strong>欄，為每行內容標記編號。</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>適用場景</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>匯報進度</td>
+                <td>以表格列出各項任務狀態、負責人、進度等</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>整理資訊</td>
+                <td>將多項資料、對照項目以表格呈現</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>回覆說明</td>
+                <td>涉及多個欄位或條目時，優先使用表格而非長段落</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="habit-block" id="habit-03">
+          <h3 class="habit-title"><span class="habit-num">03</span> 序號標記</h3>
+          <p>回覆<strong>圖表</strong>或包含多點的<strong>資訊</strong>時，習慣以序號標記各項內容，方便對方逐項閱讀與回應。序號格式為 <strong>1) 2) 3)</strong>，不使用 1. 2. 3. 格式。</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>適用場景</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>回覆圖表</td>
+                <td>針對圖表中各數據點或區塊，以 1) 2) 3) 標記回覆</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>回覆多點資訊</td>
+                <td>對方訊息含多個問題或事項時，逐項以序號回覆</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>範例：</p>
+          <pre class="code-example code-block">1) 圖表 A 區數據已確認，與預期一致。
+2) 圖表 B 區需進一步核對，預計明日回覆。
+3) 關於第三點問題，建議調整為…</pre>
+        </div>
+
+        <aside class="note-box">
+          <h4>注意事項</h4>
+          <p>工作習慣將持續補充。<span class="reaction-mark">👍</span> 僅作為「已讀」標記；若需進一步回覆，請以文字說明，並依習慣 03 以 1) 2) 3) 格式標記序號。</p>
+        </aside>
+      </article>
+
+      <article class="section" id="doc-style" data-section="doc-style">
+        <header class="section-header">
+          <span class="section-label">附錄</span>
+          <h2>文檔書寫規範</h2>
+          <p class="section-desc">本規範文檔自身的撰寫與呈現標準，新增或修改內容時請遵循。</p>
+        </header>
+
+        <div class="content-block">
+          <h3>基本資訊</h3>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>項目</th>
+                <th>設定</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>中文名稱</td>
+                <td>開發組規範文檔</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>英文名稱</td>
+                <td>Production Team Guidelines</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>技術實現</td>
+                <td>HTML + CSS + JavaScript</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>主色調</td>
+                <td>黑白色為主（側欄黑底白字，內容區白底黑字）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>字體大小設定</h3>
+          <p>基準字級為 <strong>16px</strong>，行高 <strong>1.7</strong>。各層級字體大小如下：</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>元素</th>
+                <th>字體大小</th>
+                <th>用途</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>正文</td>
+                <td>16px</td>
+                <td>頁面基準字級</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>欄目標題（h2）</td>
+                <td>2rem（32px）</td>
+                <td>各規範頁面主標題</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>區塊標題（h3）</td>
+                <td>1.125rem（18px）</td>
+                <td>內容小節標題</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>欄目描述</td>
+                <td>1rem（16px）</td>
+                <td>標題下方說明文字</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>表格內容</td>
+                <td>0.9rem（14.4px）</td>
+                <td>spec-table 資料列</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>表格標題列</td>
+                <td>0.8rem（12.8px）</td>
+                <td>spec-table 表頭</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>代碼範例</td>
+                <td>0.875rem（14px）</td>
+                <td>等寬字體程式碼區塊</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>輔助文字</td>
+                <td>0.9rem（14.4px）</td>
+                <td>注意事項、引用說明等</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>規範編號標籤</td>
+                <td>0.7rem（11.2px）</td>
+                <td>如「規範 01」標籤</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>側欄導航</td>
+                <td>0.9rem / 0.85rem</td>
+                <td>主導航 / 子導航連結</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>字體家族</h3>
+          <p class="code-example">-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", sans-serif</p>
+          <p>代碼範例使用等寬字體：<span class="code-inline">SF Mono, Fira Code, Consolas, monospace</span></p>
+        </div>
+
+        <div class="content-block">
+          <h3>內容撰寫規範</h3>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>規範</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>表格須含序號欄</td>
+                <td>所有表格第一欄為序號（參見 <a href="#habit-02" class="section-ref" data-section="work-habits" data-anchor="habit-02">工作習慣 02</a>）</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>交叉引用</td>
+                <td>相關規範之間使用 <code class="code-inline">section-ref</code> 連結，點擊可跳轉至對應欄目</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>欄目編號</td>
+                <td>各規範以「規範 01」「規範 02」… 標記，工作習慣以「習慣 01」… 標記</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>注意事項區塊</td>
+                <td>重要提醒使用 note-box 呈現，置於欄目末尾</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>持續更新</td>
+                <td>新增內容時同步更新側欄導航與交叉引用</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="note-box">
+          <h4>注意事項</h4>
+          <p>修改樣式時請同步更新本文檔中的字體大小設定表，確保規範與實際呈現一致。</p>
+        </aside>
+      </article>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
