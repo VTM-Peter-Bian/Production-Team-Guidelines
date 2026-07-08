@@ -2,7 +2,7 @@
         <header class="section-header">
           <span class="section-label">規範 04 · 源代碼與版本控制</span>
           <h2>GitHub Desktop 提交規範</h2>
-          <p class="section-desc">使用 GitHub Desktop 進行日常代碼提交與推送的操作標準。</p>
+          <p class="section-desc">使用 GitHub Desktop 進行日常代碼與美術資源提交、推送的操作標準。</p>
         </header>
 
         <div class="content-block">
@@ -13,23 +13,57 @@
         </div>
 
         <div class="content-block">
+          <h3>適用對象與提交內容</h3>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>團隊</th>
+                <th>提交內容</th>
+                <th>示例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Program Team</td>
+                <td>當日代碼更變</td>
+                <td>腳本、場景、Prefab、設定檔等</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Graphic Team</td>
+                <td>當日美術資源</td>
+                <td>3D 模型、貼圖、材質、UI 素材、動畫等</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>兩個團隊均須在每日 <strong>18:00 前</strong>完成提交並推送，避免工作成果僅留存在本地。</p>
+        </div>
+
+        <div class="content-block">
           <h3>Commit Summary 格式</h3>
           <p>格式：</p>
           <p class="code-example">yyyy-mm-dd Content Summary...</p>
           <p>範例：</p>
           <p class="code-example">2026-07-07 Update VTM Unity SDK</p>
+          <p class="code-example">2026-07-08 Update fire extinguisher 3D models and textures</p>
         </div>
 
         <div class="content-block">
           <h3>Commit Description</h3>
-          <p>以 <strong>list</strong> 方式列出本次提交的具體內容，例如：</p>
+          <p>以 <strong>list</strong> 方式列出本次提交的具體內容。Program Team 範例：</p>
           <pre class="code-example code-block">- Update VTM Unity SDK to v2.1.0
 - Fix scene loading issue in Module A01
 - Refactor player controller script</pre>
+          <p>Graphic Team 範例：</p>
+          <pre class="code-example code-block">- Add fire extinguisher 3D model (FBX)
+- Update wall texture maps for Module A01
+- Export UI button assets for training menu</pre>
         </div>
 
         <aside class="note-box">
           <h4>注意事項</h4>
-          <p>請在每日 18:00 前完成當日代碼提交（參閱 <a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a>）。Summary 須包含日期與簡要說明，Description 須清楚列出各項變更，便於追溯與審閱。SDK 版本發布時須同步遵循 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a> 與 <a href="#changelog" class="section-ref" data-section="changelog">CHANGELOG 規範</a>。</p>
+          <p>請在每日 18:00 前完成當日工作成果提交（Program Team 代碼、Graphic Team 美術資源，參閱 <a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a>）。Summary 須包含日期與簡要說明，Description 須清楚列出各項變更，便於追溯與審閱。SDK 版本發布時須同步遵循 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a> 與 <a href="#changelog" class="section-ref" data-section="changelog">CHANGELOG 規範</a>。</p>
         </aside>
       </article>
