@@ -2,7 +2,7 @@
   "site": {
     "title": "VTM開發組規範文檔",
     "subtitle": "Production Team Guidelines",
-    "version": "V0.4.0",
+    "version": "V0.5.0",
     "updatedAt": "2026-07-08",
     "copyright": "© VTM DIGITAL LIMITED"
   },
@@ -17,6 +17,11 @@
       "type": "link",
       "id": "work-habits",
       "label": "工作習慣"
+    },
+    {
+      "type": "link",
+      "id": "ai-prompt",
+      "label": "AI Prompt"
     },
     {
       "type": "group",
@@ -97,6 +102,7 @@
     "architecture-scoring": { "file": "content/sections/architecture-scoring.html", "className": "section-reds" },
     "cursor-ai-assessment": { "file": "content/sections/cursor-ai-assessment.html", "className": "section-reds" },
     "work-habits": { "file": "content/sections/work-habits.html" },
+    "ai-prompt": { "file": "content/sections/ai-prompt.html" },
     "completion": { "file": "content/sections/completion.html" },
     "due-date": { "file": "content/sections/due-date.html" },
     "reds-terminology": { "file": "content/sections/reds-terminology.html" },

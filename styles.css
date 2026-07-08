@@ -866,6 +866,22 @@ body {
   line-height: 1.55;
 }
 
+.prompt-index-table .prompt-version {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.copy-prompt-btn-inline {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.prompt-index-table td:last-child {
+  width: 5.5rem;
+  white-space: nowrap;
+}
+
 /* ---- Section References ---- */
 
 .section-ref {

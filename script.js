@@ -299,6 +299,9 @@
     if (hash === "youtube-upload" || hash === "youtube-share") {
       return { sectionId: "youtube-upload-share", anchorId: hash };
     }
+    if (hash === "planner-progress-report") {
+      return { sectionId: "planner-manage-task", anchorId: hash };
+    }
     return { sectionId: navConfig.defaultSection, anchorId: hash };
   }
 

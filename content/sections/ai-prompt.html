@@ -1,0 +1,74 @@
+<article class="section" id="ai-prompt" data-section="ai-prompt">
+  <header class="section-header">
+    <span class="section-label">AI Prompt</span>
+    <h2>AI Prompt</h2>
+    <p class="section-desc">彙總各規範的 AI 提示詞，可一鍵複製至 Cursor Rules 或對話開頭使用。</p>
+  </header>
+
+  <div class="content-block">
+    <h3>Prompt 一覽</h3>
+    <table class="spec-table spec-table-wide prompt-index-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>Prompt</th>
+          <th>說明</th>
+          <th>對應規範</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>GitHub Desktop 提交</strong><br><span class="prompt-version">v0.1.0</span></td>
+          <td>檢視今日變更，撰寫 Summary 與 Description，提醒手動 Push</td>
+          <td><a href="#github-desktop" class="section-ref" data-section="github-desktop">GitHub Desktop 提交規範</a></td>
+          <td>
+            <button type="button" class="copy-prompt-btn copy-prompt-btn-inline" data-copy-prompt="content/examples/github-desktop-prompt.md" aria-label="複製 GitHub Desktop 提交 Prompt">複製</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>每日專案進度匯報</strong><br><span class="prompt-version">v0.1.0</span></td>
+          <td>根據今日 GitHub Desktop 紀錄，依序號與收件人生成 Planner 進度匯報</td>
+          <td><a href="#planner-progress-report" class="section-ref" data-section="planner-manage-task" data-anchor="planner-progress-report">管理任務規範 · 每日進度匯報格式</a></td>
+          <td>
+            <button type="button" class="copy-prompt-btn copy-prompt-btn-inline" data-copy-prompt="content/examples/daily-progress-report-prompt.md" aria-label="複製每日專案進度匯報 Prompt">複製</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>版本號判斷</strong><br><span class="prompt-version">v0.1.0</span></td>
+          <td>依 SemVer 2.0 建議新版本號，並提醒同步更新 CHANGELOG</td>
+          <td><a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a></td>
+          <td>
+            <button type="button" class="copy-prompt-btn copy-prompt-btn-inline" data-copy-prompt="content/examples/version-numbering-prompt.md" aria-label="複製版本號規範 Prompt">複製</button>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>CHANGELOG 撰寫</strong><br><span class="prompt-version">v0.1.0</span></td>
+          <td>在 CHANGELOG.md 頂部新增版本區塊，按 Added / Changed / Fixed 分組</td>
+          <td><a href="#changelog" class="section-ref" data-section="changelog">CHANGELOG 規範</a></td>
+          <td>
+            <button type="button" class="copy-prompt-btn copy-prompt-btn-inline" data-copy-prompt="content/examples/changelog-prompt.md" aria-label="複製 CHANGELOG 規範 Prompt">複製</button>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>Unity C# 編程</strong><br><span class="prompt-version">v0.2.0</span></td>
+          <td>VTM Unity C# 命名、目錄、結構與 AI 協作守則，建議放入專案 Rules</td>
+          <td><a href="#unity-ai-coding-standards" class="section-ref" data-section="unity-ai-coding-standards">Unity C# AI 編程規範</a></td>
+          <td>
+            <button type="button" class="copy-prompt-btn copy-prompt-btn-inline" data-copy-prompt="content/examples/unity-ai-coding-prompt.md" aria-label="複製 Unity C# 編程 Prompt">複製</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <aside class="note-box">
+    <h4>注意事項</h4>
+    <p>各 Prompt 的完整內容與使用說明，請參閱對應規範欄目。新增 Prompt 時須同步更新本頁與 <span class="code-inline">content/examples/</span> 目錄。</p>
+  </aside>
+</article>
