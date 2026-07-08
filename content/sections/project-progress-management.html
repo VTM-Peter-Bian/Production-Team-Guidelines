@@ -1,0 +1,134 @@
+<article class="section" id="project-progress-management" data-section="project-progress-management">
+  <header class="section-header">
+    <span class="section-label">項目進度管理</span>
+    <h2>SharePoint Planner 總覽</h2>
+    <p class="section-desc">項目進度統一於各項目 SharePoint 站點的 <strong>主頁 → Planner</strong> 管理，以看板方式追蹤任務狀態與分工。</p>
+  </header>
+
+  <div class="content-block">
+    <h3>使用 SharePoint Planner，而非獨立 Planner</h3>
+    <p>自 <strong>2026-03-04</strong> 起，獨立版 Microsoft Planner 更新後已不符合公司使用要求。因此，開發組項目進度管理須使用各項目 SharePoint 站點內嵌的 <strong>Planner</strong>，路徑為：</p>
+    <p class="code-example">SharePoint 項目站點 → 主頁 → Planner</p>
+    <p>請勿使用獨立的 Planner 應用程式或網頁版 Planner 建立項目計劃。</p>
+  </div>
+
+  <div class="content-block">
+    <h3>看板結構</h3>
+    <p>Planner 看板依項目階段劃分為多個<strong>存儲桶（Bucket）</strong>，任務卡片依所屬階段放置於對應欄位。標準存儲桶如下：</p>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>階段編號</th>
+          <th>存儲桶</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>0、3</td>
+          <td><span class="code-inline">0 Project Management &amp; 3 Planning</span></td>
+          <td>項目管理與規劃階段任務（含 T&amp;P 相關事項）</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>1、2</td>
+          <td><span class="code-inline">Requirement &amp; Design</span></td>
+          <td>需求與設計階段任務</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>—</td>
+          <td><span class="code-inline">Waiting for Approval &amp; Review</span></td>
+          <td>等待審批或評審的任務</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>4</td>
+          <td><span class="code-inline">Development - Material/Tool</span></td>
+          <td>生產材料與工具準備任務</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>4</td>
+          <td><span class="code-inline">Development - Graphics</span></td>
+          <td>美術開發任務</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>4</td>
+          <td><span class="code-inline">Development - Programming</span></td>
+          <td>程式開發任務</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>5</td>
+          <td><span class="code-inline">5 Testing</span></td>
+          <td>測試階段任務</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>6</td>
+          <td><span class="code-inline">6 Deployment</span></td>
+          <td>部署與交付階段任務</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>7</td>
+          <td><span class="code-inline">7 Operation &amp; Maintenance</span></td>
+          <td>運維與維護階段任務</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="ref-line">階段編號與 SharePoint <strong>Documents</strong> 目錄編號對應（詳見 <a href="#project-resource-management" class="section-ref" data-section="project-resource-management">SharePoint Documents 規範</a>）。開發階段（4）在 Planner 中細分為 Material/Tool、Graphics、Programming 三個存儲桶。</p>
+    <figure class="guide-screenshot">
+      <div class="guide-screenshot-media">
+        <img src="assets/sharepoint-planner-board.png"
+             alt="SharePoint 主頁中的 Planner 看板示例"
+             loading="lazy">
+      </div>
+      <figcaption>SharePoint <strong>主頁 → Planner</strong> 看板示例（以 P26F AAHK Fire Extinguisher Operation Training 為例）</figcaption>
+    </figure>
+  </div>
+
+  <div class="content-block">
+    <h3>相關規範</h3>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>規範</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><a href="#planner-create-task" class="section-ref" data-section="planner-create-task">創建任務規範</a></td>
+          <td>任務名稱、截止日期、負責人設定</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="#planner-manage-task" class="section-ref" data-section="planner-manage-task">管理任務規範</a></td>
+          <td>標籤、備注、附件、評論通知與每日進度匯報格式</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a></td>
+          <td>17:00 前於 Planner 任務上完成每日進度匯報</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><a href="#due-date" class="section-ref" data-section="due-date">到期日（Due Date）</a></td>
+          <td>任務截止日期的定義與重要性</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <aside class="note-box">
+    <h4>注意事項</h4>
+    <p>Planner 任務的支撐材料（APK、EXE、截圖、影片等）須依 <a href="#project-resource-management" class="section-ref" data-section="project-resource-management">SharePoint Documents 規範</a> 與 <a href="#youtube-upload-share" class="section-ref" data-section="youtube-upload-share">YouTube 上傳和分享規範</a> 分別歸檔，並在任務附件中以序號連結引用。</p>
+  </aside>
+</article>

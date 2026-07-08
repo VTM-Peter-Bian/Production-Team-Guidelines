@@ -1,0 +1,309 @@
+<article class="section" id="planner-manage-task" data-section="planner-manage-task">
+  <header class="section-header">
+    <span class="section-label">項目進度管理</span>
+    <h2>管理任務規範</h2>
+    <p class="section-desc">任務創建後的標籤、日期、備注、附件設定，以及評論通知與每日進度匯報格式。使用前請先完成 <a href="#planner-create-task" class="section-ref" data-section="planner-create-task">創建任務規範</a>。</p>
+  </header>
+
+  <div class="content-block">
+    <h3>任務欄位設定</h3>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>欄位</th>
+          <th>是否修改</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>標籤</strong></td>
+          <td>須設定</td>
+          <td>依任務實際狀態分配正確標籤（見下方「標籤對照」）</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>開始日期</strong></td>
+          <td>須設定</td>
+          <td>設為任務的 <strong>Start Day</strong></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>截止日期</strong></td>
+          <td>須設定</td>
+          <td>設為任務的 <strong>Due Day</strong></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>存儲桶</td>
+          <td>使用默認</td>
+          <td>創建時已歸入正確存儲桶，無需修改</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>進度</td>
+          <td>使用默認</td>
+          <td>保持默認值即可</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>優先級</td>
+          <td>使用默認</td>
+          <td>保持默認值即可</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>重複</td>
+          <td>使用默認</td>
+          <td>設為「不重複」，無需修改</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><strong>備注</strong></td>
+          <td>須填寫</td>
+          <td>關閉「在卡片上顯示」，以 <strong>5W2H</strong> 格式撰寫（見下方）</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>清單</td>
+          <td>無需處理</td>
+          <td>不使用清單功能</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><strong>附件</strong></td>
+          <td>須添加</td>
+          <td>以序號添加連結，第一項默認為 <strong>T&amp;P</strong>（見下方）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <figure class="guide-screenshot">
+      <div class="guide-screenshot-media">
+        <img src="assets/planner-manage-task.png"
+             alt="Planner 任務詳情頁，顯示標籤、日期、備注 5W2H 內容與序號附件"
+             loading="lazy">
+      </div>
+      <figcaption>任務詳情設定示例：標籤、日期、備注（5W2H）與序號附件</figcaption>
+    </figure>
+  </div>
+
+  <div class="content-block">
+    <h3>標籤對照</h3>
+    <p>依任務當前狀態選擇對應標籤，常見標籤包括：</p>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>標籤</th>
+          <th>適用場景</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>工作進行中</td>
+          <td>任務正在執行</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>等待資訊 / 材料 / 客戶</td>
+          <td>因外部資源未到位而暫停</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>等待審批</td>
+          <td>等待上級或客戶審批</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>等待同事回覆</td>
+          <td>等待團隊成員回應</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>嚴重延誤需立即處理</td>
+          <td>任務嚴重逾期，需優先處理</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>已完成，供參考用</td>
+          <td>任務已完成，保留供查閱</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>年假 / 病假 / 公眾假期</td>
+          <td>因假期無法推進</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>備注（5W2H）</h3>
+    <p>在<strong>備注</strong>欄位中：</p>
+    <ul class="content-list">
+      <li>取消勾選<strong>「在卡片上顯示」</strong></li>
+      <li>以 <strong>5W2H</strong> 方式撰寫任務說明</li>
+      <li>須包含 <strong>Start Day</strong> 與 <strong>Due Day</strong>（含具體時間）</li>
+    </ul>
+    <p>範例：</p>
+    <pre class="code-example code-block">What: GS Creator 是一個用於在 Gaussian Splat 場景中放置虛擬物件與互動規則的工具…
+Why: 透過研究定義「Creator」的具體含義…
+How: 以表格比較市場上 GS Viewer、Editor、Creator（含 LCC Studio）…
+When:
+  Start Day: 2026-04-13 10:00
+  Due Day: 2026-04-15 18:00</pre>
+  </div>
+
+  <div class="content-block">
+    <h3>附件序號規範</h3>
+    <p>在<strong>附件</strong>中以序號添加連結，每項附件均取消勾選「在卡片上顯示」。命名格式：</p>
+    <p class="code-example">[ 序號. 名稱 ] 連結說明</p>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>附件</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="code-inline">[ 1. T&amp;P ]</span></td>
+          <td><strong>默認第一項</strong>，連結至 SharePoint 上的 T&amp;P 文件</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="code-inline">[ 2. Notebook ]</span></td>
+          <td>項目 Notebook 連結</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="code-inline">[ 3. Youtube ] 影片標題</span></td>
+          <td>YouTube 影片連結（詳見 <a href="#youtube-upload-share" class="section-ref" data-section="youtube-upload-share">YouTube 上傳和分享規範</a>）</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="ref-line">後續附件依序遞增序號（4、5、6…），名稱須簡潔描述連結內容。</p>
+  </div>
+
+  <div class="content-block" id="planner-comment-join">
+    <h3>評論區：邀請同事加入通知</h3>
+    <p>任務創建並設定完成後，須通知相關同事訂閱任務評論的郵件通知。流程如下：</p>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>步驟</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>在評論區留言</td>
+          <td>輸入 <span class="code-inline">All, please join.</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Outlook 手動轉寄</td>
+          <td>收到 Planner 自動發送的郵件通知後，於 <strong>Outlook</strong> 中<strong>手動轉寄</strong>給相關同事</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>同事回覆 join</td>
+          <td>同事收到郵件後，在任務評論區留言 <span class="code-inline">join</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>自動郵件通知</td>
+          <td>加入後，該任務的後續評論將<strong>自動以郵件形式</strong>發送給已加入的同事</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="guide-screenshots">
+      <figure class="guide-screenshot">
+        <div class="guide-screenshot-media">
+          <img src="assets/planner-comment-join.png"
+               alt="Planner 任務評論區中 All please join 留言與同事回覆 join 的示例"
+               loading="lazy">
+        </div>
+        <figcaption>評論區：發起人留言 <span class="code-inline">All, please join.</span>，同事回覆 <span class="code-inline">join</span></figcaption>
+      </figure>
+      <figure class="guide-screenshot">
+        <div class="guide-screenshot-media">
+          <img src="assets/planner-outlook-forward.png"
+               alt="Outlook 中手動轉寄 Planner 任務通知郵件給同事的示例"
+               loading="lazy">
+        </div>
+        <figcaption>Outlook：手動轉寄 Planner 通知郵件給相關同事</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="content-block" id="planner-progress-report">
+    <h3>每日進度匯報格式</h3>
+    <p>每日 <strong>17:00 前</strong>須在對應 Planner 任務的評論區進行工作進度匯報（詳見 <a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a>）。匯報須使用分級序號，格式如下：</p>
+    <p class="code-example">序號) 收件人, 日期 匯報標題:</p>
+    <p>範例：</p>
+    <pre class="code-example code-block">5) Victor, Cindy, 2026-04-14 每日專案進度匯報:
+5.1) 完成對 LCC Studio - Editor Function 的研究…
+5.2) 完成 Unity SDK 相關研究…
+5.4) 與 Victor 開會討論 GS Creator:
+5.4.1) GS Creator 是一個 EXE…
+5.4.2) 具備 Creator mode…
+5.4.3) 具備 Flow Manager…
+5.4.4) 具備 AI 功能（圖片、影片、音頻、3D Gameobject、STT）</pre>
+    <p>序號規則（詳見 <a href="#habit-03" class="section-ref" data-section="work-habits" data-anchor="habit-03">工作習慣 03</a>）：</p>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>層級</th>
+          <th>格式</th>
+          <th>用途</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>一級</td>
+          <td><span class="code-inline">1) 2) 3)</span></td>
+          <td>每次匯報的主標題（含收件人與日期）</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>二級</td>
+          <td><span class="code-inline">1.1) 1.2) 1.3)</span></td>
+          <td>主標題下的分項內容</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>三級</td>
+          <td><span class="code-inline">1.1.1) 1.1.2)</span></td>
+          <td>分項下的細節說明</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>匯報時須附上支撐材料連結，引用附件序號，例如 <span class="code-inline">attachments - [ 2. T&amp;P ]</span>、<span class="code-inline">[ 3. Youtube ]</span>。</p>
+
+    <figure class="guide-screenshot">
+      <div class="guide-screenshot-media">
+        <img src="assets/planner-progress-report.png"
+             alt="Planner 任務評論區中的分級序號進度匯報示例"
+             loading="lazy">
+      </div>
+      <figcaption>每日進度匯報示例：分級序號格式與支撐材料引用</figcaption>
+    </figure>
+  </div>
+
+  <aside class="note-box">
+    <h4>注意事項</h4>
+    <p>進度匯報須有明確的支撐材料（APK、截圖、影片等），確保工作成果可追溯。申請新增 man-day 時亦須在評論區以序號格式說明，並等待審批（如 <span class="code-inline">3) Peter, approved.</span>）。</p>
+  </aside>
+</article>

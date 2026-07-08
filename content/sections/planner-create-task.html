@@ -1,0 +1,90 @@
+<article class="section" id="planner-create-task" data-section="planner-create-task">
+  <header class="section-header">
+    <span class="section-label">項目進度管理</span>
+    <h2>創建任務規範</h2>
+    <p class="section-desc">在 SharePoint <strong>主頁 → Planner</strong> 中新建任務時的命名、日期與負責人設定標準。使用前請先閱讀 <a href="#project-progress-management" class="section-ref" data-section="project-progress-management">SharePoint Planner 總覽</a>。</p>
+  </header>
+
+  <div class="content-block">
+    <h3>創建步驟</h3>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>欄位</th>
+          <th>設定要求</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>任務名稱</strong></td>
+          <td>須包含任務內容與所需 <strong>man-day</strong>，格式見下方「命名規則」</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>截止日期</strong></td>
+          <td>設定為該任務的 <strong>Due Day</strong>（到期日，詳見 <a href="#due-date" class="section-ref" data-section="due-date">到期日（Due Date）</a>）</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>分配</strong></td>
+          <td>指派給<strong>一位</strong>負責同事；每項任務只能有一位負責人</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <figure class="guide-screenshot">
+      <div class="guide-screenshot-media">
+        <img src="assets/planner-create-task.png"
+             alt="Planner 創建任務界面，顯示任務名稱、截止日期與分配負責人欄位"
+             loading="lazy">
+      </div>
+      <figcaption>創建任務示例：填寫任務名稱（含 man-day）、截止日期與負責人</figcaption>
+    </figure>
+  </div>
+
+  <div class="content-block">
+    <h3>任務命名規則</h3>
+    <p>任務名稱末尾須以括號標注所需 <strong>man-day</strong>，以 <span class="code-inline">d</span> 為單位：</p>
+    <p class="code-example">任務內容描述 (xd)</p>
+    <p>範例：</p>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>任務名稱</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="code-inline">GS Creator Research (1d+2d = 3d)</span></td>
+          <td>多階段工時加總</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="code-inline">P26F A01 P1 (7d + 3.5d + 4d = 14.5d)</span></td>
+          <td>含小數 man-day</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="code-inline">Requirement Elicitation (1d)</span></td>
+          <td>單日任務</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="code-inline">P26F A01 Hardware - 滅火筒 (3d+1d = 4d)</span></td>
+          <td>含中文描述的任務</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="ref-line">括號內的 <span class="code-inline">(xd)</span> 表示此任務預計消耗的 man-day 總數，便於排期與資源評估。</p>
+  </div>
+
+  <aside class="note-box">
+    <h4>注意事項</h4>
+    <p>任務創建後，須依 <a href="#planner-manage-task" class="section-ref" data-section="planner-manage-task">管理任務規範</a> 補充標籤、備注（5W2H）、附件等詳細資訊。新建任務時無需在此步驟設定存儲桶以外的進階欄位。</p>
+  </aside>
+</article>
