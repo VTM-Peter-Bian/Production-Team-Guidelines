@@ -1,0 +1,167 @@
+<article class="section" id="unity-ai-coding-standards" data-section="unity-ai-coding-standards">
+  <header class="section-header">
+    <span class="section-label">開發規範</span>
+    <h2>Unity C# AI 編程規範</h2>
+    <p class="section-desc">供 Cursor / AI 輔助編程使用的 VTM Unity C# 守則。可一鍵複製完整 Prompt 至專案 Rules 或對話開頭。</p>
+  </header>
+
+  <div class="content-block">
+    <h3>核心規則摘要</h3>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>類別</th>
+          <th>規則</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>命名</td>
+          <td>新腳本以 <span class="code-inline">VTM</span> 開頭 + PascalCase；類名與檔名一致</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>目錄</td>
+          <td>置於 <span class="code-inline">Assets/VTM/Scripts/{Core|Functions|UI|Data|Editor}/</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>命名空間</td>
+          <td><span class="code-inline">VTM.{模組名稱}</span>，與目錄結構一致</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>序列化</td>
+          <td>使用 <span class="code-inline">[SerializeField] private</span>，避免 <span class="code-inline">public</span> 欄位</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>註釋</td>
+          <td>公開方法須有 XML 註釋（<span class="code-inline">///</span>）</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>性能</td>
+          <td>Awake 快取引用；禁止 Update 內 GetComponent / Find；避免 GC 分配</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>日誌</td>
+          <td>前綴含類名；正式版以條件編譯禁用 Debug</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>數據</td>
+          <td>配置抽離至 ScriptableObject / JSON，禁止魔術數字與硬編碼字串</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>目錄結構</h3>
+    <pre class="code-example code-block">Assets/
+└── VTM/
+    └── Scripts/
+        ├── Core/       # 核心系統腳本
+        ├── Functions/  # 遊戲功能腳本
+        ├── UI/         # UI 相關腳本
+        ├── Data/       # 資料結構和 ScriptableObject
+        └── Editor/     # 編輯器擴展腳本</pre>
+  </div>
+
+  <div class="content-block">
+    <h3>命名後綴對照</h3>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>後綴</th>
+          <th>用途</th>
+          <th>範例</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Manager</td>
+          <td>管理器</td>
+          <td><span class="code-inline">VTMTeleportManager.cs</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Controller</td>
+          <td>控制器</td>
+          <td><span class="code-inline">VTMPlayerController.cs</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Data</td>
+          <td>資料類 / ScriptableObject</td>
+          <td><span class="code-inline">VTMConfigData.cs</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Panel / Button</td>
+          <td>UI 元件</td>
+          <td><span class="code-inline">VTMSettingsPanel.cs</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>I + VTM 前綴</td>
+          <td>介面</td>
+          <td><span class="code-inline">IVTMConnectable.cs</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>完整 AI Prompt</h3>
+    <p>以下為可直接貼入 Cursor Rules 或對話的完整提示詞（v0.2.0）。點擊按鈕一鍵複製全文。</p>
+    <div class="prompt-panel">
+      <div class="prompt-panel-header">
+        <span class="prompt-panel-label">VTM Unity C# AI 編程規範守則 · v0.2.0</span>
+        <button type="button" class="copy-prompt-btn" data-copy-prompt="content/examples/unity-ai-coding-prompt.md" aria-label="複製完整 Prompt 至剪貼簿">複製 Prompt</button>
+      </div>
+      <pre class="code-example code-block prompt-preview" data-example="content/examples/unity-ai-coding-prompt.md">載入中…</pre>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>使用方式</h3>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>方式</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>專案 Rules</td>
+          <td>複製 Prompt 至專案 <span class="code-inline">.cursor/rules</span>，作為持久約束</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>任務開頭引用</td>
+          <td>在 Composer / Chat 開頭貼上 Prompt，並以 <span class="code-inline">@Folders Assets/VTM</span> 提供上下文</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Code Review</td>
+          <td>對照本規範與 <a href="#architecture-scoring" class="section-ref" data-section="architecture-scoring">程式架構評分等級</a> 審查 AI 產出</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <aside class="note-box">
+    <h4>注意事項</h4>
+    <p>本規範專注於 VTM 專案腳本的命名、結構與 AI 協作品質。架構評審請對照 <a href="#reds-terminology" class="section-ref" data-section="reds-terminology">REDS 術語</a>；Cursor 操作能力評核請對照 <a href="#cursor-ai-assessment" class="section-ref" data-section="cursor-ai-assessment">Cursor AI 評核標準</a>。版本變更請同步更新 <span class="code-inline">content/examples/unity-ai-coding-prompt.md</span> 並執行 <span class="code-inline">python3 build.py</span>。</p>
+  </aside>
+</article>

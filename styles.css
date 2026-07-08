@@ -13,6 +13,10 @@
   --border-dark: #333333;
   --accent: #000000;
   --sidebar-width: 300px;
+  --sidebar-header-bg: #000000;
+  --sidebar-nav-bg: #121212;
+  --sidebar-footer-bg: #000000;
+  --sidebar-divider: #3a3a3a;
   --sidebar-text: #f2f2f2;
   --sidebar-text-muted: #d4d4d4;
   --sidebar-text-dim: #a8a8a8;
@@ -60,7 +64,7 @@ body {
   left: 0;
   width: var(--sidebar-width);
   height: 100vh;
-  background: var(--bg-dark);
+  background: var(--sidebar-nav-bg);
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -69,8 +73,11 @@ body {
 }
 
 .sidebar-header {
+  flex-shrink: 0;
   padding: 2rem 1.5rem 1.5rem;
-  border-bottom: 1px solid #222222;
+  background: var(--sidebar-header-bg);
+  border-bottom: 1px solid var(--sidebar-divider);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .site-title {
@@ -112,6 +119,7 @@ body {
   flex: 1;
   overflow-y: auto;
   padding: 1rem 0 1.25rem;
+  background: var(--sidebar-nav-bg);
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) transparent;
 }
@@ -196,8 +204,18 @@ body {
 }
 
 .sidebar-footer {
-  padding: 1rem 1.5rem;
-  border-top: 1px solid #222222;
+  flex-shrink: 0;
+  padding: 1rem 1.5rem 1.25rem;
+  background: var(--sidebar-footer-bg);
+  border-top: 1px solid var(--sidebar-divider);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.sidebar-footer .site-copyright {
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  color: var(--sidebar-text-dim);
+  margin-bottom: 0.625rem;
 }
 
 .sidebar-footer p {
@@ -776,6 +794,74 @@ body {
 .changelog-example {
   max-height: 32rem;
   overflow-y: auto;
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+/* ---- Prompt Panel & Copy Button ---- */
+
+.prompt-panel {
+  margin-top: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.prompt-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625rem 1rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.prompt-panel-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.copy-prompt-btn {
+  flex-shrink: 0;
+  padding: 0.4rem 0.875rem;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), opacity var(--transition);
+}
+
+.copy-prompt-btn:hover:not(:disabled) {
+  background: #333333;
+  border-color: #333333;
+}
+
+.copy-prompt-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.copy-prompt-btn.is-copied {
+  background: #1a5c1a;
+  border-color: #1a5c1a;
+}
+
+.copy-prompt-btn.is-error {
+  background: #8b1a1a;
+  border-color: #8b1a1a;
+}
+
+.prompt-preview {
+  margin: 0;
+  max-height: 28rem;
+  overflow-y: auto;
+  border: none;
+  border-radius: 0;
   font-size: 0.8rem;
   line-height: 1.55;
 }

@@ -1,9 +1,10 @@
 {
   "site": {
-    "title": "開發組規範文檔",
+    "title": "VTM開發組規範文檔",
     "subtitle": "Production Team Guidelines",
-    "version": "V0.3.0",
-    "updatedAt": "2026-07-08"
+    "version": "V0.4.0",
+    "updatedAt": "2026-07-08",
+    "copyright": "© VTM DIGITAL LIMITED"
   },
   "defaultSection": "daily-workflow",
   "nav": [
@@ -55,7 +56,8 @@
       "label": "開發規範",
       "children": [
         { "type": "link", "id": "version-numbering", "label": "版本號規範" },
-        { "type": "link", "id": "changelog", "label": "CHANGELOG 規範" }
+        { "type": "link", "id": "changelog", "label": "CHANGELOG 規範" },
+        { "type": "link", "id": "unity-ai-coding-standards", "label": "Unity C# AI 編程規範" }
       ]
     },
     {
@@ -73,7 +75,8 @@
       "children": [
         { "type": "link", "id": "completion", "label": "完成（Completion）" },
         { "type": "link", "id": "due-date", "label": "到期日（Due Date）" },
-        { "type": "link", "id": "reds-terminology", "label": "REDS" }
+        { "type": "link", "id": "reds-terminology", "label": "REDS" },
+        { "type": "link", "id": "tsa-terminology", "label": "TSA" }
       ]
     }
   ],
@@ -101,6 +104,8 @@
     "project-resource-management": { "file": "content/sections/project-resource-management.html" },
     "project-progress-management": { "file": "content/sections/project-progress-management.html" },
     "planner-create-task": { "file": "content/sections/planner-create-task.html" },
-    "planner-manage-task": { "file": "content/sections/planner-manage-task.html" }
+    "planner-manage-task": { "file": "content/sections/planner-manage-task.html" },
+    "unity-ai-coding-standards": { "file": "content/sections/unity-ai-coding-standards.html" },
+    "tsa-terminology": { "file": "content/sections/tsa-terminology.html" }
   }
 }

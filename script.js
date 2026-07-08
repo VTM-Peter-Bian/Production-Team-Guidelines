@@ -157,6 +157,63 @@
     document.querySelectorAll(".section-ref").forEach(bindSectionNavigation);
   }
 
+  async function loadPromptText(path) {
+    return loadExampleText(path);
+  }
+
+  async function copyTextToClipboard(text) {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+  }
+
+  function bindCopyPromptButtons(root = document) {
+    root.querySelectorAll(".copy-prompt-btn").forEach((button) => {
+      if (button.dataset.copyBound === "true") return;
+      button.dataset.copyBound = "true";
+
+      button.addEventListener("click", async () => {
+        const path = button.dataset.copyPrompt;
+        if (!path) return;
+
+        const defaultLabel = button.dataset.defaultLabel || "複製 Prompt";
+        button.disabled = true;
+
+        try {
+          const text = await loadPromptText(path);
+          await copyTextToClipboard(text);
+          button.textContent = "已複製";
+          button.classList.add("is-copied");
+          window.setTimeout(() => {
+            button.textContent = defaultLabel;
+            button.classList.remove("is-copied");
+            button.disabled = false;
+          }, 2000);
+        } catch (error) {
+          button.textContent = "複製失敗";
+          button.classList.add("is-error");
+          console.error(error);
+          window.setTimeout(() => {
+            button.textContent = defaultLabel;
+            button.classList.remove("is-error");
+            button.disabled = false;
+          }, 2000);
+        }
+      });
+    });
+  }
+
   async function loadEmbeddedExamples(root) {
     const textExamples = root.querySelectorAll("[data-example]");
     await Promise.all(
@@ -204,6 +261,7 @@
 
     await loadEmbeddedExamples(mainEl);
     bindCrossReferences();
+    bindCopyPromptButtons(mainEl);
     setNavActive(sectionId);
     activeSectionId = sectionId;
   }
@@ -258,6 +316,10 @@
       if (navConfig.site.updatedAt) {
         document.getElementById("site-updated").textContent =
           `更新於 ${navConfig.site.updatedAt}`;
+      }
+      if (navConfig.site.copyright) {
+        document.getElementById("site-copyright").textContent =
+          navConfig.site.copyright;
       }
 
       if (navConfig.footer) {

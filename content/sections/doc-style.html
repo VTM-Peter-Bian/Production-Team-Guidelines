@@ -19,7 +19,7 @@
               <tr>
                 <td>1</td>
                 <td>中文名稱</td>
-                <td>開發組規範文檔</td>
+                <td>VTM開發組規範文檔</td>
               </tr>
               <tr>
                 <td>2</td>
@@ -39,12 +39,17 @@
               <tr>
                 <td>5</td>
                 <td>文檔版本</td>
-                <td>V0.3.0（語義化版本，見 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a>）</td>
+                <td>V0.4.0（語義化版本，見 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a>）</td>
               </tr>
               <tr>
                 <td>6</td>
                 <td>更新日期</td>
                 <td>2026-07-08（與 <span class="code-inline">config/nav.json</span> 中 <span class="code-inline">site.updatedAt</span> 同步）</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>版權</td>
+                <td>© VTM DIGITAL LIMITED（與 <span class="code-inline">site.copyright</span> 同步）</td>
               </tr>
             </tbody>
           </table>
@@ -115,7 +120,7 @@
                 <td>9</td>
                 <td>規範編號標籤</td>
                 <td>0.7rem（11.2px）</td>
-                <td>如「規範 01」標籤</td>
+                <td>欄目分類標籤</td>
               </tr>
               <tr>
                 <td>10</td>
@@ -356,8 +361,8 @@ build.py                    # 打包腳本</pre>
               </tr>
               <tr>
                 <td>3</td>
-                <td>欄目編號</td>
-                <td>各規範以「規範 01」「規範 02」… 標記，工作習慣以「習慣 01」… 標記</td>
+                <td>欄目分類</td>
+                <td><span class="code-inline">section-label</span> 須與側欄導航分組名稱一致；頂層獨立欄目使用其導航標籤；頁腳欄目使用「附錄」</td>
               </tr>
               <tr>
                 <td>4</td>
