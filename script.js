@@ -253,35 +253,66 @@
     document.body.removeChild(textarea);
   }
 
+  function lockCopyButtonWidth(button, defaultLabel) {
+    const states = [defaultLabel, "已複製", "複製失敗"];
+    const computed = getComputedStyle(button);
+    const probe = document.createElement("span");
+    probe.style.cssText = [
+      "position:absolute",
+      "visibility:hidden",
+      "white-space:nowrap",
+      `font-family:${computed.fontFamily}`,
+      `font-size:${computed.fontSize}`,
+      `font-weight:${computed.fontWeight}`,
+      `letter-spacing:${computed.letterSpacing}`,
+    ].join(";");
+    document.body.appendChild(probe);
+
+    let maxTextWidth = 0;
+    states.forEach((label) => {
+      probe.textContent = label;
+      maxTextWidth = Math.max(maxTextWidth, probe.offsetWidth);
+    });
+    document.body.removeChild(probe);
+
+    const paddingX =
+      parseFloat(computed.paddingLeft) + parseFloat(computed.paddingRight);
+    const borderX =
+      parseFloat(computed.borderLeftWidth) + parseFloat(computed.borderRightWidth);
+    button.style.minWidth = `${Math.ceil(maxTextWidth + paddingX + borderX)}px`;
+    button.style.textAlign = "center";
+  }
+
   function bindCopyPromptButtons(root = document) {
     root.querySelectorAll(".copy-prompt-btn").forEach((button) => {
       if (button.dataset.copyBound === "true") return;
       button.dataset.copyBound = "true";
 
+      if (!button.dataset.defaultLabel) {
+        button.dataset.defaultLabel = button.textContent.trim();
+      }
+      lockCopyButtonWidth(button, button.dataset.defaultLabel);
+
       button.addEventListener("click", async () => {
         const path = button.dataset.copyPrompt;
         if (!path) return;
 
-        const defaultLabel = button.dataset.defaultLabel || "複製 Prompt";
+        const defaultLabel = button.dataset.defaultLabel;
         button.disabled = true;
 
         try {
           const text = await loadPromptText(path);
           await copyTextToClipboard(text);
           button.textContent = "已複製";
-          button.classList.add("is-copied");
           window.setTimeout(() => {
             button.textContent = defaultLabel;
-            button.classList.remove("is-copied");
             button.disabled = false;
           }, 2000);
         } catch (error) {
           button.textContent = "複製失敗";
-          button.classList.add("is-error");
           console.error(error);
           window.setTimeout(() => {
             button.textContent = defaultLabel;
-            button.classList.remove("is-error");
             button.disabled = false;
           }, 2000);
         }

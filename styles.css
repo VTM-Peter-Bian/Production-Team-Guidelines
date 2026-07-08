@@ -954,6 +954,7 @@ body.sidebar-open .nav-toggle-icon::after {
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  text-align: center;
   cursor: pointer;
   transition: background var(--transition), border-color var(--transition), opacity var(--transition);
 }
@@ -1002,6 +1003,7 @@ body.sidebar-open .nav-toggle-icon::after {
 .prompt-index-table td:last-child {
   width: 5.5rem;
   white-space: nowrap;
+  text-align: center;
 }
 
 /* ---- Section References ---- */
