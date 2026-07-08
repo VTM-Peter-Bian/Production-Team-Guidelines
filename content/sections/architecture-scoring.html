@@ -1,0 +1,139 @@
+<article class="section section-reds" id="architecture-scoring" data-section="architecture-scoring">
+  <header class="section-header">
+    <span class="section-label">交付標準 · 評分等級</span>
+    <h2>程式架構評分等級</h2>
+    <p class="section-desc">Architecture &amp; REDS Compliance — 依 <a href="#reds-terminology" class="section-ref" data-section="reds-terminology">REDS</a> 指標對程式底層架構進行 5–1 分評級。</p>
+  </header>
+
+  <div class="content-block">
+    <h3>評分等級</h3>
+    <div class="reds-table-wrap">
+      <table class="spec-table reds-matrix">
+        <thead>
+          <tr>
+            <th>評分等級</th>
+            <th>狀態定義</th>
+            <th>可重用與可擴展指標（R &amp; E）</th>
+            <th>數據驅動與標準化指標（D &amp; S）</th>
+            <th>一票否決紅線（Fatal Flaws）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="reds-score-cell"><strong>5 分</strong><span>卓越</span></td>
+            <td>
+              <p class="reds-status-title">數據邏輯完全解耦</p>
+              <p>實現高度藝術性的模組化，核心功能完全組件化。新關卡或相似培訓項目只需配置外部數據即可上線，開發人員甚至不需重新編譯代碼。</p>
+            </td>
+            <td>
+              <p><strong>R</strong>：核心交互（如穿戴 PPE、拉開保險銷、操作閥門）完全封裝為獨立的通用組件（Prefabs），新場景拖放即可運作。</p>
+              <p><strong>E</strong>：嚴格遵循開放封閉原則，基類定義清晰。新增特殊邏輯（如新型號設備或新法規評判）只需繼承擴展，核心底層框架代碼變動率為 0%。</p>
+            </td>
+            <td>
+              <p><strong>D</strong>：全軟件 100% 關卡流程、對話文本、法規系數、UI 提示語、音效與特效觸發路徑，完全由外部數據檔案（如 JSON / Excel 導表）驅動。</p>
+              <p><strong>S</strong>：代碼命名、設計模式（如 MVC / Event-Driven）、行高、大括號換行嚴格遵循統一規範，達像素級標準化。</p>
+            </td>
+            <td>
+              <p class="reds-fatal-intro">符合以下任一即扣至 2 分以下：</p>
+              <ul class="table-list">
+                <li>修改關卡流程需要重新編寫核心底層狀態機。</li>
+                <li>出現跨場景的強耦合導致組件無法單獨導出。</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="reds-score-cell"><strong>4 分</strong><span>良好</span></td>
+            <td>
+              <p class="reds-status-title">架構合理且具產品化標準</p>
+              <p>具備良好的模組化意識。絕大多數通用功能已完成解耦，外部數據配置完整，能有效應對同一項目內不同關卡的快速擴展。</p>
+            </td>
+            <td>
+              <p><strong>R</strong>：主要的公共模組（如 UI 管理器、特效生成器、基本物理檢測）已實現集中管理與封裝，在當前項目不同場景間可自由重用。</p>
+              <p><strong>E</strong>：接口或事件監聽設計合理。新增一般功能或調整考核步驟時，只需在特定模組內增減代碼，不會引發全局性的連鎖崩潰（Regression Bugs）。</p>
+            </td>
+            <td>
+              <p><strong>D</strong>：核心的職安評判參數（如安全距離、倒計時長度、錯誤扣分標準）與文字內容已抽離至外部設定檔，非技術企劃人員可自行修改調整難度。</p>
+              <p><strong>S</strong>：代碼風格在組內保持高度統一，公共方法與核心變數均有合乎規範的註釋說明，目錄結構清晰。</p>
+            </td>
+            <td>
+              <p class="reds-fatal-intro">符合以下任一即扣至 2 分以下：</p>
+              <ul class="table-list">
+                <li>核心安全系數（如觸電安全距離）硬編碼在多個指令碼內，修改時需逐一查找。</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="reds-score-cell"><strong>3 分</strong><span>及格</span></td>
+            <td>
+              <p class="reds-status-title">功能完整但架構偏向線性</p>
+              <p>軟件能通過商業交付，並在時程內完成功能開發。但代碼架構偏向線性，若要將此代碼搬遷至下一個全新項目，會面臨較高的重構代價。</p>
+            </td>
+            <td>
+              <p><strong>R</strong>：部分交互功能雖然寫成了通用指令碼，但內部與特定場景物件或特定 UI 名稱產生了綁定，導致複製到新場景時需要手動重新拖拽引用。</p>
+              <p><strong>E</strong>：代碼中存在局部耦合。新增一個突發危機情境時，必須深入舊有的流程控制代碼（如超長的 switch-case 或 if-else 鏈）中去強行插入新邏輯。</p>
+            </td>
+            <td>
+              <p><strong>D</strong>：數據與邏輯處於半分離狀態。文本可能使用了外部配置，但大量的安全系數、特效生成路徑依然以成員變數或常量（Const）的形式硬編碼在代碼文件中。</p>
+              <p><strong>S</strong>：代碼能跑且大體規範，但個別新功能由於工期緊張，未能嚴格遵守組內約定的命名法則，註釋相對稀少。</p>
+            </td>
+            <td>
+              <p class="reds-fatal-intro">符合以下任一即扣至 2 分以下：</p>
+              <ul class="table-list">
+                <li>項目交接時，新接手工程師在無原作者口頭口述下，完全無法看懂代碼邏輯。</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="reds-score-cell"><strong>2 分</strong><span>需改進</span></td>
+            <td>
+              <p class="reds-status-title">高風險的快餐式開發</p>
+              <p>典型的「頭痛醫頭、腳痛醫腳」寫法。代碼中充斥著大量的硬編碼與邏輯交叉感染，任何一處微小的改動都極易引發未知模組的連鎖報錯。</p>
+            </td>
+            <td>
+              <p><strong>R</strong>：幾乎沒有組件化思維。類似的功能（例如第一關與第二關的滅火設備）是透過直接複製貼上整個代碼文件並改名來實作，導致大量冗餘雷同代碼。</p>
+              <p><strong>E</strong>：各模組之間直接通過單例（Singleton）或全局變數強行互相調用，改動 A 模組的參數會直接導致 B 模組的特效失效，完全失去擴展可能。</p>
+            </td>
+            <td>
+              <p><strong>D</strong>：毫無數據驅動概念。所有關卡步驟、文本提示、判定數值、特效名稱等，全部硬編碼（Hard-coded）在代碼最深處。修改條文需要程式組重新編譯打包。</p>
+              <p><strong>S</strong>：代碼排版混亂，命名天馬行空（出現如 aaa、temp111 等毫無語義的變數），完全沒有任何註釋，形同代碼黑盒子。</p>
+            </td>
+            <td>
+              <p class="reds-fatal-intro">觸及以下紅線直接判定為 2 分：</p>
+              <ul class="table-list">
+                <li>出現重複代碼量（Code Duplication）超過專案總量 30% 以上。</li>
+                <li>任何配置文件的修改都會引發編譯報錯。</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="reds-score-cell"><strong>1 分</strong><span>不合格</span></td>
+            <td>
+              <p class="reds-status-title">架構完全崩潰與死鎖</p>
+              <p>系統不具備任何維護可能性，任何試圖修改或擴展底層的行為都會直接導致整套軟件徹底癱瘓，觸及研發一票否決紅線。</p>
+            </td>
+            <td>
+              <p><strong>R</strong>：代碼與當前場景的特定美術物件、特定階層關係產生了像素級的死綁定。該代碼資產在當前場景之外完全不具備任何重用價值。</p>
+              <p><strong>E</strong>：系統內部邏輯混亂交織。開發人員無法在不引發全面癱瘓的情況下，加入任何一個新步驟或新功能，架構徹底「鎖死」。</p>
+            </td>
+            <td>
+              <p><strong>D</strong>：核心邏輯與非技術資產（如模型路徑、音頻路徑）深度黏合，代碼中充斥著字串硬拼接與魔術數字（Magic Numbers）。</p>
+              <p><strong>S</strong>：項目完全沒有任何編碼規範，不同工程師編寫的模組風格完全割裂。整套代碼無任何架構圖與文檔支持。</p>
+            </td>
+            <td>
+              <p class="reds-fatal-intro">直接一票否決，判定不合格：</p>
+              <ul class="table-list">
+                <li>原開發工程師離職將直接導致項目徹底報廢、必須完全重寫。</li>
+                <li>代碼遺失任何一個美術資產引用即導致整套軟件無法啟動。</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <aside class="note-box">
+    <h4>注意事項</h4>
+    <p>本評分等級用於交付標準綜合評審中的「程式 3.1」項。觸及一票否決紅線時，須按紅線規則降分。完整評審請參閱 <a href="#delivery-standards" class="section-ref" data-section="delivery-standards">電影級沉浸式職安培訓軟件開發與交付標準</a>。</p>
+  </aside>
+</article>

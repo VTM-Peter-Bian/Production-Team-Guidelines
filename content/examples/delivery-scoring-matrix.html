@@ -1,0 +1,224 @@
+<table class="spec-table delivery-matrix">
+        <thead>
+          <tr>
+            <th>範疇</th>
+            <th>編號</th>
+            <th>評估範疇與項目</th>
+            <th>5 分<br><span class="matrix-subtitle">卓越 / 電影級頂尖</span></th>
+            <th>4 分<br><span class="matrix-subtitle">良好 / 產品化標準</span></th>
+            <th>3 分<br><span class="matrix-subtitle">及格線 / 商用基礎</span></th>
+            <th>2 分<br><span class="matrix-subtitle">需改進 / 高風險</span></th>
+            <th>1 分<br><span class="matrix-subtitle">不合格 / 災難級</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="matrix-category">設計</td>
+            <td class="matrix-id">1.1</td>
+            <td class="matrix-item"><strong>流程設計
+Flow Design</strong></td>
+            <td>流程極致行雲流水。邏輯完美閉環，學員能零障礙、完全自主地完成整個職安考核，體驗具有極高直覺性。</td>
+            <td>流程通順、嚴謹。步驟完全符合工業安全次序，學員在極少數介面切換時可能僅有 1 秒遲疑，能迅速自行解決。</td>
+            <td>流程合乎職安邏輯。學員能在無死鎖情況下完成完整培訓，但部分跳轉生硬，UI 交互（如返回、主選單）不夠統一。</td>
+            <td>流程出現嚴重邏輯漏洞。允許學員未拿齊裝備、未做檢查就進入危險區域，必須依賴人為介入引導才能繼續。</td>
+            <td>流程完全崩潰。出現無法離開的死鎖（Soft-lock），學員無法順利完成整個培訓流程。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">設計</td>
+            <td class="matrix-id">1.2</td>
+            <td class="matrix-item"><strong>功能與情境設計
+Scenario Design</strong></td>
+            <td>精準模擬複合型突發危機。精準還原現實中最複雜、最少見的複合危機（如漏電同時引發火災），考核點全面且具前瞻性。</td>
+            <td>情境還原度高。完全覆蓋了核心的安全操作、常見違章行為的評判，功能實用，無冗餘自嗨功能。</td>
+            <td>功能滿足基本考核點。情境設計較為單一、公式化，缺乏對現實地盤或工廠複雜突發應變能力的考驗。</td>
+            <td>情境與現實工業操作有出入。機械運作邏輯錯誤，或漏掉了核心安全考核點（如漏檢查滅火筒過期標籤）。</td>
+            <td>情境完全流於表面。淪為純粹的「選擇題大賽」，完全未能還原真實的工作環境與職安危機。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">設計</td>
+            <td class="matrix-id">1.3</td>
+            <td class="matrix-item"><strong>情感衝擊與體驗流
+Emotional UX</strong></td>
+            <td>完美實踐「痛感記憶」。犯錯時精準預留多層次情感衝擊窗口（如墜落感 → 視覺模糊 → 警報與家屬旁白），震撼力極強。</td>
+            <td>腳本留白充分。在意外發生時有明確的留白，為美術和程式預留了充足的發揮窗口，事故結算畫面嚴肅且具教育意義。</td>
+            <td>有設計懲罰但體驗工程化。雖然有意外畫面，但隨後過快（&lt;0.5 秒）彈出了計分表，削弱了學員的心理震撼與敬畏感。</td>
+            <td>設計忽視學員心態。犯錯後立刻跳出冷冰冰的「Game Over」或「答錯了」彈窗，毫無職安壓迫感。</td>
+            <td>完全無設計意外反饋。學員犯錯後系統毫無任何懲罰反饋或直接重設，完全無法建立安全敬畏意識。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">設計</td>
+            <td class="matrix-id">1.4</td>
+            <td class="matrix-item"><strong>培訓目標與法規契合度
+Goal Alignment</strong></td>
+            <td>百分之百像素級對齊法規。完美對齊政府（如勞工處）最新法規，能輸出可以直接用作官方認證或企業年檢的詳細數據報告。</td>
+            <td>完全符合標準職安大綱。核心法律條文、法規系數（如安全系數、安全距離）引用準確無誤。</td>
+            <td>基本符合大眾化職安概念。但對個別專業法規細節（例如特定化學品的安全處理步驟、安全系數）定義不夠精準。</td>
+            <td>部分評判與法規存在偏差。可能誤導學員在現實地盤中做出違規操作。</td>
+            <td>評判標準脫離法規。屬於嚴重教學錯誤（觸及一票否決紅線）。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">設計</td>
+            <td class="matrix-id">1.5</td>
+            <td class="matrix-item"><strong>培訓邏輯流程圖與說明書</strong><br><span class="matrix-subtitle">Design Documentation</span></td>
+            <td>教科書級合規文檔。Mermaid 流程圖精準對照法規條文分支；用戶手冊圖文並茂，配有專為年長導師編寫的「3 步開機與排錯指南」。</td>
+            <td>提供完整的流程圖與 UX Blueprint，清晰表達不同分支的判定邏輯，用戶手冊文字全面，有效指導現場部署。</td>
+            <td>有基本的 Flow Chart。表達了核心主流程，但對於學員犯錯時的次要分支邏輯繪製不全，手冊缺乏圖解，閱讀門檻高。</td>
+            <td>文檔殘缺不全。只有零散文字，無標準圖表，且流程圖與實際做出來的軟件邏輯不符，說明書完全無法指導操作。</td>
+            <td>完全零文檔交付。整個項目的安全評判邏輯、流程分支只存在於企劃的大腦中。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">美術</td>
+            <td class="matrix-id">2.1</td>
+            <td class="matrix-item"><strong>劇氛圍與現場感
+Atmosphere</strong></td>
+            <td>電影級實境壓迫感。光影層級分明，完美利用環境營造出極強的心理壓迫感。</td>
+            <td>畫面精美、材質逼真。整體色調契合工業現場的嚴肅、危險氛圍。</td>
+            <td>畫面及格，但光影扁平。缺乏空氣感、煙霧與環境氛圍的渲染。</td>
+            <td>畫面質感低劣。學員無法產生身處真實危險現場的緊張感與代入感。</td>
+            <td>畫面粗製濫造。物件比例嚴重失衡，嚴重影響學員對空間與危險距離的判斷。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">美術</td>
+            <td class="matrix-id">2.2</td>
+            <td class="matrix-item"><strong>動態節奏與意外緩衝
+Pacing & Juice (ITIA)</strong></td>
+            <td>極致電影級節奏鋪墊。意外觸發後，特效、鏡頭運鏡順序播放，最後自然引入 UI。</td>
+            <td>動態緩衝明確。UI 彈出有明顯的淡入或滑出效果，不會顯得突兀。</td>
+            <td>有做特效，但節奏重疊。計分 UI 同時或過快彈出，打斷了震撼感。</td>
+            <td>完全缺乏緩衝。畫面立刻靜止或粗暴地彈出結算表格，完全破壞沉浸氛圍。</td>
+            <td>沒有任何過渡特效。畫面突兀跳轉，帶來極其割裂且低質的交互體驗。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">美術</td>
+            <td class="matrix-id">2.3</td>
+            <td class="matrix-item"><strong>動畫與物理反饋
+Animation</strong></td>
+            <td>完美還原物理慣性。機械運作及人體墜落、物件倒塌的模擬完全符合現實慣性。</td>
+            <td>動畫流暢、自然。物件移動有合理的 Easing 曲線，無生硬穿模。</td>
+            <td>動畫基本流暢。但部分物體移動偏向線性，缺乏重量感與物理慣性反饋。</td>
+            <td>動畫生硬、卡頓。在 VR/MR 模式下因掉幀導致學員產生強烈不適感。</td>
+            <td>動畫完全失真。經常出現物件卡在半空、動作錯亂、父子級斷裂等嚴重 Bug。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">美術</td>
+            <td class="matrix-id">2.4</td>
+            <td class="matrix-item"><strong>佈局與視覺資訊層級
+Layout</strong></td>
+            <td>0.5 秒直覺鎖定。重要安全儀表、警告燈號與緊急按鈕的視覺層級極其清晰。</td>
+            <td>UI 排版平衡，層級分明。警告提示與背景有良好對比。</td>
+            <td>資訊排版完整。但缺乏強烈的視覺引導，學員需要花時間「尋找」警告燈或儀表。</td>
+            <td>排版混亂。真正需要讀數的安全 UI 被背景吃掉，嚴重干擾學員操作。</td>
+            <td>UI 完全遮擋核心視線，或字體、圖示小到無法閱讀。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">美術</td>
+            <td class="matrix-id">2.5</td>
+            <td class="matrix-item"><strong>視覺一致性
+Consistency</strong></td>
+            <td>100% 像素級法規統一。全軟件風格、主色調與現實政府法規圖標達到完美統一。</td>
+            <td>整體視覺風格統一。各關卡之間的介面風格、色調沒有明顯割裂。</td>
+            <td>基本保持一致。但個別次要介面與主培訓場景有輕微不統一。</td>
+            <td>風格明顯不統一。看起來像由不同外包拼湊出來的劣質品。</td>
+            <td>UI 樣式五花八門。直接拷貝開源素材而未經修改。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">美術</td>
+            <td class="matrix-id">2.6</td>
+            <td class="matrix-item"><strong>美術效能與資源優化
+Art Performance</strong></td>
+            <td>極致優化，釋放算力。90% 以上靜態物件烘焙 Lightmaps；複雜物件建置 LOD；VRAM 佔用極低。</td>
+            <td>資源控制嚴格。模型面數與貼圖大小符合規格，大部分靜態場景已烘焙。</td>
+            <td>美術效能勉強及格。未做全面烘焙，Draw Calls 偏高；偶有掉幀。</td>
+            <td>未進行美術效能控制。全場景實時光影，顯卡負載異常飆升。</td>
+            <td>美術資源完全失控。VRAM 瞬間被塞滿，一打開直接閃退（紅線）。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">美術</td>
+            <td class="matrix-id">2.7</td>
+            <td class="matrix-item"><strong>資產交付、時程與優化文檔
+Art Documentation</strong></td>
+            <td>嚴格準時交付，附帶詳盡的「3D/2D 資產清冊與優化規格說明書」，命名與目錄完全規範。</td>
+            <td>按里程碑準時交付。附帶基礎資產規格說明，未有對下游程式組造成進度拖累。</td>
+            <td>資產基本準時交付。但文檔記錄不全，需程式組二次壓縮或處理。</td>
+            <td>經常延遲交付資產。且無任何資產清冊或優化規格說明。</td>
+            <td>完全沒有準備資產交付文檔。命名與結構混亂，無法整合。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">程式</td>
+            <td class="matrix-id">3.1</td>
+            <td class="matrix-item"><strong>程式架構與 REDS 規範
+Architecture & REDS Compliance</strong></td>
+            <td>數據邏輯完全解耦。核心功能完全組件化，新關卡只需配置外部數據即可上線。（詳見 <a href="#architecture-scoring" class="section-ref" data-section="architecture-scoring">程式架構評分等級</a>）</td>
+            <td>架構合理且具產品化標準。絕大多數通用功能已完成解耦，外部數據配置完整。</td>
+            <td>功能完整但架構偏向線性。搬遷至新項目會面臨較高的重構代價。</td>
+            <td>高風險的快餐式開發。大量硬編碼與邏輯交叉感染。</td>
+            <td>架構完全崩潰與死鎖。觸及研發一票否決紅線。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">程式</td>
+            <td class="matrix-id">3.2</td>
+            <td class="matrix-item"><strong>功能與法律邏輯實現
+Functionality</strong></td>
+            <td>精準處理極端狀況。完美實現企劃的所有業務邏輯，並能精準處理所有 Edge Cases。</td>
+            <td>100% 還原規格書邏輯。完美實現了規格書要求的安全步驟邏輯，評判準確。</td>
+            <td>核心功能可以運行。能完成基本的及格評判，但缺乏細緻的代碼判定。</td>
+            <td>功能實現有遺漏或代碼錯誤。導致學員觸發了錯誤的安全知識評判。</td>
+            <td>核心功能無法運作。或大量邏輯錯亂，未能達到最基本的交付規格。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">程式</td>
+            <td class="matrix-id">3.3</td>
+            <td class="matrix-item"><strong>穩定性與防呆機制
+Stability</strong></td>
+            <td>系統堅如磐石。任何瘋狂亂點下均有完美的防呆冷卻、互斥鎖與記憶體自動回收，100% 不閃退。</td>
+            <td>穩定性高。在常規測試與極端誤操作下運行平穩，無嚴重 Null Reference 錯誤。</td>
+            <td>基本穩定。但在極其罕見的奇特操作時，畫面可能會出現暫時性定格。</td>
+            <td>穩定性不足。偶爾會出現 Soft-lock 或閃退，需要重新啟動軟件。</td>
+            <td>核心流程中 100% 閃退。出現嚴重 Crash（觸及一票否決紅線）。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">程式</td>
+            <td class="matrix-id">3.4</td>
+            <td class="matrix-item"><strong>事件延時與序列化控制
+Event Sequencing</strong></td>
+            <td>優雅的異步事件監聽。完美運用 Coroutine 或異步 Delay 監聽美術動畫結束事件，無硬編碼。</td>
+            <td>具備良好的序列化思維。UI 同步淡入的時間點由事件序列嚴格控制。</td>
+            <td>代碼結構較為線性。透過固定的硬編碼 Delay 等待美術特效。</td>
+            <td>粗暴線性寫法。特效剛播第一幀，計分表就已塞滿螢幕。</td>
+            <td>完全拒絕進行事件序列化。特效與 UI 完全重疊錯亂。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">程式</td>
+            <td class="matrix-id">3.5</td>
+            <td class="matrix-item"><strong>運行效能與低延遲
+Performance</strong></td>
+            <td>登峰造極的底層優化。穩定保持最高幀率（90 FPS），手勢追蹤延遲接近 0 毫秒。</td>
+            <td>運行高流暢。幀率穩定在安全線以上（如 72 FPS），無明顯記憶體洩漏。</td>
+            <td>運行基本順暢。大型場景或特效齊發時幀率會輕微短暫下跌。</td>
+            <td>效能未經優化。幀率經常掉到 30–40 FPS，VR 模式下引發眩暈（紅線）。</td>
+            <td>卡頓極其嚴重。畫面如同幻燈片，軟體處於完全不可用狀態。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">程式</td>
+            <td class="matrix-id">3.6</td>
+            <td class="matrix-item"><strong>系統健康診斷與除錯機制
+Diagnostics</strong></td>
+            <td>完美的全局診斷儀表板。即時監聽 API、硬件狀態，內置一鍵切換 Mock 模擬數據模式。</td>
+            <td>內置隱藏除錯面板。現場維護人員能清晰查看網絡/API 與硬件連接狀態。</td>
+            <td>有基礎的 Debug 錯誤碼。畫面會彈出具體錯誤代碼，但缺乏集中診斷面板。</td>
+            <td>除錯機制極差。外部依賴出事時系統直接卡死且沒有任何提示。</td>
+            <td>完全零除錯提示與日誌。現場出錯只能拉線接駁電腦排錯。</td>
+          </tr>
+          <tr>
+            <td class="matrix-category">程式</td>
+            <td class="matrix-id">3.7</td>
+            <td class="matrix-item"><strong>技術與系統架構文檔
+Technical Documentation</strong></td>
+            <td>頂尖業界規範文檔。系統架構圖、Class Diagram 完整，關鍵代碼註釋率 80%。</td>
+            <td>架構圖與 Diagram 完整。清晰記錄各模組接口定義與硬件對接方式。</td>
+            <td>有基本的系統架構圖。但部分細節未在圖表上清晰標明。</td>
+            <td>技術文件殘缺不全。沒有標準 Diagram，代碼幾乎無註釋。</td>
+            <td>完全零技術文檔。核心工程師離職會直接導致項目癱瘓。</td>
+          </tr>
+        </tbody>
+      </table>

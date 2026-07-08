@@ -1,0 +1,86 @@
+{
+  "site": {
+    "title": "開發組規範文檔",
+    "subtitle": "Production Team Guidelines",
+    "version": "V0.1.0",
+    "updatedAt": "2026-07-08"
+  },
+  "defaultSection": "daily-workflow",
+  "nav": [
+    {
+      "type": "link",
+      "id": "daily-workflow",
+      "label": "每日工作流程"
+    },
+    {
+      "type": "link",
+      "id": "work-habits",
+      "label": "工作習慣"
+    },
+    {
+      "type": "group",
+      "label": "術語定義",
+      "children": [
+        { "type": "link", "id": "completion", "label": "完成（Completion）" },
+        { "type": "link", "id": "due-date", "label": "到期日（Due Date）" },
+        { "type": "link", "id": "reds-terminology", "label": "REDS" }
+      ]
+    },
+    {
+      "type": "group",
+      "label": "交付標準與評分等級",
+      "children": [
+        { "type": "link", "id": "delivery-standards", "label": "職安培訓交付標準" },
+        { "type": "link", "id": "architecture-scoring", "label": "程式架構評分等級" },
+        { "type": "link", "id": "cursor-ai-assessment", "label": "Cursor AI 評核標準" }
+      ]
+    },
+    {
+      "type": "group",
+      "label": "源代碼與版本控制",
+      "children": [
+        { "type": "link", "id": "github-account", "label": "GitHub 帳戶規範" },
+        { "type": "link", "id": "github-repo", "label": "GitHub Repository 創建規範" },
+        { "type": "link", "id": "github-desktop", "label": "GitHub Desktop 提交規範" }
+      ]
+    },
+    {
+      "type": "group",
+      "label": "開發規範",
+      "children": [
+        { "type": "link", "id": "version-numbering", "label": "版本號規範" },
+        { "type": "link", "id": "changelog", "label": "CHANGELOG 規範" }
+      ]
+    },
+    {
+      "type": "group",
+      "label": "影片資源",
+      "children": [
+        { "type": "link", "id": "youtube-account", "label": "YouTube 帳戶規範" },
+        { "type": "link", "id": "youtube-upload-share", "label": "YouTube 上傳和分享規範" }
+      ]
+    }
+  ],
+  "footer": {
+    "id": "doc-style",
+    "label": "文檔書寫規範"
+  },
+  "sections": {
+    "daily-workflow": { "file": "content/sections/daily-workflow.html" },
+    "youtube-account": { "file": "content/sections/youtube-account.html" },
+    "youtube-upload-share": { "file": "content/sections/youtube-upload-share.html" },
+    "github-account": { "file": "content/sections/github-account.html" },
+    "github-repo": { "file": "content/sections/github-repo.html" },
+    "github-desktop": { "file": "content/sections/github-desktop.html" },
+    "version-numbering": { "file": "content/sections/version-numbering.html" },
+    "changelog": { "file": "content/sections/changelog.html" },
+    "delivery-standards": { "file": "content/sections/delivery-standards.html", "className": "section-delivery" },
+    "architecture-scoring": { "file": "content/sections/architecture-scoring.html", "className": "section-reds" },
+    "cursor-ai-assessment": { "file": "content/sections/cursor-ai-assessment.html", "className": "section-reds" },
+    "work-habits": { "file": "content/sections/work-habits.html" },
+    "completion": { "file": "content/sections/completion.html" },
+    "due-date": { "file": "content/sections/due-date.html" },
+    "reds-terminology": { "file": "content/sections/reds-terminology.html" },
+    "doc-style": { "file": "content/sections/doc-style.html" }
+  }
+}

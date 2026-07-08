@@ -1,0 +1,205 @@
+<article class="section section-cursor-ai" id="cursor-ai-assessment" data-section="cursor-ai-assessment">
+  <header class="section-header">
+    <span class="section-label">交付標準 · 評分等級</span>
+    <h2>Cursor AI 高級編程與架構控制能力評核標準</h2>
+    <p class="section-desc">評估開發者駕馭 Cursor AI 的上下文控制、架構引導與 REDS 達標能力。</p>
+  </header>
+
+  <div class="content-block">
+    <h3>核心評審思維</h3>
+    <p>本文件嚴禁主觀的「感覺快慢」評分，全數轉化為「上下文控制精準度、架構破壞率、提示詞工程層級、代碼 REDS 達標率」等客觀指標。</p>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>評分</th>
+          <th>定位</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>5 分</strong></td>
+          <td>卓越</td>
+          <td>具備大局觀的「AI 架構師」。完美駕馭 Cursor 全局功能，以極高良率引導 AI 輸出高難度、可重用架構。</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>3 分</strong></td>
+          <td>及格線</td>
+          <td>標準的「AI 操作員」。能完成局部功能開發，代碼可運行，但缺乏上下文維護意識，代碼存在重構隱患。</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>1 分</strong></td>
+          <td>不合格</td>
+          <td>快餐式「複製貼上者」。完全被 AI 牽著走，代碼迅速屎山化，引發全局系統崩潰。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>Cursor AI 編程能力 5–1 分核心評審對照矩陣</h3>
+    <div class="reds-table-wrap">
+      <table class="spec-table reds-matrix cursor-ai-matrix">
+        <thead>
+          <tr>
+            <th>評分等級</th>
+            <th>狀態定義</th>
+            <th>上下文管理與提示詞策略<br><span class="matrix-subtitle">Composer / @ Rules</span></th>
+            <th>架構控制與 REDS 達標率<br><span class="matrix-subtitle">REDS Compliance</span></th>
+            <th>一票否決紅線<br><span class="matrix-subtitle">Critical Blocker</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="reds-score-cell"><strong>5 分</strong><span>卓越</span></td>
+            <td>
+              <p class="reds-status-title">AI 架構師（AI Architect）</p>
+              <p>完美掌控 AI 局限性。利用 Composer 多文件編輯能力進行系統級重構，引導 AI 輸出高度解耦、數據驅動的優質架構，效率達到傳統編程的 10 倍以上。</p>
+            </td>
+            <td>
+              <p><strong>精準上下文管理</strong>：極少使用盲目的全局掃描。精準組合 <span class="code-inline">@Files</span>、<span class="code-inline">@Folders</span>、<span class="code-inline">@Web</span>。在對話前主動建立 <span class="code-inline">.cursorrules</span> 文件，預先鎖定團隊編程規範與代碼命名風格。</p>
+              <p><strong>Composer 精英操作</strong>：在 Agent / Edit 模式下，能一次性命令 AI 在多個解耦文件（如 Controller、Service、DTO）中同步進行精準重構，良率 90%。</p>
+            </td>
+            <td>
+              <p><strong>R &amp; E</strong>：在提示詞中主動要求 AI 遵循 SOLID 原則，輸出的代碼組件化，基類與子類關係清晰。</p>
+              <p><strong>D &amp; S</strong>：命令 AI 將所有變數與邏輯分離，自動生成 JSON 配置檔。產出的代碼完全對齊專案既定的標準化命名法（如 CamelCase），無冗餘代碼。</p>
+            </td>
+            <td>
+              <p class="reds-fatal-intro">符合以下任一即扣至 2 分以下：</p>
+              <ul class="table-list">
+                <li>引導 AI 進行多文件重構時，連續 3 次以上產生邏輯死鎖（斷鏈報錯）。</li>
+                <li>AI 生成的代碼含有明顯的未封裝魔術數字或硬編碼。</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="reds-score-cell"><strong>4 分</strong><span>良好</span></td>
+            <td>
+              <p class="reds-status-title">高效 AI 協同者（AI Co-Pilot）</p>
+              <p>具備良好的工程化思維。熟練使用 Cursor 的核心進階功能，能有效控制 AI 的幻覺範圍，確保產出代碼具備商業產品化標準。</p>
+            </td>
+            <td>
+              <p><strong>主動引導提示詞</strong>：拒絕「幫我寫個功能」等模糊指令。提示詞包含 Context（背景）、Task（任務）、Constraints（約束條件）。</p>
+              <p><strong>精準代碼審查</strong>：在使用 Cmd + K（Inline Edit）或 Chat 時，能一眼看出 AI 引入的潛在 Bug（如內存洩漏、未捕獲的異常），並在 Accept 前主動要求 AI 修正。</p>
+            </td>
+            <td>
+              <p><strong>模組化開發</strong>：產出的功能模組清晰，公共工具類能抽離封裝。新功能加入時，不會對現有的舊模組造成大範圍的代碼感染（Regression Bugs）。</p>
+              <p><strong>配置化意識</strong>：核心的評判參數與變數會要求 AI 提取至常量（Const）或配置文件中，具備基本的數據驅動思維。</p>
+            </td>
+            <td>
+              <p class="reds-fatal-intro">符合以下任一即扣至 2 分以下：</p>
+              <ul class="table-list">
+                <li>盲目 Accept 包含明顯邏輯漏洞的代碼，導致需要耗費 30 分鐘以上進行人工除錯。</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="reds-score-cell"><strong>3 分</strong><span>及格</span></td>
+            <td>
+              <p class="reds-status-title">合格 AI 操作員（AI Operator）</p>
+              <p>能利用 Cursor 順暢完成日常業務邏輯開發。代碼通過編譯且功能完整，但架構偏向線性，缺乏長遠的重用性與擴展性考驗。</p>
+            </td>
+            <td>
+              <p><strong>基礎功能熟練</strong>：熟練操作 Chat（Cmd + L）與 Inline Edit（Cmd + K）。知道利用 <span class="code-inline">@</span> 來引入當前正在編寫的文件，完成局部的代碼優化或 Bug 修復。</p>
+              <p><strong>被動式排錯</strong>：遇到編譯報錯時，會使用 Cursor 內置的 Debug with AI 功能進行自動修復。雖能解開報錯，但對 AI 修改的底層原理一知半解。</p>
+            </td>
+            <td>
+              <p><strong>線性代碼結構</strong>：AI 輸出的代碼多為超長的線性指令碼（例如一個函數內寫完所有邏輯），缺乏抽象化。雖然在當前場景能跑通，但無法移植到其他項目。</p>
+              <p><strong>局部硬編碼</strong>：部分邏輯與文本、特定美術資產名稱硬綁定，數據與邏輯處於半分離狀態，註釋較為稀少。</p>
+            </td>
+            <td>
+              <p class="reds-fatal-intro">符合以下任一即扣至 2 分以下：</p>
+              <ul class="table-list">
+                <li>離開 Cursor 的 AI 提示後，開發者本人完全無法口頭解釋該代碼的核心執行邏輯。</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="reds-score-cell"><strong>2 分</strong><span>需改進</span></td>
+            <td>
+              <p class="reds-status-title">盲目代碼複製者（Copy-Paster）</p>
+              <p>典型的「快餐式開發」。極度依賴 AI，缺乏主動思考與上下文控制能力，導致代碼庫在短時間內迅速惡化，技術債飆升。</p>
+            </td>
+            <td>
+              <p><strong>上下文黑盒子</strong>：完全不使用任何 <span class="code-inline">@</span> 語法或精準文件鎖定。直接在 Chat 框中輸入極度模糊的祈使句（如「幫我接上 API」），逼迫 AI 進行全局盲目猜測。</p>
+              <p><strong>無節制 Accept</strong>：只要 AI 給出代碼，不經任何閱讀與安全審查，直接點擊全局 Accept。當系統報錯時，繼續盲目餵給 AI 修復，陷入「用新的 Bug 掩蓋舊 Bug」的惡性循環。</p>
+            </td>
+            <td>
+              <p><strong>屎山代碼製造者</strong>：AI 為了迎合模糊指令，會大量複製貼上雷同的代碼段落。代碼內部單例（Singleton）與全局變數交織，耦合度極高，完全失去擴展可能。</p>
+              <p><strong>混亂的魔術數字</strong>：代碼中充斥著天馬行空的命名（如 data1、aaa）以及隨手硬編碼的魔術數字（Magic Numbers），完全破壞標準化。</p>
+            </td>
+            <td>
+              <p class="reds-fatal-intro">觸及以下紅線直接判定為 2 分：</p>
+              <ul class="table-list">
+                <li>專案內的重複代碼量（Code Duplication）因 AI 的無節制生成而暴增 40% 以上。</li>
+                <li>代碼完全流於無意義的堆砌。</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="reds-score-cell"><strong>1 分</strong><span>不合格</span></td>
+            <td>
+              <p class="reds-status-title">系統破壞者（System Crasher）</p>
+              <p>完全喪失對 AI 的主導權。在完全不理解架構的情況下命令 AI 進行盲目重構，最終導致整個代碼庫鎖死、系統癱瘓，觸及一票否決紅線。</p>
+            </td>
+            <td>
+              <p><strong>毀滅性上下文管理</strong>：完全將大模型當作搜索引擎使用，甚至將不相關項目的代碼或機密敏感數據無防護地丟給 AI，造成代碼庫混亂或資安風險。</p>
+              <p><strong>代碼完全失控</strong>：開發者完全看不懂代碼，任由 AI 將不相容的第三方庫或錯誤的幾何 / 邏輯結構強行縫合進項目，軟體一啟動即內存溢出。</p>
+            </td>
+            <td>
+              <p><strong>像素級死綁定</strong>：代碼與特定環境、特定場景物件產生無法解開的強耦合。架構徹底死鎖，任何試圖修改底層的行為都會引發數百個編譯報錯。</p>
+              <p><strong>零標準零文件</strong>：項目無任何編碼規範，目錄結構崩潰。代碼中無任何人類撰寫的註釋與設計圖表，項目形同報廢。</p>
+            </td>
+            <td>
+              <p class="reds-fatal-intro">直接一票否決，判定不合格：</p>
+              <ul class="table-list">
+                <li>AI 生成的代碼引發全局死鎖，導致專案必須徹底推倒重寫。</li>
+                <li>代碼遺失或損壞了核心業務邏輯，且完全無法通過 Git 版本控制進行追溯與修復。</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h3>Cursor 一票否決制紅線（Critical Blocker）</h3>
+    <p>在評審過程中，只要觸及以下任何一條紅線，該開發者的 Cursor 能力評判直接歸類為<strong>不合格（Fail / 1 分）</strong>：</p>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>紅線項目</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>屎山引發癱瘓（Repository Crash）</strong></td>
+          <td>盲目接受 AI 代碼，導致專案產生數百個編譯錯誤且無法透過 Git 復原，專案必須推倒重寫。</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>資安隱私洩漏（Data Leak）</strong></td>
+          <td>違反敏感數據限制，將公司核心資產、客戶私隱或未加密金鑰（API Keys）盲目餵給 AI 聯網模型。</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>零代碼理解度（Zero Comprehension）</strong></td>
+          <td>100% 複製貼上，若將 AI 關閉，開發者完全無法解釋、修改或現場 Debug 任何一行的代碼邏輯。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <aside class="note-box">
+    <h4>注意事項</h4>
+    <p>REDS 達標率評審請對照 <a href="#reds-terminology" class="section-ref" data-section="reds-terminology">REDS 術語</a> 與 <a href="#architecture-scoring" class="section-ref" data-section="architecture-scoring">程式架構評分等級</a>。程式產出質量亦須符合 <a href="#delivery-standards" class="section-ref" data-section="delivery-standards">職安培訓交付標準</a>。</p>
+  </aside>
+</article>

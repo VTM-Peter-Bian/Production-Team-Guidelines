@@ -1,0 +1,94 @@
+<article class="section" id="github-repo" data-section="github-repo">
+        <header class="section-header">
+          <span class="section-label">規範 03 · 源代碼與版本控制</span>
+          <h2>GitHub Repository 創建規範</h2>
+          <p class="section-desc">新建 Repository 時的命名規則、建立設定與權限配置標準。</p>
+        </header>
+
+        <div class="content-block">
+          <h3>Repository 命名規則</h3>
+          <p>命名格式：</p>
+          <p class="code-example">Production Code - Client - Content name - Module Code</p>
+          <p>範例：</p>
+          <p class="code-example">P26F-AAHK-Fire-Extinguisher-Operation-Training-A01</p>
+        </div>
+
+        <div class="content-block">
+          <h3>Module Type Code</h3>
+          <p>Module Code 末尾字母代表模組類型，編號從 01 起：</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>代碼</th>
+                <th>類型</th>
+                <th>範例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>V</strong></td>
+                <td>VR</td>
+                <td>V01</td>
+              </tr>
+              <tr>
+                <td><strong>M</strong></td>
+                <td>MR</td>
+                <td>M01</td>
+              </tr>
+              <tr>
+                <td><strong>A</strong></td>
+                <td>iPad / iOS / Exe</td>
+                <td>A01</td>
+              </tr>
+              <tr>
+                <td><strong>W</strong></td>
+                <td>Web-Based</td>
+                <td>W01</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>創建設定</h3>
+          <ul class="content-list">
+            <li><strong>Owner</strong> 必須選擇 <strong>VTM-Digital-Limited</strong></li>
+            <li>創建時必須填寫 <strong>Description</strong></li>
+            <li><strong>Visibility</strong> 設為 <strong>Private</strong></li>
+            <li>勾選 <strong>Add README</strong></li>
+            <li>若為 Unity 項目，須添加 <strong>.gitignore</strong> 並選擇 <strong>Unity</strong></li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>權限設定</h3>
+          <p>Repository 創建完成後，進入 <strong>Settings → Collaborators and teams</strong> 配置權限：</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>對象</th>
+                <th>權限</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>VTM Technical Department</strong></td>
+                <td>Admin</td>
+              </tr>
+              <tr>
+                <td><strong>Victor Dao</strong></td>
+                <td>Admin</td>
+              </tr>
+              <tr>
+                <td>其餘同事</td>
+                <td>Read / Write</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="note-box">
+          <h4>注意事項</h4>
+          <p>請嚴格遵守命名規則與 Owner 設定，確保所有項目統一歸屬於 VTM-Digital-Limited 組織。Unity 項目務必選用 Unity 專用 .gitignore，避免提交不必要的本地與快取檔案。新建 Repository 前請先完成 <a href="#github-account" class="section-ref" data-section="github-account">GitHub 帳戶規範</a> 中的帳戶設定。</p>
+        </aside>
+      </article>

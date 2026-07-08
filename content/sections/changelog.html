@@ -1,0 +1,123 @@
+<article class="section" id="changelog" data-section="changelog">
+  <header class="section-header">
+    <span class="section-label">規範 06 · 開發規範</span>
+    <h2>CHANGELOG 規範</h2>
+    <p class="section-desc"><span class="code-inline">CHANGELOG.md</span> 記錄各交付物版本的重大變更，按版本倒序排列，並以「分類 + 路徑」標記變更位置。</p>
+  </header>
+
+  <div class="content-block">
+    <h3>適用範圍</h3>
+    <p>凡採用 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a> 管理的交付物，均須維護對應的 <span class="code-inline">CHANGELOG.md</span>，包括但不限於：</p>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>交付物</th>
+          <th>CHANGELOG 位置</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>VTM Unity SDK</td>
+          <td>SDK 根目錄 <span class="code-inline">CHANGELOG.md</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>培訓項目 Repository</td>
+          <td>項目根目錄 <span class="code-inline">CHANGELOG.md</span> 或 <span class="code-inline">Documents/Change_Log.md</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>內部工具</td>
+          <td>工具 Repository 根目錄 <span class="code-inline">CHANGELOG.md</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>撰寫原則</h3>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>原則</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>版本倒序</td>
+          <td>最新版本置頂，依時間由新到舊排列</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>分類標記</td>
+          <td>每條變更以 <span class="code-inline">【分類名】</span> 標記（如模組名、功能領域、子系統）</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>路徑標記</td>
+          <td>變更涉及的目錄或檔案路徑使用 <span class="code-inline">反引號</span> 標記</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>變更類型</td>
+          <td>使用 <span class="code-inline">Added</span>、<span class="code-inline">Changed</span>、<span class="code-inline">Fixed</span> 三類分組</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>參考標準</td>
+          <td>基於 <a href="https://semver.org/spec/v2.0.0.html" target="_blank" rel="noopener noreferrer">語義化版本控制</a> 與 <a href="https://www.conventionalcommits.org/" target="_blank" rel="noopener noreferrer">約定式提交</a> 規範</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>條目格式</h3>
+    <p>每條變更條目格式如下：</p>
+    <pre class="code-example code-block">- 【分類名】變更描述（含路徑，使用 `反引號` 標記）</pre>
+    <p>通用範例：</p>
+    <pre class="code-example code-block">- 【核心系統】重構 `Services/Auth` 登入流程，支援多因素驗證
+- 【培訓場景】新增 `Scenes/Level03` 工廠火災演練關卡
+- 【文件】更新 `Documents/User_Manual` 操作說明
+- 【打包工具】修復 `Editor/BuildPipeline` 在 macOS 下的路徑識別問題</pre>
+  </div>
+
+  <div class="content-block">
+    <h3>文件結構範例</h3>
+    <p>以下為通用的 <span class="code-inline">CHANGELOG.md</span> 結構模板，適用於各類交付物：</p>
+    <pre class="code-example code-block"># Changelog
+
+本文件記錄 [交付物名稱] 的重大變更。
+基於 [語義化版本控制](https://semver.org/spec/v2.0.0.html) 與 [約定式提交](https://www.conventionalcommits.org/) 規範。
+
+## [1.2.0] - 2026-03-15
+
+### Added
+- 【功能模組】新增 …
+
+### Changed
+- 【配置調整】調整 …
+
+### Fixed
+- 【Bug 修復】修復 …</pre>
+  </div>
+
+  <div class="content-block">
+    <h3>參考示例：VTM Unity SDK</h3>
+    <p>以下為 SDK 項目的完整 CHANGELOG 範例。培訓項目或工具類交付物應沿用相同結構，替換分類名與路徑即可。</p>
+    <details class="example-expand">
+      <summary>展開 VTM Unity SDK CHANGELOG 完整範例</summary>
+      <pre class="code-example code-block changelog-example" data-example="content/examples/changelog-unity-sdk.md">載入中…</pre>
+    </details>
+  </div>
+
+  <aside class="note-box">
+    <h4>注意事項</h4>
+    <p>每次發布新版本時，須在 <span class="code-inline">CHANGELOG.md</span> 頂部新增對應版本區塊，並依 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a> 決定版本號遞增類型。變更描述須具體到分類與路徑，避免僅寫「修復 bug」等模糊表述。</p>
+  </aside>
+</article>

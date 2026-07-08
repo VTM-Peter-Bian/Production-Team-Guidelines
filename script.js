@@ -1,11 +1,125 @@
 /**
- * 開發組規範文檔 — 導航與欄目切換
+ * 開發組規範文檔 — 配置驅動的導航與內容載入
+ * 支援 HTTP 伺服器（fetch）與 file:// 本地直接開啟（bundle.js）
  */
 
 (function () {
-  const navLinks = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll(".section");
-  const sectionRefs = document.querySelectorAll(".section-ref");
+  const mainEl = document.getElementById("main");
+  const navListEl = document.getElementById("nav-list");
+  const footerLinkEl = document.getElementById("footer-link");
+
+  const sectionCache = new Map();
+  let navConfig = null;
+  let bundleSections = null;
+  let bundleExamples = null;
+  let activeSectionId = null;
+  const isFileProtocol = window.location.protocol === "file:";
+
+  function resolveUrl(path) {
+    return new URL(path, document.baseURI).href;
+  }
+
+  async function fetchText(path) {
+    const response = await fetch(resolveUrl(path));
+    if (!response.ok) {
+      throw new Error(`無法載入 ${path}（${response.status}）`);
+    }
+    return response.text();
+  }
+
+  function applyBundle(bundle) {
+    navConfig = bundle.nav;
+    bundleSections = bundle.sections;
+    bundleExamples = bundle.examples;
+  }
+
+  async function loadConfig() {
+    if (window.GUIDELINES_BUNDLE) {
+      applyBundle(window.GUIDELINES_BUNDLE);
+      return;
+    }
+
+    if (isFileProtocol) {
+      throw new Error(
+        "缺少 content/bundle.js。請在專案目錄執行：python3 build.py"
+      );
+    }
+
+    navConfig = JSON.parse(await fetchText("config/nav.json"));
+  }
+
+  function createNavLink(item) {
+    const li = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = `#${item.id}`;
+    link.className = "nav-link";
+    link.dataset.section = item.id;
+    link.textContent = item.label;
+    li.appendChild(link);
+    return li;
+  }
+
+  function renderNav(config) {
+    navListEl.innerHTML = "";
+
+    config.nav.forEach((item) => {
+      if (item.type === "link") {
+        navListEl.appendChild(createNavLink(item));
+        return;
+      }
+
+      if (item.type === "group") {
+        const groupLi = document.createElement("li");
+        groupLi.className = "nav-group";
+
+        const label = document.createElement("span");
+        label.className = "nav-group-label";
+        label.textContent = item.label;
+
+        const sublist = document.createElement("ul");
+        sublist.className = "nav-sublist";
+        item.children.forEach((child) => {
+          sublist.appendChild(createNavLink(child));
+        });
+
+        groupLi.appendChild(label);
+        groupLi.appendChild(sublist);
+        navListEl.appendChild(groupLi);
+      }
+    });
+  }
+
+  function getSectionMeta(sectionId) {
+    return navConfig?.sections?.[sectionId] || null;
+  }
+
+  async function loadSectionHtml(sectionId) {
+    if (sectionCache.has(sectionId)) {
+      return sectionCache.get(sectionId);
+    }
+
+    if (bundleSections?.[sectionId]) {
+      const html = bundleSections[sectionId];
+      sectionCache.set(sectionId, html);
+      return html;
+    }
+
+    const meta = getSectionMeta(sectionId);
+    if (!meta?.file) {
+      throw new Error(`找不到欄目設定：${sectionId}`);
+    }
+
+    const html = await fetchText(meta.file);
+    sectionCache.set(sectionId, html);
+    return html;
+  }
+
+  async function loadExampleText(path) {
+    if (bundleExamples?.[path]) {
+      return bundleExamples[path];
+    }
+    return fetchText(path);
+  }
 
   function getSectionForAnchor(anchorId) {
     const anchor = document.getElementById(anchorId);
@@ -21,23 +135,10 @@
     }
   }
 
-  function activateSection(sectionId, anchorId) {
-    navLinks.forEach((link) => {
+  function setNavActive(sectionId) {
+    document.querySelectorAll(".nav-link").forEach((link) => {
       link.classList.toggle("active", link.dataset.section === sectionId);
     });
-
-    sections.forEach((section) => {
-      section.classList.toggle("active", section.dataset.section === sectionId);
-    });
-
-    const hash = anchorId || sectionId;
-    history.replaceState(null, "", `#${hash}`);
-
-    if (anchorId) {
-      requestAnimationFrame(() => scrollToAnchor(anchorId));
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
   }
 
   function bindSectionNavigation(link) {
@@ -52,19 +153,147 @@
     });
   }
 
-  navLinks.forEach(bindSectionNavigation);
-  sectionRefs.forEach(bindSectionNavigation);
-
-  const hash = window.location.hash.slice(1);
-  if (!hash) return;
-
-  if (document.querySelector(`[data-section="${hash}"]`)) {
-    activateSection(hash);
-    return;
+  function bindCrossReferences() {
+    document.querySelectorAll(".section-ref").forEach(bindSectionNavigation);
   }
 
-  const sectionId = getSectionForAnchor(hash);
-  if (sectionId) {
-    activateSection(sectionId, hash);
+  async function loadEmbeddedExamples(root) {
+    const textExamples = root.querySelectorAll("[data-example]");
+    await Promise.all(
+      Array.from(textExamples).map(async (el) => {
+        const path = el.dataset.example;
+        if (!path || el.dataset.loaded === "true") return;
+        try {
+          el.textContent = await loadExampleText(path);
+          el.dataset.loaded = "true";
+        } catch {
+          el.textContent = `無法載入範例：${path}`;
+        }
+      })
+    );
+
+    const htmlExamples = root.querySelectorAll("[data-example-html]");
+    await Promise.all(
+      Array.from(htmlExamples).map(async (el) => {
+        const path = el.dataset.exampleHtml;
+        if (!path || el.dataset.loaded === "true") return;
+        try {
+          el.innerHTML = await loadExampleText(path);
+          el.dataset.loaded = "true";
+          bindCrossReferences();
+        } catch {
+          el.innerHTML = `<p class="error-state">無法載入：${path}</p>`;
+        }
+      })
+    );
   }
+
+  async function mountSection(sectionId) {
+    const html = await loadSectionHtml(sectionId);
+    const meta = getSectionMeta(sectionId);
+
+    mainEl.innerHTML = html;
+
+    const sectionEl = mainEl.querySelector(".section");
+    if (sectionEl) {
+      sectionEl.classList.add("active");
+      if (meta?.className) {
+        sectionEl.classList.add(...meta.className.split(/\s+/).filter(Boolean));
+      }
+    }
+
+    await loadEmbeddedExamples(mainEl);
+    bindCrossReferences();
+    setNavActive(sectionId);
+    activeSectionId = sectionId;
+  }
+
+  async function activateSection(sectionId, anchorId) {
+    try {
+      if (activeSectionId !== sectionId) {
+        await mountSection(sectionId);
+      }
+
+      const hash = anchorId || sectionId;
+      history.replaceState(null, "", `#${hash}`);
+
+      if (anchorId) {
+        requestAnimationFrame(() => scrollToAnchor(anchorId));
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } catch (error) {
+      mainEl.innerHTML = `<div class="error-state"><h2>載入失敗</h2><p>${error.message}</p></div>`;
+      console.error(error);
+    }
+  }
+
+  function resolveHash(hash) {
+    if (!hash) {
+      return { sectionId: navConfig.defaultSection, anchorId: null };
+    }
+    if (navConfig.sections[hash]) {
+      return { sectionId: hash, anchorId: null };
+    }
+    if (hash.startsWith("habit-")) {
+      return { sectionId: "work-habits", anchorId: hash };
+    }
+    if (hash === "youtube-upload" || hash === "youtube-share") {
+      return { sectionId: "youtube-upload-share", anchorId: hash };
+    }
+    return { sectionId: navConfig.defaultSection, anchorId: hash };
+  }
+
+  async function init() {
+    try {
+      await loadConfig();
+
+      document.getElementById("site-title").textContent = navConfig.site.title;
+      document.getElementById("site-subtitle").textContent = navConfig.site.subtitle;
+      document.title = navConfig.site.title;
+
+      if (navConfig.site.version) {
+        document.getElementById("site-version").textContent = navConfig.site.version;
+      }
+      if (navConfig.site.updatedAt) {
+        document.getElementById("site-updated").textContent =
+          `更新於 ${navConfig.site.updatedAt}`;
+      }
+
+      if (navConfig.footer) {
+        footerLinkEl.textContent = navConfig.footer.label;
+        footerLinkEl.dataset.section = navConfig.footer.id;
+        footerLinkEl.href = `#${navConfig.footer.id}`;
+      }
+
+      renderNav(navConfig);
+      bindSectionNavigation(footerLinkEl);
+
+      const hash = window.location.hash.slice(1);
+      const { sectionId, anchorId } = resolveHash(hash);
+
+      await activateSection(sectionId, anchorId);
+    } catch (error) {
+      mainEl.innerHTML = `<div class="error-state"><h2>初始化失敗</h2><p>${error.message}</p></div>`;
+      console.error(error);
+    }
+  }
+
+  window.addEventListener("hashchange", () => {
+    if (!navConfig) return;
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+
+    if (navConfig.sections[hash]) {
+      activateSection(hash);
+      return;
+    }
+
+    const { sectionId, anchorId } = resolveHash(hash);
+    if (sectionId) {
+      activateSection(sectionId, anchorId);
+    }
+  });
+
+  init();
 })();

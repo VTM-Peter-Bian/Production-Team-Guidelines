@@ -1,0 +1,395 @@
+<article class="section" id="doc-style" data-section="doc-style">
+        <header class="section-header">
+          <span class="section-label">附錄</span>
+          <h2>文檔書寫規範</h2>
+          <p class="section-desc">本規範文檔自身的撰寫與呈現標準，新增或修改內容時請遵循。</p>
+        </header>
+
+        <div class="content-block">
+          <h3>基本資訊</h3>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>項目</th>
+                <th>設定</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>中文名稱</td>
+                <td>開發組規範文檔</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>英文名稱</td>
+                <td>Production Team Guidelines</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>技術實現</td>
+                <td>HTML + CSS + JavaScript</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>主色調</td>
+                <td>黑白色為主（側欄黑底白字，內容區白底黑字）</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>文檔版本</td>
+                <td>V0.1.0（語義化版本，見 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a>）</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>更新日期</td>
+                <td>2026-07-08（與 <span class="code-inline">config/nav.json</span> 中 <span class="code-inline">site.updatedAt</span> 同步）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>字體大小設定</h3>
+          <p>基準字級為 <strong>16px</strong>，行高 <strong>1.7</strong>。各層級字體大小如下：</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>元素</th>
+                <th>字體大小</th>
+                <th>用途</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>正文</td>
+                <td>16px</td>
+                <td>頁面基準字級</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>欄目標題（h2）</td>
+                <td>2rem（32px）</td>
+                <td>各規範頁面主標題</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>區塊標題（h3）</td>
+                <td>1.125rem（18px）</td>
+                <td>內容小節標題</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>欄目描述</td>
+                <td>1rem（16px）</td>
+                <td>標題下方說明文字</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>表格內容</td>
+                <td>0.9rem（14.4px）</td>
+                <td>spec-table 資料列</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>表格標題列</td>
+                <td>0.8rem（12.8px）</td>
+                <td>spec-table 表頭</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>代碼範例</td>
+                <td>0.875rem（14px）</td>
+                <td>等寬字體程式碼區塊</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>輔助文字</td>
+                <td>0.9rem（14.4px）</td>
+                <td>注意事項、引用說明等</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>規範編號標籤</td>
+                <td>0.7rem（11.2px）</td>
+                <td>如「規範 01」標籤</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>側欄導航</td>
+                <td>0.9rem / 0.85rem</td>
+                <td>主導航 / 子導航連結</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>字體家族</h3>
+          <p class="code-example">-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", sans-serif</p>
+          <p>代碼範例使用等寬字體：<span class="code-inline">SF Mono, Fira Code, Consolas, monospace</span></p>
+        </div>
+
+        <div class="content-block">
+          <h3>專案結構</h3>
+          <p>文檔採用<strong>配置驅動 + 內容分離</strong>架構，避免所有內容堆疊在單一 <span class="code-inline">index.html</span> 中：</p>
+          <pre class="code-example code-block">Production-Team-Guidelines/
+├── index.html              # 頁面殼層（側欄 + 內容容器）
+├── script.js               # 導航、內容載入、交叉引用
+├── styles.css              # 全域樣式
+├── config/
+│   └── nav.json            # 導航結構與欄目對應設定
+├── content/
+│   ├── bundle.js           # 打包檔（file:// 本地開啟必需，執行 build.py 生成）
+│   ├── sections/           # 各欄目 HTML 片段（一欄一檔）
+│   └── examples/           # 長篇範例（如 SDK CHANGELOG）
+└── assets/                 # 圖片等靜態資源
+build.py                    # 打包腳本</pre>
+        </div>
+
+        <div class="content-block">
+          <h3>新增欄目步驟</h3>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>步驟</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>建立內容檔</td>
+                <td>在 <span class="code-inline">content/sections/</span> 新增 <span class="code-inline">{id}.html</span>，包含完整 <span class="code-inline">&lt;article&gt;</span> 結構</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>註冊欄目</td>
+                <td>在 <span class="code-inline">config/nav.json</span> 的 <span class="code-inline">nav</span> 與 <span class="code-inline">sections</span> 中新增對應項目</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>長篇範例</td>
+                <td>過長的參考示例放入 <span class="code-inline">content/examples/</span>，以 <span class="code-inline">data-example</span> 按需載入</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>交叉引用</td>
+                <td>欄目間連結使用 <span class="code-inline">section-ref</span> 類別與 <span class="code-inline">data-section</span> 屬性</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>重新打包</td>
+                <td>修改內容後執行 <span class="code-inline">python3 build.py</span> 更新 <span class="code-inline">content/bundle.js</span>，確保本地直接開啟可用</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>欄目 HTML 結構</h3>
+          <p>每個欄目檔案須包含完整 <span class="code-inline">&lt;article&gt;</span>，並設定 <span class="code-inline">id</span> 與 <span class="code-inline">data-section</span>（值與欄目 ID 一致）：</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>區塊</th>
+                <th>類別 / 元素</th>
+                <th>用途</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>欄目根節點</td>
+                <td><span class="code-inline">article.section</span></td>
+                <td>含 <span class="code-inline">id</span>、<span class="code-inline">data-section</span>；特殊樣式可加 <span class="code-inline">section-delivery</span>、<span class="code-inline">section-reds</span> 等</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>標題區</td>
+                <td><span class="code-inline">header.section-header</span></td>
+                <td>含 <span class="code-inline">section-label</span>、<span class="code-inline">h2</span>、<span class="code-inline">section-desc</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>內容小節</td>
+                <td><span class="code-inline">div.content-block</span></td>
+                <td>每個 <span class="code-inline">h3</span> 小節包在獨立 content-block 中</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>子項錨點</td>
+                <td><span class="code-inline">div.habit-block</span></td>
+                <td>欄目內可跳轉的子區塊，設 <span class="code-inline">id</span>（如 <span class="code-inline">habit-01</span>）供交叉引用</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>注意事項</td>
+                <td><span class="code-inline">aside.note-box</span></td>
+                <td>置於欄目末尾，含 <span class="code-inline">h4</span> 與說明段落</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>圖片與截圖規範</h3>
+          <p>操作示意、介面截圖等靜態圖片統一存放於 <span class="code-inline">assets/</span>，並使用標準的截圖展示結構：</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>規範</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>存放路徑</td>
+                <td>圖片放於 <span class="code-inline">assets/</span>，引用路徑為 <span class="code-inline">assets/檔名.png</span>（相對於專案根目錄）</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>檔名命名</td>
+                <td>小寫英文與連字號，語意清楚，如 <span class="code-inline">outlook-reaction.png</span>、<span class="code-inline">teams-reaction.png</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>檔案格式</td>
+                <td>優先使用 PNG；需透明背景時用 PNG，照片類可用 JPG（品質 ≥ 80%）</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>尺寸與壓縮</td>
+                <td>寬度建議 ≤ 1200px；上傳前壓縮，單檔盡量 &lt; 500 KB，避免拖慢載入</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>無障礙文字</td>
+                <td>每張圖須設 <span class="code-inline">alt</span>，簡述畫面內容與用途，勿留空</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>延遲載入</td>
+                <td>加上 <span class="code-inline">loading="lazy"</span>，減少首屏負擔</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>截圖結構</td>
+                <td>使用 <span class="code-inline">figure.guide-screenshot</span> 包裹，內含 <span class="code-inline">guide-screenshot-media</span> 與 <span class="code-inline">figcaption</span> 說明</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>多圖排列</td>
+                <td>並排展示時外層用 <span class="code-inline">div.guide-screenshots</span>（響應式網格，窄螢幕自動單欄）</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>標準 HTML 範例（參見 <a href="#habit-01" class="section-ref" data-section="work-habits" data-anchor="habit-01">工作習慣 01</a>）：</p>
+          <pre class="code-example code-block">&lt;div class="guide-screenshots"&gt;
+  &lt;figure class="guide-screenshot"&gt;
+    &lt;div class="guide-screenshot-media"&gt;
+      &lt;img src="assets/example.png"
+           alt="操作步驟示意說明"
+           loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;figcaption&gt;圖片下方簡短說明&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;</pre>
+        </div>
+
+        <div class="content-block">
+          <h3>長篇範例載入</h3>
+          <p>過長內容不直接內嵌於欄目 HTML，改放 <span class="code-inline">content/examples/</span> 並按需載入：</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>屬性</th>
+                <th>適用場景</th>
+                <th>示例欄目</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><span class="code-inline">data-example</span></td>
+                <td>純文字 / Markdown 範例，載入後填入元素內文</td>
+                <td><a href="#changelog" class="section-ref" data-section="changelog">CHANGELOG 規範</a></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><span class="code-inline">data-example-html</span></td>
+                <td>HTML 片段範例，載入後替換容器 innerHTML</td>
+                <td><a href="#delivery-standards" class="section-ref" data-section="delivery-standards">職安培訓交付標準</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>內容撰寫規範</h3>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>規範</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>表格須含序號欄</td>
+                <td>所有表格第一欄為序號（參見 <a href="#habit-02" class="section-ref" data-section="work-habits" data-anchor="habit-02">工作習慣 02</a>）</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>交叉引用</td>
+                <td>相關規範之間使用 <code class="code-inline">section-ref</code> 連結，點擊可跳轉至對應欄目</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>欄目編號</td>
+                <td>各規範以「規範 01」「規範 02」… 標記，工作習慣以「習慣 01」… 標記</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>注意事項區塊</td>
+                <td>重要提醒使用 note-box 呈現，置於欄目末尾</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>持續更新</td>
+                <td>新增欄目時同步更新 <span class="code-inline">config/nav.json</span> 與交叉引用</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>通用優先</td>
+                <td>規範正文寫通用原則；特定項目（如 SDK）的示例獨立為「參考示例」區塊</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>圖片與截圖</td>
+                <td>操作示意須附截圖，遵循上方「圖片與截圖規範」的結構與命名要求</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>版本與日期</td>
+                <td>重大更新時同步修改 <span class="code-inline">config/nav.json</span> 的 <span class="code-inline">site.version</span> 與 <span class="code-inline">site.updatedAt</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="note-box">
+          <h4>注意事項</h4>
+          <p>修改樣式時請同步更新本文檔中的字體大小設定表，確保規範與實際呈現一致。發布新版本時，請更新側欄版本號、更新日期，以及本文「基本資訊」表中的對應欄位。</p>
+        </aside>
+      </article>

@@ -1,0 +1,35 @@
+<article class="section" id="github-desktop" data-section="github-desktop">
+        <header class="section-header">
+          <span class="section-label">規範 04 · 源代碼與版本控制</span>
+          <h2>GitHub Desktop 提交規範</h2>
+          <p class="section-desc">使用 GitHub Desktop 進行日常代碼提交與推送的操作標準。</p>
+        </header>
+
+        <div class="content-block">
+          <h3>帳戶註冊</h3>
+          <ul class="content-list">
+            <li>使用<strong>公司提供的個人郵箱</strong>進行註冊（帳戶資料設定詳見 <a href="#github-account" class="section-ref" data-section="github-account">GitHub 帳戶規範</a>）</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>Commit Summary 格式</h3>
+          <p>格式：</p>
+          <p class="code-example">yyyy-mm-dd Content Summary...</p>
+          <p>範例：</p>
+          <p class="code-example">2026-07-07 Update VTM Unity SDK</p>
+        </div>
+
+        <div class="content-block">
+          <h3>Commit Description</h3>
+          <p>以 <strong>list</strong> 方式列出本次提交的具體內容，例如：</p>
+          <pre class="code-example code-block">- Update VTM Unity SDK to v2.1.0
+- Fix scene loading issue in Module A01
+- Refactor player controller script</pre>
+        </div>
+
+        <aside class="note-box">
+          <h4>注意事項</h4>
+          <p>請在每日 18:00 前完成當日代碼提交（參閱 <a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a>）。Summary 須包含日期與簡要說明，Description 須清楚列出各項變更，便於追溯與審閱。SDK 版本發布時須同步遵循 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a> 與 <a href="#changelog" class="section-ref" data-section="changelog">CHANGELOG 規範</a>。</p>
+        </aside>
+      </article>
