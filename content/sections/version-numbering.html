@@ -27,8 +27,8 @@
         <tr>
           <td>2</td>
           <td>培訓項目 / 客戶端應用</td>
-          <td><span class="code-inline">P26F-AAHK-…-A01 v1.3.2</span></td>
-          <td>VR / MR / iOS / Web 等交付給客戶的培訓應用</td>
+          <td><span class="code-inline">P26F-AAHK-…-A01 v1.0.0</span></td>
+          <td>VR / MR / iOS / Web 等交付給客戶的培訓應用；<strong>首次交付客戶固定為 v1.0.0</strong>（見下方「客戶交付版本」）</td>
         </tr>
         <tr>
           <td>3</td>
@@ -44,6 +44,49 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="content-block">
+    <h3>客戶交付版本</h3>
+    <p>交付給客戶的安裝包或執行檔，<strong>首次正式交付統一使用 v1.0.0</strong>，後續變更再依語義化版本規則遞增。</p>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>場景</th>
+          <th>版本號</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>首次交付客戶</td>
+          <td><span class="code-inline">1.0.0</span></td>
+          <td>不論內部開發歷經多少迭代，正式交予客戶的 APK、EXE、安裝包等均以 <strong>v1.0.0</strong> 發布</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>客戶端 Bug 修復</td>
+          <td><span class="code-inline">1.0.0 → 1.0.1</span></td>
+          <td>修復缺陷、效能優化、小範圍資源調整等，遞增 PATCH</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>客戶端功能擴充</td>
+          <td><span class="code-inline">1.0.1 → 1.1.0</span></td>
+          <td>新增培訓模組、場景或兼容性功能，遞增 MINOR</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>客戶端重大變更</td>
+          <td><span class="code-inline">1.x.x → 2.0.0</span></td>
+          <td>不兼容的架構重構、核心流程改版等，遞增 MAJOR</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>範例：某 VR 培訓項目首次交付客戶 <span class="code-inline">Fire-Training.apk v1.0.0</span>；客戶反饋後修復載入問題，發布 <span class="code-inline">v1.0.1</span>；後續新增一個培訓關卡，發布 <span class="code-inline">v1.1.0</span>。</p>
+    <p class="ref-line">內部開發階段（尚未交付客戶）的版本號管理不受此限制，可依項目需要從 <span class="code-inline">0.x.x</span> 起步；<strong>以首次正式交付客戶的版本為 1.0.0 起點</strong>。</p>
   </div>
 
   <div class="content-block">
@@ -157,6 +200,6 @@
 
   <aside class="note-box">
     <h4>注意事項</h4>
-    <p>發布新版本時，須同步更新 <span class="code-inline">CHANGELOG.md</span>（詳見 <a href="#changelog" class="section-ref" data-section="changelog">CHANGELOG 規範</a>）。若同一次發布同時包含多種變更類型，以最高優先級為準：MAJOR &gt; MINOR &gt; PATCH。培訓項目可在 Repository 名稱之外，另以 Tag 或 Release 標記語義化版本號。</p>
+    <p>發布新版本時，須同步更新 <span class="code-inline">CHANGELOG.md</span>（詳見 <a href="#changelog" class="section-ref" data-section="changelog">CHANGELOG 規範</a>）。若同一次發布同時包含多種變更類型，以最高優先級為準：MAJOR &gt; MINOR &gt; PATCH。培訓項目可在 Repository 名稱之外，另以 Tag 或 Release 標記語義化版本號。<strong>交付客戶的 APK、EXE 等安裝包，首次交付須為 v1.0.0</strong>，後續更新依上方「客戶交付版本」規則遞增。</p>
   </aside>
 </article>

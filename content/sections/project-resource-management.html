@@ -1,0 +1,168 @@
+<article class="section" id="project-resource-management" data-section="project-resource-management">
+  <header class="section-header">
+    <span class="section-label">項目資源管理</span>
+    <h2>SharePoint Documents 目錄規範</h2>
+    <p class="section-desc">各項目於 SharePoint <strong>Documents</strong> 下依階段編號建立資料夾，統一存放項目文件與交付物。上傳資源前須確認目標資料夾，避免混放或覆蓋他人檔案。</p>
+  </header>
+
+  <div class="content-block">
+    <h3>目錄結構總覽</h3>
+    <p>每個項目在 SharePoint <strong>Documents</strong> 根目錄下，依項目生命週期劃分為編號資料夾（0–7）。開發階段（4）再依職能細分為 Graphics、Material、Programming 三個子資料夾。</p>
+    <figure class="guide-screenshot">
+      <div class="guide-screenshot-media">
+        <img src="assets/sharepoint-documents-folders.png"
+             alt="SharePoint Documents 根目錄下的項目資料夾列表，含 0 Project Management 至 7 Operation &amp; Maintenance"
+             loading="lazy">
+      </div>
+      <figcaption>SharePoint Documents 標準目錄結構（以實際項目為準，子資料夾可再細分）</figcaption>
+    </figure>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>資料夾</th>
+          <th>用途</th>
+          <th>主要存放內容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0</td>
+          <td><span class="code-inline">Project Management</span></td>
+          <td>項目管理</td>
+          <td><strong>T&amp;P</strong>（Task &amp; Progress）、會議紀錄、項目計劃與管理類文件</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><span class="code-inline">Requirement</span></td>
+          <td>需求階段</td>
+          <td>需求文件、客戶確認材料、需求變更記錄</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="code-inline">Design</span></td>
+          <td>設計階段</td>
+          <td>設計稿、流程圖、原型與設計評審材料</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="code-inline">Planning</span></td>
+          <td>規劃階段</td>
+          <td>排期、資源規劃、里程碑計劃</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="code-inline">Development - Graphics</span></td>
+          <td>美術開發</td>
+          <td><strong>Graphic Team</strong> 產出的 APK、EXE、進度截圖 / 圖片、美術資源包等</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="code-inline">Development - Material</span></td>
+          <td>生產材料</td>
+          <td>項目生產所用到的<strong>原材料與參考素材</strong>（模型源檔、貼圖源檔、音效、參考圖等）</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="code-inline">Development - Programming</span></td>
+          <td>程式開發</td>
+          <td><strong>Program Team</strong> 產出的 APK、EXE、進度截圖 / 圖片、測試包等</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><span class="code-inline">Testing</span></td>
+          <td>測試階段</td>
+          <td>測試報告、缺陷記錄、測試用安裝包與驗證材料</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><span class="code-inline">Deployment</span></td>
+          <td>部署交付</td>
+          <td>正式交付客戶的安裝包、部署說明、交付清單（首次交付版本號為 <span class="code-inline">v1.0.0</span>，見 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a>）</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><span class="code-inline">Operation &amp; Maintenance</span></td>
+          <td>運維階段</td>
+          <td>上線後維護記錄、客戶反饋處理、迭代更新包</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>開發階段（4）分工對照</h3>
+    <p>開發過程中產出的安裝包與進度材料，須依負責團隊上傳至對應子資料夾，<strong>不可混放</strong>：</p>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>團隊</th>
+          <th>目標資料夾</th>
+          <th>典型檔案</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Graphic Team</strong></td>
+          <td><span class="code-inline">4 Development - Graphics</span></td>
+          <td>APK、EXE、場景 / UI 進度截圖、渲染預覽圖、美術資源匯出包</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Program Team</strong></td>
+          <td><span class="code-inline">4 Development - Programming</span></td>
+          <td>APK、EXE、功能演示截圖、除錯用測試包、整合進度材料</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>全員（生產素材）</td>
+          <td><span class="code-inline">4 Development - Material</span></td>
+          <td>項目製作所需的原始素材與參考資料，非每日進度匯報包</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="ref-line"><strong>影片類檔案</strong>因 SharePoint 儲存空間限制，不上傳至此目錄，改依 <a href="#youtube-upload-share" class="section-ref" data-section="youtube-upload-share">YouTube 上傳和分享規範</a> 處理，並於 Planner 附上連結。</p>
+  </div>
+
+  <div class="content-block">
+    <h3>日常操作要點</h3>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>事項</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>更新 T&amp;P</td>
+          <td>每日到崗與下班前更新 <strong>T&amp;P</strong>，檔案存放於 <span class="code-inline">0 Project Management</span>（詳見 <a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a>）</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>進度材料歸檔</td>
+          <td>APK、EXE、截圖等進度支撐材料上傳至對應的 <span class="code-inline">4 Development - Graphics</span> 或 <span class="code-inline">4 Development - Programming</span>，並於 Planner 任務中附上 SharePoint 連結</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>檔名與版本</td>
+          <td>安裝包檔名須能辨識項目與版本號；首次交付客戶為 <span class="code-inline">v1.0.0</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>避免覆蓋</td>
+          <td>同一檔案有新版本時，以版本號或日期區分檔名，保留歷史記錄，勿直接覆蓋舊檔</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <aside class="note-box">
+    <h4>注意事項</h4>
+    <p>SharePoint 為項目文件的<strong>權威存放位置</strong>；源代碼與美術工程檔仍須依 <a href="#github-desktop" class="section-ref" data-section="github-desktop">GitHub Desktop 提交規範</a> 提交至 GitHub。兩者分工：SharePoint 存放可分享的交付物與進度材料，GitHub 存放可版本控制的源代碼與工程資源。</p>
+  </aside>
+</article>
