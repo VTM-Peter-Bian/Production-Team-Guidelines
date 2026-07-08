@@ -7,7 +7,12 @@
   const mainEl = document.getElementById("main");
   const navListEl = document.getElementById("nav-list");
   const footerLinkEl = document.getElementById("footer-link");
+  const navToggleEl = document.getElementById("nav-toggle");
+  const sidebarOverlayEl = document.getElementById("sidebar-overlay");
+  const sidebarCloseEl = document.getElementById("sidebar-close");
+  const mobileTopbarTitleEl = document.getElementById("mobile-topbar-title");
 
+  const mobileLayoutQuery = window.matchMedia("(max-width: 1024px)");
   const sectionCache = new Map();
   let navConfig = null;
   let bundleSections = null;
@@ -128,11 +133,81 @@
     return section ? section.dataset.section : null;
   }
 
+  function isMobileLayout() {
+    return mobileLayoutQuery.matches;
+  }
+
+  function setSidebarOpen(isOpen) {
+    document.body.classList.toggle("sidebar-open", isOpen);
+    if (navToggleEl) {
+      navToggleEl.setAttribute("aria-expanded", String(isOpen));
+      navToggleEl.setAttribute("aria-label", isOpen ? "關閉導航" : "開啟導航");
+    }
+    if (sidebarOverlayEl) {
+      sidebarOverlayEl.setAttribute("aria-hidden", String(!isOpen));
+    }
+  }
+
+  function openSidebar() {
+    if (!isMobileLayout()) return;
+    setSidebarOpen(true);
+  }
+
+  function closeSidebar() {
+    setSidebarOpen(false);
+  }
+
+  function toggleSidebar() {
+    if (!isMobileLayout()) return;
+    setSidebarOpen(!document.body.classList.contains("sidebar-open"));
+  }
+
+  function closeSidebarIfMobile() {
+    if (isMobileLayout()) {
+      closeSidebar();
+    }
+  }
+
+  function scrollToMainTop() {
+    if (isMobileLayout()) {
+      const top =
+        mainEl.getBoundingClientRect().top +
+        window.scrollY -
+        parseFloat(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--mobile-topbar-height"
+          ) || "52"
+        );
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      return;
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function scrollToAnchor(anchorId) {
     const anchor = document.getElementById(anchorId);
     if (anchor) {
       anchor.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  }
+
+  function initMobileNav() {
+    navToggleEl?.addEventListener("click", toggleSidebar);
+    sidebarCloseEl?.addEventListener("click", closeSidebar);
+    sidebarOverlayEl?.addEventListener("click", closeSidebar);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeSidebar();
+      }
+    });
+
+    mobileLayoutQuery.addEventListener("change", () => {
+      if (!isMobileLayout()) {
+        closeSidebar();
+      }
+    });
   }
 
   function setNavActive(sectionId) {
@@ -275,10 +350,12 @@
       const hash = anchorId || sectionId;
       history.replaceState(null, "", `#${hash}`);
 
+      closeSidebarIfMobile();
+
       if (anchorId) {
         requestAnimationFrame(() => scrollToAnchor(anchorId));
       } else {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        requestAnimationFrame(() => scrollToMainTop());
       }
     } catch (error) {
       mainEl.innerHTML = `<div class="error-state"><h2>載入失敗</h2><p>${error.message}</p></div>`;
@@ -312,6 +389,9 @@
       document.getElementById("site-title").textContent = navConfig.site.title;
       document.getElementById("site-subtitle").textContent = navConfig.site.subtitle;
       document.title = navConfig.site.title;
+      if (mobileTopbarTitleEl) {
+        mobileTopbarTitleEl.textContent = navConfig.site.title;
+      }
 
       if (navConfig.site.version) {
         document.getElementById("site-version").textContent = navConfig.site.version;
@@ -333,6 +413,7 @@
 
       renderNav(navConfig);
       bindSectionNavigation(footerLinkEl);
+      initMobileNav();
 
       const hash = window.location.hash.slice(1);
       const { sectionId, anchorId } = resolveHash(hash);

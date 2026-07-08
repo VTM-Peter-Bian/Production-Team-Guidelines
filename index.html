@@ -7,13 +7,37 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <header class="mobile-topbar" id="mobile-topbar">
+    <button
+      type="button"
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-label="開啟導航"
+      aria-expanded="false"
+      aria-controls="sidebar"
+    >
+      <span class="nav-toggle-icon" aria-hidden="true"></span>
+    </button>
+    <span class="mobile-topbar-title" id="mobile-topbar-title">VTM開發組規範文檔</span>
+  </header>
+
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <header class="sidebar-header">
+        <button
+          type="button"
+          class="sidebar-close"
+          id="sidebar-close"
+          aria-label="關閉導航"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
         <h1 class="site-title" id="site-title">VTM開發組規範文檔</h1>
         <p class="site-subtitle" id="site-subtitle">Production Team Guidelines</p>
         <p class="site-meta" id="site-meta">
-          <span class="site-version" id="site-version">V0.5.1</span>
+          <span class="site-version" id="site-version">V0.5.2</span>
           <span class="site-meta-sep" aria-hidden="true">·</span>
           <span class="site-updated" id="site-updated">更新於 2026-07-08</span>
         </p>
