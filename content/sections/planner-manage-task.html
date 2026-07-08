@@ -246,6 +246,61 @@ When:
     </div>
   </div>
 
+  <div class="content-block" id="planner-man-day-change">
+    <h3>Man-day 與 Due Day 變更申請</h3>
+    <p>任務創建時，任務名稱括號內標注的 <strong>man-day</strong> 與 <strong>Due Day</strong> 為初始預估。若在實際執行過程中工時或截止日期需要調整，<strong>須先在 Planner 評論區提出申請，經審批人批准後</strong>，方可開始追加的工作，並同步更新任務欄位。</p>
+    <p>任務名稱出現 <span class="code-inline">(xd+yd=?d)</span> 格式（如 <span class="code-inline">GS Creator Research (1d+2d=3d)</span>），表示原計劃工時之外曾<strong>申請並獲批</strong>追加的 man-day；各段工時以 <span class="code-inline">+</span> 連接，等號右側為核准後的總 man-day（詳見 <a href="#planner-create-task" class="section-ref" data-section="planner-create-task">創建任務規範</a> 命名規則）。</p>
+
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>步驟</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>在評論區提出申請</td>
+          <td>以分級序號格式說明<strong>新增 man-day 數量</strong>、<strong>對應日期</strong>與<strong>具體工作內容</strong>，並 @ 審批人</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>等待審批</td>
+          <td>審批人於評論區回覆 <span class="code-inline">序號) 姓名, approved.</span>（如 <span class="code-inline">3) Peter, approved.</span>）</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>批准後再開工</td>
+          <td><strong>未獲批准前，不得開始追加工作</strong>；批准後方可執行申請中列明的事項</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>同步更新任務欄位</td>
+          <td>更新任務名稱（man-day 加總）、<strong>截止日期</strong>（Due Day）與備注 <strong>When</strong> 中的 Start Day / Due Day</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>申請範例：</p>
+    <pre class="code-example code-block">3) Victor,
+剛才 11 點跟 Cindy 討論完畢 GS Creator 的研究內容，目前申請新增 2 man-day，這 2 天將處理以下事項:
+3.1) 2026-04-13 (No. 1 man-day): 需處理事項…
+3.2) 2026-04-14 (No. 2 man-day): 需處理事項…</pre>
+    <p>審批回覆範例：</p>
+    <pre class="code-example code-block">3) Peter, approved.</pre>
+
+    <figure class="guide-screenshot">
+      <div class="guide-screenshot-media">
+        <img src="assets/planner-progress-report.png"
+             alt="Planner 任務評論區中申請新增 man-day 與審批 approved 的示例"
+             loading="lazy">
+      </div>
+      <figcaption>Man-day 變更申請示例：評論區提出追加申請（下方），審批人回覆 <span class="code-inline">approved.</span>（上方）後方可開工</figcaption>
+    </figure>
+  </div>
+
   <div class="content-block" id="planner-progress-report">
     <h3>每日進度匯報格式</h3>
     <p>每日 <strong>17:00 前</strong>須在對應 Planner 任務的評論區進行工作進度匯報（詳見 <a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a>）。匯報須使用分級序號，格式如下：</p>
@@ -313,6 +368,6 @@ When:
 
   <aside class="note-box">
     <h4>注意事項</h4>
-    <p>進度匯報須有明確的支撐材料（APK、截圖、影片等），確保工作成果可追溯。申請新增 man-day 時亦須在評論區以序號格式說明，並等待審批（如 <span class="code-inline">3) Peter, approved.</span>）。</p>
+    <p>進度匯報須有明確的支撐材料（APK、截圖、影片等），確保工作成果可追溯。若 man-day 或 Due Day 需變更，須依 <a href="#planner-man-day-change" class="section-ref" data-section="planner-manage-task" data-anchor="planner-man-day-change">Man-day 與 Due Day 變更申請</a> 在評論區提出申請，經批准後方可開始追加工作。</p>
   </aside>
 </article>
