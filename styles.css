@@ -754,6 +754,18 @@ body.sidebar-open .nav-toggle-icon::after {
 
 /* ---- Note Box ---- */
 
+/* ---- Org chart (ECharts tree) ---- */
+
+.org-chart-mount {
+  margin-top: 1.25rem;
+  width: 100%;
+  min-height: 34rem;
+  padding: 1rem 0.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+}
+
 .note-box {
   margin-top: 2.5rem;
   padding: 1.25rem 1.5rem;
@@ -1282,5 +1294,10 @@ body.sidebar-open .nav-toggle-icon::after {
   .reds-matrix {
     table-layout: auto;
     min-width: 720px;
+  }
+
+  .org-chart-mount {
+    min-height: 42rem;
+    padding: 0.5rem 0;
   }
 }

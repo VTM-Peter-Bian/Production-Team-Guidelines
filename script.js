@@ -320,6 +320,214 @@
     });
   }
 
+  let echartsLoadPromise = null;
+
+  const ORG_CHART_MUTED = {
+    itemStyle: {
+      color: "#fafafa",
+      borderColor: "#cccccc",
+      borderWidth: 1,
+      borderType: "dashed",
+    },
+    label: { color: "#666666" },
+  };
+
+  const ORG_CHART_DATA = {
+    name: "VTM DIGITAL LIMITED",
+    symbolSize: [210, 46],
+    itemStyle: { color: "#0a0a0a", borderColor: "#0a0a0a", borderWidth: 0 },
+    label: { color: "#ffffff", fontWeight: 700, fontSize: 13 },
+    children: [
+      {
+        name: "CTO\nVictor DAO",
+        symbolSize: [132, 50],
+        itemStyle: { color: "#ffffff", borderColor: "#1a1a1a", borderWidth: 2 },
+        label: { color: "#1a1a1a", fontWeight: 600 },
+        children: [
+          {
+            name: "Technical Department\n本文檔重點",
+            symbolSize: [188, 50],
+            itemStyle: { color: "#ffffff", borderColor: "#1a1a1a", borderWidth: 2 },
+            label: { color: "#1a1a1a", fontWeight: 600 },
+            children: [
+              {
+                name: "Project Management\n& Operation",
+                symbolSize: [156, 46],
+                itemStyle: {
+                  color: "#f5f5f5",
+                  borderColor: "#1a1a1a",
+                  borderWidth: 1,
+                },
+              },
+              {
+                name: "R&D",
+                symbolSize: [84, 40],
+                itemStyle: {
+                  color: "#f5f5f5",
+                  borderColor: "#1a1a1a",
+                  borderWidth: 1,
+                },
+              },
+              {
+                name: "Production\n開發組",
+                symbolSize: [118, 50],
+                itemStyle: { color: "#ffffff", borderColor: "#1a1a1a", borderWidth: 2 },
+                label: { color: "#1a1a1a", fontWeight: 600 },
+                children: [
+                  {
+                    name: "Graphics",
+                    symbolSize: [96, 38],
+                    itemStyle: {
+                      color: "#ffffff",
+                      borderColor: "#1a1a1a",
+                      borderWidth: 1,
+                    },
+                  },
+                  {
+                    name: "Programming",
+                    symbolSize: [108, 38],
+                    itemStyle: {
+                      color: "#ffffff",
+                      borderColor: "#1a1a1a",
+                      borderWidth: 1,
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "CEO\nTerry DAO",
+        symbolSize: [132, 50],
+        itemStyle: { color: "#ffffff", borderColor: "#1a1a1a", borderWidth: 2 },
+        label: { color: "#1a1a1a", fontWeight: 600 },
+        children: [
+          {
+            name: "Business Development\nDepartment",
+            symbolSize: [156, 46],
+            ...ORG_CHART_MUTED,
+          },
+          {
+            name: "Accounting\nDepartment",
+            symbolSize: [132, 46],
+            ...ORG_CHART_MUTED,
+          },
+          {
+            name: "HR & Admin\nDepartment",
+            symbolSize: [132, 46],
+            ...ORG_CHART_MUTED,
+          },
+          {
+            name: "Marketing",
+            symbolSize: [104, 40],
+            ...ORG_CHART_MUTED,
+          },
+        ],
+      },
+    ],
+  };
+
+  function loadEchartsScript() {
+    if (window.echarts) {
+      return Promise.resolve(window.echarts);
+    }
+
+    if (!echartsLoadPromise) {
+      echartsLoadPromise = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = resolveUrl("assets/vendor/echarts.min.js");
+        script.onload = () => resolve(window.echarts);
+        script.onerror = () => {
+          reject(new Error("無法載入 ECharts（assets/vendor/echarts.min.js）"));
+        };
+        document.head.appendChild(script);
+      });
+    }
+
+    return echartsLoadPromise;
+  }
+
+  function getOrgChartOption() {
+    return {
+      backgroundColor: "transparent",
+      series: [
+        {
+          type: "tree",
+          data: [ORG_CHART_DATA],
+          orient: "TB",
+          top: "4%",
+          left: "3%",
+          bottom: "4%",
+          right: "3%",
+          symbol: "rect",
+          roam: false,
+          expandAndCollapse: false,
+          initialTreeDepth: -1,
+          edgeShape: "polyline",
+          edgeForkPosition: "50%",
+          lineStyle: {
+            color: "#333333",
+            width: 1.5,
+            curveness: 0,
+          },
+          label: {
+            position: "inside",
+            verticalAlign: "middle",
+            align: "center",
+            fontSize: 12,
+            lineHeight: 16,
+            color: "#1a1a1a",
+            overflow: "break",
+            fontFamily:
+              '-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", sans-serif',
+          },
+          leaves: {
+            label: {
+              fontSize: 11,
+            },
+          },
+          animationDuration: 250,
+          animationDurationUpdate: 250,
+        },
+      ],
+    };
+  }
+
+  function disposeOrgChart(mount) {
+    if (mount._orgChartResize) {
+      window.removeEventListener("resize", mount._orgChartResize);
+      mount._orgChartResize = null;
+    }
+    if (mount._orgChartInstance) {
+      mount._orgChartInstance.dispose();
+      mount._orgChartInstance = null;
+    }
+  }
+
+  async function initOrgChart(root) {
+    const mount = root.querySelector("#org-chart-mount");
+    if (!mount) return;
+
+    disposeOrgChart(mount);
+    mount.innerHTML = "";
+
+    try {
+      const echarts = await loadEchartsScript();
+      const chart = echarts.init(mount, null, { renderer: "svg" });
+      mount._orgChartInstance = chart;
+      chart.setOption(getOrgChartOption());
+
+      const resize = () => chart.resize();
+      mount._orgChartResize = resize;
+      window.addEventListener("resize", resize);
+    } catch (error) {
+      mount.innerHTML = `<p class="error-state">組織架構圖載入失敗：${error.message}</p>`;
+      console.error(error);
+    }
+  }
+
   async function loadEmbeddedExamples(root) {
     const textExamples = root.querySelectorAll("[data-example]");
     await Promise.all(
@@ -352,6 +560,11 @@
   }
 
   async function mountSection(sectionId) {
+    const existingMount = mainEl.querySelector("#org-chart-mount");
+    if (existingMount) {
+      disposeOrgChart(existingMount);
+    }
+
     const html = await loadSectionHtml(sectionId);
     const meta = getSectionMeta(sectionId);
 
@@ -366,6 +579,7 @@
     }
 
     await loadEmbeddedExamples(mainEl);
+    await initOrgChart(mainEl);
     bindCrossReferences();
     bindCopyPromptButtons(mainEl);
     setNavActive(sectionId);

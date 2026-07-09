@@ -39,7 +39,7 @@
               <tr>
                 <td>5</td>
                 <td>文檔版本</td>
-                <td>V0.5.5（語義化版本，見 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a>）</td>
+                <td>V0.5.6（語義化版本，見 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a>）</td>
               </tr>
               <tr>
                 <td>6</td>
@@ -143,7 +143,7 @@
           <p>文檔採用<strong>配置驅動 + 內容分離</strong>架構，避免所有內容堆疊在單一 <span class="code-inline">index.html</span> 中：</p>
           <pre class="code-example code-block">Production-Team-Guidelines/
 ├── index.html              # 頁面殼層（側欄 + 內容容器）
-├── script.js               # 導航、內容載入、交叉引用
+├── script.js               # 導航、內容載入、交叉引用、組織架構圖
 ├── styles.css              # 全域樣式
 ├── config/
 │   └── nav.json            # 導航結構與欄目對應設定
@@ -152,6 +152,8 @@
 │   ├── sections/           # 各欄目 HTML 片段（一欄一檔）
 │   └── examples/           # 長篇範例（如 SDK CHANGELOG）
 └── assets/                 # 圖片等靜態資源
+    └── vendor/
+        └── echarts.min.js  # 組織架構樹狀圖（進入對應欄目時懶加載）
 build.py                    # 打包腳本</pre>
         </div>
 
@@ -310,6 +312,66 @@ build.py                    # 打包腳本</pre>
         </div>
 
         <div class="content-block">
+          <h3>組織架構樹狀圖</h3>
+          <p>層級型組織架構圖使用 <strong>Apache ECharts</strong> 的 <span class="code-inline">tree</span> 系列繪製，避免手寫 CSS 連線或流程圖工具自動排版造成的錯位。參見 <a href="#company-structure" class="section-ref" data-section="company-structure">組織架構</a>。</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>項目</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>依賴檔案</td>
+                <td><span class="code-inline">assets/vendor/echarts.min.js</span>，僅在含圖表的欄目載入時注入，不影響其他頁面</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>HTML 掛載點</td>
+                <td>欄目內放置 <span class="code-inline">&lt;div id="org-chart-mount" class="org-chart-mount"&gt;</span>，並設 <span class="code-inline">role="img"</span> 與 <span class="code-inline">aria-label</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>樹狀資料</td>
+                <td>在 <span class="code-inline">script.js</span> 的 <span class="code-inline">ORG_CHART_DATA</span> 維護父子層級；切換欄目時自動 <span class="code-inline">dispose</span> 圖表實例</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>版面與連線</td>
+                <td>自上而下（<span class="code-inline">orient: "TB"</span>）、折線連接（<span class="code-inline">edgeShape: "polyline"</span>），SVG 渲染以利縮放清晰</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>節點樣式</td>
+                <td>公司根節點黑底白字；重點部門白底黑框；一般技術單元灰底；CEO 分管部門使用 <span class="code-inline">ORG_CHART_MUTED</span>（虛線、淡色文字）</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>換行</td>
+                <td>節點標籤以 <span class="code-inline">\n</span> 換行；透過 <span class="code-inline">symbolSize: [寬, 高]</span> 控制方框尺寸</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>容器樣式</td>
+                <td>外層使用 <span class="code-inline">.org-chart-mount</span>（定義於 <span class="code-inline">styles.css</span>），最小高度確保樹狀圖完整顯示</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>頁面說明</td>
+                <td>欄目正文只描述架構含義，<strong>勿標注</strong>繪圖工具或第三方庫名稱</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>欄目 HTML 掛載點範例：</p>
+          <pre class="code-example code-block">&lt;div id="org-chart-mount" class="org-chart-mount"
+     role="img" aria-label="VTM 公司組織架構樹狀圖"&gt;&lt;/div&gt;</pre>
+          <p>更新組織架構時，修改 <span class="code-inline">script.js</span> 中 <span class="code-inline">ORG_CHART_DATA</span> 的 <span class="code-inline">children</span> 層級即可；無需改動欄目 HTML（除非調整說明表格或文案）。</p>
+        </div>
+
+        <div class="content-block">
           <h3>長篇範例載入</h3>
           <p>過長內容不直接內嵌於欄目 HTML，改放 <span class="code-inline">content/examples/</span> 並按需載入：</p>
           <table class="spec-table">
@@ -386,6 +448,11 @@ build.py                    # 打包腳本</pre>
               </tr>
               <tr>
                 <td>8</td>
+                <td>組織架構圖</td>
+                <td>層級架構使用 ECharts 樹狀圖，遵循上方「組織架構樹狀圖」規範；勿以純 CSS 手繪或流程圖語法替代</td>
+              </tr>
+              <tr>
+                <td>9</td>
                 <td>版本與日期</td>
                 <td>重大更新時同步修改 <span class="code-inline">config/nav.json</span> 的 <span class="code-inline">site.version</span> 與 <span class="code-inline">site.updatedAt</span></td>
               </tr>
