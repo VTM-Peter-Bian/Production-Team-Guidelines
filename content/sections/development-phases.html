@@ -7,7 +7,7 @@
 
   <div class="content-block">
     <h3>為什麼要劃分這些階段</h3>
-    <p>開發組並非「一開始就同時全面開做美術與程式」，而是先把研究、設計與風險驗證做完，再進入正式製作；正式交付可運行軟件後，再依客戶 feedback 進入下一輪修改。階段劃分的目的是：</p>
+    <p>開發組並非「一開始就同時全面開做美術與程式」，而是先把研究、設計與風險驗證做完，再進入正式製作；正式交付可運行軟件後，再依<strong>經評估確認</strong>的客戶 feedback 進入下一輪修改。階段劃分的目的是：</p>
     <ul class="content-list">
       <li>讓團隊清楚<strong>現在該做什麼、不該做什麼</strong>（例如：flow 與關鍵技術尚未驗證前，不應直接進入 G1 / P1 正式製作）</li>
       <li>讓 <strong>G</strong> 與 <strong>P</strong> 的完成標準可檢查、可匯報（對應 <a href="#completion" class="section-ref" data-section="completion">完成（Completion）</a>）</li>
@@ -44,13 +44,13 @@
           <td>3</td>
           <td>客人吃到第一道菜後提出調整（口味、擺盤、漏項）</td>
           <td><strong>G2 / P2</strong></td>
-          <td>客戶已收到可運行軟件後的 feedback 修改輪次</td>
+          <td>客戶已收到可運行軟件後，經評估確認應修正的 feedback 修改輪次（非所有客戶意見都會進入）</td>
         </tr>
         <tr>
           <td>4</td>
           <td>少數情況再改第二輪、第三輪</td>
           <td><strong>G3 / P3</strong></td>
-          <td>概念同 G2 / P2；預計較少進入，但仍可能發生</td>
+          <td>預計較少進入；主要處理<strong>嚴重 bug</strong>，而非一般性調整</td>
         </tr>
       </tbody>
     </table>
@@ -96,29 +96,29 @@
           <td>4</td>
           <td><strong>G2</strong></td>
           <td>Graphic Team</td>
-          <td>G1 / P1 交付後，依客戶 feedback</td>
-          <td>本輪客戶提出的美術資源修改已完成</td>
+          <td>G1 / P1 交付後，經評估確認應修正的客戶 feedback</td>
+          <td>本輪已確認的美術資源修改已完成</td>
         </tr>
         <tr>
           <td>5</td>
           <td><strong>P2</strong></td>
           <td>Program Team</td>
-          <td>G1 / P1 交付後，依客戶 feedback</td>
-          <td>本輪客戶提出的程式問題與相關調整已完成</td>
+          <td>G1 / P1 交付後，經評估確認應修正的客戶 feedback</td>
+          <td>本輪已確認的程式問題與相關調整已完成</td>
         </tr>
         <tr>
           <td>6</td>
           <td><strong>G3</strong></td>
           <td>Graphic Team</td>
-          <td>預計較少；概念同 G2</td>
-          <td>第三輪美術修改已完成</td>
+          <td>預計較少；主要因嚴重美術問題或 bug</td>
+          <td>第三輪已確認的修改已完成</td>
         </tr>
         <tr>
           <td>7</td>
           <td><strong>P3</strong></td>
           <td>Program Team</td>
-          <td>預計較少；概念同 P2</td>
-          <td>第三輪程式修改已完成</td>
+          <td>預計較少；主要因嚴重程式 bug</td>
+          <td>第三輪已確認的修改已完成</td>
         </tr>
       </tbody>
     </table>
@@ -280,6 +280,41 @@
   <div class="topic-block" id="phase-g2-p2">
     <h3 class="topic-title"><span class="topic-num">03</span> G2 / P2（第一輪回饋迭代）</h3>
     <p>依過往經驗，客戶在收到可運行軟件後，往往會再提出 feedback。這些回饋可能落在美術、程式，或兩者都有，因此分別進入 <strong>G2</strong> 與／或 <strong>P2</strong>。</p>
+    <p><strong>重要：</strong>此處的 feedback 指的是<strong>確實是我們做錯、做漏或與已確認規格不符</strong>之處——我們應負責修正。客戶提出的每一項意見，<strong>並不會自動進入 G2 / P2</strong>；須先經團隊評估，確認納入本輪修改範圍後，才開始計入 G2 / P2 工時。</p>
+
+    <h4 class="topic-subtitle">是否進入 G2 / P2 的評估因素</h4>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>評估因素</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>是否確實是我們的問題</strong></td>
+          <td>屬於我們做錯、做漏、與 T&amp;P／已確認規格不符，還是客戶事後追加的新需求</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>需求是否合理</strong></td>
+          <td>修改方向是否符合項目目標與已確認範圍；不合理的改動需求不應納入本輪</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>技術上是否可行</strong></td>
+          <td>在現有架構、工具鏈與硬體限制下能否實現</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>是否有時間／工時</strong></td>
+          <td>項目排期與 man-day 是否容許納入；超出範圍者須另行申請或協商</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="ref-line">綜合以上因素確認應修正的項目後，形成<strong>本輪已確認的 feedback 清單</strong>，再進入 G2 / P2 執行。客戶提出但不合理的改動需求，<strong>不應</strong>因「客戶有提」就自動修改。</p>
 
     <table class="spec-table spec-table-wide">
       <thead>
@@ -294,35 +329,35 @@
         <tr>
           <td>1</td>
           <td><strong>G2</strong></td>
-          <td>客戶要求修改美術資源（造型、材質、UI、場景細節、動畫表現等）</td>
-          <td>本輪客戶提出的<strong>美術資源修改</strong>已完成</td>
+          <td>經評估確認應修正的美術問題（造型、材質、UI、場景細節、動畫表現等）</td>
+          <td>本輪已確認的<strong>美術資源修改</strong>已完成</td>
         </tr>
         <tr>
           <td>2</td>
           <td><strong>P2</strong></td>
-          <td>客戶回報程式 bug、流程調整、互動修正、穩定性問題等</td>
-          <td>本輪客戶提出的<strong>程式問題與相關調整</strong>已完成</td>
+          <td>經評估確認應修正的程式 bug、流程偏差、互動問題、穩定性問題等</td>
+          <td>本輪已確認的<strong>程式問題與相關調整</strong>已完成</td>
         </tr>
       </tbody>
     </table>
 
     <h4 class="topic-subtitle">使用原則</h4>
     <ul class="content-list">
-      <li>G2 / P2 的前提通常是：客戶已基於 G1 / P1 的可運行成果提出具體 feedback</li>
-      <li>同一輪中，若 feedback 同時包含美術與程式，G2 與 P2 可並行，但須各自對齊完成定義</li>
-      <li>本輪完成，指的是<strong>本輪已確認的 feedback 清單</strong>做完，而不是「客戶永遠不再提意見」</li>
+      <li>G2 / P2 的前提通常是：客戶已基於 G1 / P1 的可運行成果提出具體 feedback，且團隊已完成上述評估、形成確認清單</li>
+      <li>同一輪中，若已確認的 feedback 同時包含美術與程式，G2 與 P2 可並行，但須各自對齊完成定義</li>
+      <li>本輪完成，指的是<strong>本輪已確認的 feedback 清單</strong>做完，而不是「客戶永遠不再提意見」，也不是「客戶提過的都改完」</li>
     </ul>
   </div>
 
   <div class="topic-block" id="phase-g3-p3">
     <h3 class="topic-title"><span class="topic-num">04</span> G3 / P3（後續回饋迭代）</h3>
-    <p>進入 <strong>G3</strong>、<strong>P3</strong> 的情況在規劃上<strong>預計較少</strong>，但概念與 G2 / P2 相同：客戶在上一輪修改後再次提出新的 feedback，美術進入下一輪修改（G3），程式進入下一輪修改（P3）。</p>
-    <table class="spec-table">
+    <p>進入 <strong>G3</strong>、<strong>P3</strong> 的情況在規劃上<strong>預計較少</strong>。與 G2 / P2 不同，本輪<strong>主要處理嚴重 bug</strong>——即影響正常使用、導致流程中斷、或造成明顯錯誤結果的問題；一般性調整或新需求不應以此階段為預設入口。</p>
+    <table class="spec-table spec-table-wide">
       <thead>
         <tr>
           <th>序號</th>
           <th>階段</th>
-          <th>說明</th>
+          <th>常見觸發</th>
           <th>完成定義</th>
         </tr>
       </thead>
@@ -330,18 +365,18 @@
         <tr>
           <td>1</td>
           <td><strong>G3</strong></td>
-          <td>第三輪美術修改（較少發生）</td>
-          <td>第三輪美術修改已完成</td>
+          <td>上一輪後仍存在的<strong>嚴重美術問題</strong>（如關鍵資源錯誤、嚴重穿幫影響培訓效果等，較少發生）</td>
+          <td>第三輪已確認的修改已完成</td>
         </tr>
         <tr>
           <td>2</td>
           <td><strong>P3</strong></td>
-          <td>第三輪程式修改（較少發生）</td>
-          <td>第三輪程式修改已完成</td>
+          <td>上一輪後仍存在的<strong>嚴重程式 bug</strong>（如崩潰、流程卡死、關鍵功能失效等，較少發生）</td>
+          <td>第三輪已確認的修改已完成</td>
         </tr>
       </tbody>
     </table>
-    <p class="ref-line">若項目出現超過三輪的持續迭代，仍沿用「G / P + 輪次數字」的命名邏輯溝通，但應同步檢視需求是否反覆變更、Pre-Production / G1 / P1 的完成定義是否當初未真正達標。</p>
+    <p class="ref-line">若項目出現超過三輪的持續迭代，仍沿用「G / P + 輪次數字」的命名邏輯溝通，但應同步檢視需求是否反覆變更、Pre-Production / G1 / P1 的完成定義是否當初未真正達標，以及 G2 / P2 的 feedback 評估是否到位。</p>
   </div>
 
   <div class="content-block">
@@ -364,15 +399,15 @@
         </tr>
         <tr>
           <td><strong>2</strong></td>
-          <td>依 feedback 改美術</td>
-          <td>依 feedback 修程式／流程</td>
-          <td>第一輪回饋後的修正版</td>
+          <td>依<strong>已確認</strong>的 feedback 改美術</td>
+          <td>依<strong>已確認</strong>的 feedback 修程式／流程</td>
+          <td>第一輪回饋後的修正版（非客戶提過即改）</td>
         </tr>
         <tr>
           <td><strong>3</strong></td>
-          <td>再一輪美術修改（較少）</td>
-          <td>再一輪程式修改（較少）</td>
-          <td>後續回饋後的再修正</td>
+          <td>嚴重美術問題修正（較少）</td>
+          <td>嚴重程式 bug 修正（較少）</td>
+          <td>後續針對嚴重問題的再修正</td>
         </tr>
       </tbody>
     </table>
@@ -384,6 +419,7 @@
       <li>任一階段標記為「完成」時，須符合 <a href="#completion" class="section-ref" data-section="completion">完成（Completion）</a>：目標達成、質量達標、可追溯，而不是「做過一部分」。</li>
       <li>Planner 任務名稱中的 <span class="code-inline">G1</span>、<span class="code-inline">P1</span>、<span class="code-inline">P2</span> 等，即對應本頁階段（範例見 <a href="#planner-create-task" class="section-ref" data-section="planner-create-task">創建任務規範</a>）。</li>
       <li>理想順序是 Pre-Production → G1 → P1；若因排期必須部分重疊，仍不得降低各階段的完成定義。</li>
+      <li>G2 / P2 須先評估 feedback 是否合理、技術可行、工時足夠，確認後才納入本輪；G3 / P3 主要處理嚴重 bug，預計較少進入。</li>
     </ul>
   </aside>
 </article>
