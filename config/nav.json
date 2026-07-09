@@ -2,8 +2,8 @@
   "site": {
     "title": "VTM開發組規範文檔",
     "subtitle": "Production Team Guidelines",
-    "version": "V0.5.4",
-    "updatedAt": "2026-07-08",
+    "version": "V0.5.5",
+    "updatedAt": "2026-07-09",
     "copyright": "© VTM DIGITAL LIMITED"
   },
   "defaultSection": "daily-workflow",
@@ -80,6 +80,7 @@
       "children": [
         { "type": "link", "id": "completion", "label": "完成（Completion）" },
         { "type": "link", "id": "due-date", "label": "到期日（Due Date）" },
+        { "type": "link", "id": "development-phases", "label": "開發階段（Pre-Production / G / P）" },
         { "type": "link", "id": "reds-terminology", "label": "REDS" },
         { "type": "link", "id": "tsa-terminology", "label": "TSA" }
       ]
@@ -105,6 +106,7 @@
     "ai-prompt": { "file": "content/sections/ai-prompt.html" },
     "completion": { "file": "content/sections/completion.html" },
     "due-date": { "file": "content/sections/due-date.html" },
+    "development-phases": { "file": "content/sections/development-phases.html" },
     "reds-terminology": { "file": "content/sections/reds-terminology.html" },
     "doc-style": { "file": "content/sections/doc-style.html" },
     "project-resource-management": { "file": "content/sections/project-resource-management.html" },

@@ -1046,13 +1046,15 @@ body.sidebar-open .nav-toggle-icon::after {
 
 /* ---- Habit Blocks ---- */
 
-.habit-block {
+.habit-block,
+.topic-block {
   margin-bottom: 2.5rem;
   padding-top: 0.5rem;
   scroll-margin-top: 1.5rem;
 }
 
-.habit-title {
+.habit-title,
+.topic-title {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -1063,7 +1065,8 @@ body.sidebar-open .nav-toggle-icon::after {
   border-bottom: 1px solid var(--border);
 }
 
-.habit-num {
+.habit-num,
+.topic-num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1077,13 +1080,22 @@ body.sidebar-open .nav-toggle-icon::after {
   letter-spacing: 0.04em;
 }
 
-.habit-block > p {
+.habit-block > p,
+.topic-block > p {
   color: var(--text-muted);
   margin-bottom: 0.75rem;
 }
 
-.habit-block .spec-table {
+.habit-block .spec-table,
+.topic-block .spec-table {
   margin-bottom: 1rem;
+}
+
+.topic-subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--text);
 }
 
 .guide-screenshots {
@@ -1130,7 +1142,8 @@ body.sidebar-open .nav-toggle-icon::after {
   line-height: 1.5;
 }
 
-.habit-block .spec-table:last-of-type {
+.habit-block .spec-table:last-of-type,
+.topic-block > .spec-table:last-of-type {
   margin-bottom: 0;
 }
 
@@ -1208,7 +1221,8 @@ body.sidebar-open .nav-toggle-icon::after {
     padding-bottom: 0.5625rem;
   }
 
-  .habit-block {
+  .habit-block,
+  .topic-block {
     scroll-margin-top: calc(var(--mobile-topbar-height) + 0.5rem);
   }
 

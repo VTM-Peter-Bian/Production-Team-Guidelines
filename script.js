@@ -407,8 +407,21 @@
     if (hash === "youtube-upload" || hash === "youtube-share") {
       return { sectionId: "youtube-upload-share", anchorId: hash };
     }
-    if (hash === "planner-progress-report" || hash === "planner-man-day-change") {
+    if (
+      hash === "planner-progress-report" ||
+      hash === "planner-man-day-change" ||
+      hash === "planner-comment-join" ||
+      hash === "planner-task-fields"
+    ) {
       return { sectionId: "planner-manage-task", anchorId: hash };
+    }
+    if (
+      hash === "phase-pre-production" ||
+      hash === "phase-g1-p1" ||
+      hash === "phase-g2-p2" ||
+      hash === "phase-g3-p3"
+    ) {
+      return { sectionId: "development-phases", anchorId: hash };
     }
     return { sectionId: navConfig.defaultSection, anchorId: hash };
   }
