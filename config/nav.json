@@ -2,45 +2,28 @@
   "site": {
     "title": "VTM開發組規範文檔",
     "subtitle": "Production Team Guidelines",
-    "version": "V0.5.6",
+    "version": "V0.6.0",
     "updatedAt": "2026-07-09",
     "copyright": "© VTM DIGITAL LIMITED"
   },
   "defaultSection": "daily-workflow",
   "nav": [
     {
-      "type": "link",
-      "id": "daily-workflow",
-      "label": "每日工作流程"
-    },
-    {
-      "type": "link",
-      "id": "work-habits",
-      "label": "工作習慣"
-    },
-    {
-      "type": "link",
-      "id": "company-structure",
-      "label": "組織架構"
-    },
-    {
-      "type": "link",
-      "id": "ai-prompt",
-      "label": "AI Prompt"
-    },
-    {
       "type": "group",
-      "label": "項目進度管理",
+      "label": "入門與日常",
       "children": [
-        { "type": "link", "id": "project-progress-management", "label": "SharePoint Planner 總覽" },
-        { "type": "link", "id": "planner-create-task", "label": "創建任務規範" },
-        { "type": "link", "id": "planner-manage-task", "label": "管理任務規範" }
+        { "type": "link", "id": "daily-workflow", "label": "每日工作流程" },
+        { "type": "link", "id": "work-habits", "label": "工作習慣" },
+        { "type": "link", "id": "company-structure", "label": "組織架構" }
       ]
     },
     {
       "type": "group",
-      "label": "項目資源管理",
+      "label": "SharePoint 項目管理",
       "children": [
+        { "type": "link", "id": "project-progress-management", "label": "SharePoint Planner 總覽" },
+        { "type": "link", "id": "planner-create-task", "label": "創建任務規範" },
+        { "type": "link", "id": "planner-manage-task", "label": "管理任務規範" },
         { "type": "link", "id": "project-resource-management", "label": "SharePoint Documents 規範" }
       ]
     },
@@ -50,7 +33,9 @@
       "children": [
         { "type": "link", "id": "github-account", "label": "GitHub 帳戶規範" },
         { "type": "link", "id": "github-repo", "label": "GitHub Repository 創建規範" },
-        { "type": "link", "id": "github-desktop", "label": "GitHub Desktop 提交規範" }
+        { "type": "link", "id": "github-desktop", "label": "GitHub Desktop 提交規範" },
+        { "type": "link", "id": "version-numbering", "label": "版本號規範" },
+        { "type": "link", "id": "changelog", "label": "CHANGELOG 規範" }
       ]
     },
     {
@@ -63,20 +48,19 @@
     },
     {
       "type": "group",
-      "label": "開發規範",
+      "label": "AI 協作",
       "children": [
-        { "type": "link", "id": "version-numbering", "label": "版本號規範" },
-        { "type": "link", "id": "changelog", "label": "CHANGELOG 規範" },
-        { "type": "link", "id": "unity-ai-coding-standards", "label": "Unity C# AI 編程規範" }
+        { "type": "link", "id": "ai-prompt", "label": "AI Prompt 一覽" },
+        { "type": "link", "id": "unity-ai-coding-standards", "label": "Unity C# AI 編程規範" },
+        { "type": "link", "id": "cursor-ai-assessment", "label": "Cursor AI 評核標準" }
       ]
     },
     {
       "type": "group",
-      "label": "交付標準與評分等級",
+      "label": "品質評分標準",
       "children": [
         { "type": "link", "id": "delivery-standards", "label": "職安培訓交付標準" },
-        { "type": "link", "id": "architecture-scoring", "label": "程式架構評分等級" },
-        { "type": "link", "id": "cursor-ai-assessment", "label": "Cursor AI 評核標準" }
+        { "type": "link", "id": "architecture-scoring", "label": "程式架構評分等級" }
       ]
     },
     {
