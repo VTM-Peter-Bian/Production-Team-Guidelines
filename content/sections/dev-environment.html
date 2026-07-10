@@ -7,7 +7,7 @@
 
   <div class="content-block">
     <h3>環境總覽圖</h3>
-    <p>關聯圖以 <strong>Unity 6</strong> 為中心，六個核心分支分區展開。<strong>實線</strong>為同分支層級；<strong>弧形虛線</strong>為跨分支關聯（曲率分開，避免重疊）。點選節點或連線可高亮到 Unity 6 的路徑；點空白處取消。</p>
+    <p>關聯圖以 <strong>Unity 6</strong> 為中心，六個核心分支分區展開。<strong>實線</strong>為同分支層級；<strong>弧形虛線</strong>為跨分支關聯。點選節點或連線會高亮：通往 Unity 6 的路徑，以及與該點直接相連的節點（例如點 One-Off 時一併高亮 Library、Standard）；點空白處取消。</p>
     <ul class="dev-env-legend" aria-label="圖例">
       <li><span class="dev-env-legend-swatch dev-env-legend-swatch--core"></span>核心</li>
       <li><span class="dev-env-legend-swatch dev-env-legend-swatch--branch"></span>核心分支</li>
@@ -47,7 +47,7 @@
         <tr>
           <td>4</td>
           <td><strong>VTM Software Factory</strong></td>
-          <td>開發組自研軟體工廠；含子分支 <strong>Library</strong>、<strong>Standard</strong>（TSA／REDS）、<strong>Template</strong>（CTP／PMTP）</td>
+          <td>開發組自研軟體工廠；含子分支 <strong>Library</strong>、<strong>Standard</strong>、<strong>Template</strong>、<strong>One-Off</strong></td>
         </tr>
         <tr>
           <td>5</td>
@@ -310,7 +310,7 @@
 
   <div class="content-block">
     <h3>4. VTM Software Factory（內部軟體工廠）</h3>
-    <p>開發組自研的共用資產工廠，劃分為 <strong>Library</strong>、<strong>Standard</strong>、<strong>Template</strong> 三個子分支。三個 Library 依 <a href="#tsa-terminology" class="section-ref" data-section="tsa-terminology">TSA</a> 與 <a href="#reds-terminology" class="section-ref" data-section="reds-terminology">REDS</a> 標準建構；CTP／PMTP 模板再組合三個 Library 產出。</p>
+    <p>開發組自研的共用資產工廠，劃分為 <strong>Library</strong>、<strong>Standard</strong>、<strong>Template</strong>、<strong>One-Off</strong> 四個子分支。Library 依 <a href="#tsa-terminology" class="section-ref" data-section="tsa-terminology">TSA</a>／<a href="#reds-terminology" class="section-ref" data-section="reds-terminology">REDS</a>（Standard）建構；CTP／PMTP／XRA 與 One-Off 均以虛線關聯至 Library 與 Standard。跨分支以虛線連至彙總節點。</p>
     <table class="spec-table">
       <thead>
         <tr>
@@ -331,25 +331,25 @@
           <td>4.1</td>
           <td><strong>Library</strong></td>
           <td>核心分支</td>
-          <td>共用程式庫子分支</td>
+          <td>共用程式庫子分支；依 Standard（TSA／REDS）建構</td>
         </tr>
         <tr>
           <td>4.1.1</td>
           <td>Design Library</td>
           <td>組成部分</td>
-          <td>設計相關共用資源與工具；依 TSA／REDS 建構</td>
+          <td>設計相關共用資源與工具</td>
         </tr>
         <tr>
           <td>4.1.2</td>
           <td>Function Library</td>
           <td>組成部分</td>
-          <td>通用功能模組；依 TSA／REDS 建構</td>
+          <td>通用功能模組</td>
         </tr>
         <tr>
           <td>4.1.3</td>
           <td>UI Library</td>
           <td>組成部分</td>
-          <td>共用 UI 元件與樣式；依 TSA／REDS 建構</td>
+          <td>共用 UI 元件與樣式</td>
         </tr>
         <tr>
           <td>4.2</td>
@@ -373,19 +373,31 @@
           <td>4.3</td>
           <td><strong>Template</strong></td>
           <td>核心分支</td>
-          <td>項目模板子分支；由三個 Library 組合而成</td>
+          <td>項目模板子分支；虛線關聯至 Library 與 Standard</td>
         </tr>
         <tr>
           <td>4.3.1</td>
           <td>CTP</td>
           <td>組成部分</td>
-          <td>項目模板；透過 Design／Function／UI Library 組建</td>
+          <td>項目模板；虛線關聯至 Library 與 Standard</td>
         </tr>
         <tr>
           <td>4.3.2</td>
           <td>PMTP</td>
           <td>組成部分</td>
-          <td>項目模板；透過 Design／Function／UI Library 組建</td>
+          <td>項目模板；虛線關聯至 Library 與 Standard</td>
+        </tr>
+        <tr>
+          <td>4.3.3</td>
+          <td>XRA</td>
+          <td>組成部分</td>
+          <td>項目模板；虛線關聯至 Library 與 Standard</td>
+        </tr>
+        <tr>
+          <td>4.4</td>
+          <td><strong>One-Off</strong></td>
+          <td>核心分支</td>
+          <td>一次性／專案特製資產子分支；虛線關聯至 Library 與 Standard</td>
         </tr>
       </tbody>
     </table>

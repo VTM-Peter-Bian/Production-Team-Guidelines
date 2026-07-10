@@ -658,6 +658,8 @@
       devEnvNode("sf-template", "Template", 1),
       devEnvNode("ctp", "CTP", 2),
       devEnvNode("pmtp", "PMTP", 2),
+      devEnvNode("xra", "XRA", 2),
+      devEnvNode("sf-one-off", "One-Off", 1),
 
       devEnvNode("ai", "5. AI", 1),
       devEnvNode("ai-tools", "Tools", 1),
@@ -722,6 +724,7 @@
       { source: "factory", target: "sf-library" },
       { source: "factory", target: "sf-standard" },
       { source: "factory", target: "sf-template" },
+      { source: "factory", target: "sf-one-off" },
       { source: "sf-library", target: "design-lib" },
       { source: "sf-library", target: "function-lib" },
       { source: "sf-library", target: "ui-lib" },
@@ -729,18 +732,52 @@
       { source: "sf-standard", target: "reds" },
       { source: "sf-template", target: "ctp" },
       { source: "sf-template", target: "pmtp" },
-      { source: "design-lib", target: "tsa", lineStyle: { type: "dashed", opacity: 0.65, curveness: 0.35 } },
-      { source: "design-lib", target: "reds", lineStyle: { type: "dashed", opacity: 0.65, curveness: 0.5 } },
-      { source: "function-lib", target: "tsa", lineStyle: { type: "dashed", opacity: 0.65, curveness: -0.2 } },
-      { source: "function-lib", target: "reds", lineStyle: { type: "dashed", opacity: 0.65, curveness: 0.25 } },
-      { source: "ui-lib", target: "tsa", lineStyle: { type: "dashed", opacity: 0.65, curveness: -0.4 } },
-      { source: "ui-lib", target: "reds", lineStyle: { type: "dashed", opacity: 0.65, curveness: -0.2 } },
-      { source: "ctp", target: "design-lib", lineStyle: { type: "dashed", opacity: 0.65, curveness: -0.45 } },
-      { source: "ctp", target: "function-lib", lineStyle: { type: "dashed", opacity: 0.65, curveness: -0.25 } },
-      { source: "ctp", target: "ui-lib", lineStyle: { type: "dashed", opacity: 0.65, curveness: -0.1 } },
-      { source: "pmtp", target: "design-lib", lineStyle: { type: "dashed", opacity: 0.65, curveness: 0.55 } },
-      { source: "pmtp", target: "function-lib", lineStyle: { type: "dashed", opacity: 0.65, curveness: 0.4 } },
-      { source: "pmtp", target: "ui-lib", lineStyle: { type: "dashed", opacity: 0.65, curveness: 0.25 } },
+      { source: "sf-template", target: "xra" },
+      {
+        source: "sf-library",
+        target: "sf-standard",
+        lineStyle: { type: "dashed", opacity: 0.7, curveness: 0.25 },
+      },
+      {
+        source: "ctp",
+        target: "sf-library",
+        lineStyle: { type: "dashed", opacity: 0.7, curveness: -0.3 },
+      },
+      {
+        source: "pmtp",
+        target: "sf-library",
+        lineStyle: { type: "dashed", opacity: 0.7, curveness: 0.35 },
+      },
+      {
+        source: "xra",
+        target: "sf-library",
+        lineStyle: { type: "dashed", opacity: 0.7, curveness: 0.15 },
+      },
+      {
+        source: "ctp",
+        target: "sf-standard",
+        lineStyle: { type: "dashed", opacity: 0.7, curveness: 0.28 },
+      },
+      {
+        source: "pmtp",
+        target: "sf-standard",
+        lineStyle: { type: "dashed", opacity: 0.7, curveness: -0.25 },
+      },
+      {
+        source: "xra",
+        target: "sf-standard",
+        lineStyle: { type: "dashed", opacity: 0.7, curveness: 0.18 },
+      },
+      {
+        source: "sf-one-off",
+        target: "sf-library",
+        lineStyle: { type: "dashed", opacity: 0.7, curveness: -0.2 },
+      },
+      {
+        source: "sf-one-off",
+        target: "sf-standard",
+        lineStyle: { type: "dashed", opacity: 0.7, curveness: 0.2 },
+      },
 
       { source: "ai", target: "ai-tools" },
       { source: "ai", target: "ai-api" },
@@ -829,16 +866,18 @@
     ios: { x: 560, y: 220 },
 
     factory: { x: 0, y: -260 },
-    "sf-library": { x: -260, y: -400 },
-    "design-lib": { x: -400, y: -620 },
-    "function-lib": { x: -260, y: -540 },
-    "ui-lib": { x: -120, y: -620 },
-    "sf-standard": { x: 0, y: -400 },
-    tsa: { x: -60, y: -540 },
-    reds: { x: 80, y: -620 },
-    "sf-template": { x: 260, y: -400 },
-    ctp: { x: 180, y: -540 },
-    pmtp: { x: 340, y: -620 },
+    "sf-library": { x: -280, y: -400 },
+    "design-lib": { x: -420, y: -560 },
+    "function-lib": { x: -280, y: -560 },
+    "ui-lib": { x: -140, y: -560 },
+    "sf-standard": { x: -40, y: -400 },
+    tsa: { x: -100, y: -560 },
+    reds: { x: 40, y: -560 },
+    "sf-template": { x: 220, y: -400 },
+    ctp: { x: 120, y: -560 },
+    pmtp: { x: 220, y: -560 },
+    xra: { x: 320, y: -560 },
+    "sf-one-off": { x: 420, y: -400 },
 
     ai: { x: -80, y: 420 },
     "ai-tools": { x: -280, y: 560 },
@@ -876,6 +915,7 @@
       "sf-library": "top",
       "sf-standard": "top",
       "sf-template": "top",
+      "sf-one-off": "top",
       ai: "top",
       "third-party": "top",
       "back-up": "bottom",
@@ -944,35 +984,30 @@
     return a < b ? `${a}|${b}` : `${b}|${a}`;
   }
 
-  function collectDevEnvPathNodes(startIds) {
+  function collectDevEnvOutline(focusIds) {
+    const adj = buildDevEnvAdjacency();
     const nodeSet = new Set();
-    startIds.forEach((id) => {
-      findDevEnvPathToUnity(id).forEach((nodeId) => nodeSet.add(nodeId));
-    });
-    return nodeSet;
-  }
-
-  function applyDevEnvPathHighlight(chart, selectedNodeIds) {
-    const nodeSet = selectedNodeIds?.size
-      ? selectedNodeIds
-      : null;
     const edgeSet = new Set();
 
-    if (nodeSet) {
-      const ordered = Array.from(nodeSet);
-      ordered.forEach((id) => {
-        const path = findDevEnvPathToUnity(id);
-        for (let i = 0; i < path.length - 1; i += 1) {
-          edgeSet.add(devEnvEdgeKey(path[i], path[i + 1]));
-        }
+    focusIds.forEach((id) => {
+      const path = findDevEnvPathToUnity(id);
+      path.forEach((nodeId) => nodeSet.add(nodeId));
+      for (let i = 0; i < path.length - 1; i += 1) {
+        edgeSet.add(devEnvEdgeKey(path[i], path[i + 1]));
+      }
+      // 延伸：點選節點／連線端點的直接相鄰節點與連線
+      (adj.get(id) || []).forEach((neighborId) => {
+        nodeSet.add(neighborId);
+        edgeSet.add(devEnvEdgeKey(id, neighborId));
       });
-      // Also keep edges between selected nodes that sit on any path to Unity
-      DEV_ENV_GRAPH.links.forEach((link) => {
-        if (nodeSet.has(link.source) && nodeSet.has(link.target)) {
-          edgeSet.add(devEnvEdgeKey(link.source, link.target));
-        }
-      });
-    }
+    });
+
+    return { nodeSet, edgeSet };
+  }
+
+  function applyDevEnvPathHighlight(chart, outline) {
+    const nodeSet = outline?.nodeSet?.size ? outline.nodeSet : null;
+    const edgeSet = outline?.edgeSet || new Set();
 
     const data = buildDevEnvNodes().map((node) => {
       const onPath = !nodeSet || nodeSet.has(node.id);
@@ -1087,17 +1122,15 @@
       chart.on("click", (params) => {
         if (params.dataType === "node") {
           const nodeId = params.data.id;
-          const pathNodes = collectDevEnvPathNodes([nodeId]);
           mount._devEnvSelected = nodeId;
-          applyDevEnvPathHighlight(chart, pathNodes);
+          applyDevEnvPathHighlight(chart, collectDevEnvOutline([nodeId]));
           return;
         }
 
         if (params.dataType === "edge") {
           const { source, target } = params.data;
-          const pathNodes = collectDevEnvPathNodes([source, target]);
           mount._devEnvSelected = `${source}|${target}`;
-          applyDevEnvPathHighlight(chart, pathNodes);
+          applyDevEnvPathHighlight(chart, collectDevEnvOutline([source, target]));
           return;
         }
 
