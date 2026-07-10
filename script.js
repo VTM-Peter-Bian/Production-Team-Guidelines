@@ -626,7 +626,7 @@
       devEnvNode("azure-blob", "Azure Blob", 2),
       devEnvNode("aws-s3", "AWS S3", 3),
 
-      devEnvNode("src-code", "2. Source Code", 1),
+      devEnvNode("src-code", "2. Source Code\n& Version Control", 1),
       devEnvNode("gh-desktop", "GitHub Desktop", 2),
       devEnvNode("github", "GitHub", 2),
       devEnvNode("back-up", "Back Up", 1),
@@ -635,9 +635,9 @@
       devEnvNode("svn", "SVN", 3),
 
       devEnvNode("platforms", "3. Platforms", 1),
-      devEnvNode("android", "Android", 2),
-      devEnvNode("ios", "iOS", 2),
-      devEnvNode("windows", "Windows", 2),
+      devEnvNode("android", "Android", 1),
+      devEnvNode("ios", "iOS", 1),
+      devEnvNode("windows", "Windows", 1),
       devEnvNode("hardware", "XR Headset", 2),
       devEnvNode("meta-quest", "Meta Quest", 2),
       devEnvNode("pico", "Pico", 2),
@@ -869,6 +869,9 @@
       "data-mgmt": "top",
       "src-code": "top",
       platforms: "top",
+      android: "top",
+      windows: "top",
+      ios: "top",
       factory: "bottom",
       "sf-library": "top",
       "sf-standard": "top",
@@ -1016,7 +1019,7 @@
           if (params.dataType === "edge") {
             return `${params.data.source} → ${params.data.target}`;
           }
-          return params.name;
+          return String(params.name).replace(/\n/g, " ");
         },
         textStyle: { fontFamily: DEV_ENV_LABEL_FONT },
       },
