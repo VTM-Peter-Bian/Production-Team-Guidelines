@@ -766,6 +766,67 @@ body.sidebar-open .nav-toggle-icon::after {
   box-sizing: border-box;
 }
 
+/* ---- Dev environment graph (ECharts graph) ---- */
+
+.dev-env-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.dev-env-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dev-env-legend-swatch {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dev-env-legend-swatch--core {
+  background: #f8b4c4;
+  border: 1.5px solid #e895a8;
+}
+
+.dev-env-legend-swatch--branch {
+  background: #f5c882;
+  border: 1.5px solid #e5a84a;
+}
+
+.dev-env-legend-swatch--active {
+  background: #4a4a4a;
+  border: none;
+}
+
+.dev-env-legend-swatch--deprecated {
+  background: #dddddd;
+  border: 1.5px dashed #aaaaaa;
+}
+
+.dev-env-chart-mount {
+  margin-top: 0.75rem;
+  width: 100%;
+  min-height: 58rem;
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+}
+
+.text-muted {
+  color: var(--text-secondary);
+}
+
 .note-box {
   margin-top: 2.5rem;
   padding: 1.25rem 1.5rem;
@@ -1299,5 +1360,10 @@ body.sidebar-open .nav-toggle-icon::after {
   .org-chart-mount {
     min-height: 42rem;
     padding: 0.5rem 0;
+  }
+
+  .dev-env-chart-mount {
+    min-height: 36rem;
+    padding: 0.25rem;
   }
 }

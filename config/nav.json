@@ -2,7 +2,7 @@
   "site": {
     "title": "VTM開發組規範文檔",
     "subtitle": "Production Team Guidelines",
-    "version": "V0.7.2",
+    "version": "V0.8.0",
     "updatedAt": "2026-07-10",
     "copyright": "© VTM DIGITAL LIMITED"
   },
@@ -14,7 +14,8 @@
       "children": [
         { "type": "link", "id": "daily-workflow", "label": "每日工作流程" },
         { "type": "link", "id": "work-habits", "label": "工作習慣" },
-        { "type": "link", "id": "company-structure", "label": "組織架構" }
+        { "type": "link", "id": "company-structure", "label": "組織架構" },
+        { "type": "link", "id": "dev-environment", "label": "開發組環境" }
       ]
     },
     {
@@ -100,6 +101,7 @@
     "cursor-ai-assessment": { "file": "content/sections/cursor-ai-assessment.html", "className": "section-reds" },
     "work-habits": { "file": "content/sections/work-habits.html" },
     "company-structure": { "file": "content/sections/company-structure.html" },
+    "dev-environment": { "file": "content/sections/dev-environment.html" },
     "ai-prompt": { "file": "content/sections/ai-prompt.html" },
     "completion": { "file": "content/sections/completion.html" },
     "due-date": { "file": "content/sections/due-date.html" },

@@ -39,7 +39,7 @@
               <tr>
                 <td>5</td>
                 <td>文檔版本</td>
-                <td>V0.7.2（語義化版本，見 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a>）</td>
+                <td>V0.8.0（語義化版本，見 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a>）</td>
               </tr>
               <tr>
                 <td>6</td>
@@ -372,6 +372,62 @@ build.py                    # 打包腳本</pre>
         </div>
 
         <div class="content-block">
+          <h3>開發組環境關係圖</h3>
+          <p>以 <strong>Unity 6</strong> 為唯一中心、六個一級核心分支向外放射的技術環境圖，使用 <strong>Apache ECharts</strong> 的 <span class="code-inline">graph</span> 系列繪製。參見 <a href="#dev-environment" class="section-ref" data-section="dev-environment">開發組環境</a>。</p>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>序號</th>
+                <th>項目</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>依賴檔案</td>
+                <td>與組織架構圖共用 <span class="code-inline">assets/vendor/echarts.min.js</span>，懶加載注入</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>HTML 掛載點</td>
+                <td><span class="code-inline">&lt;div id="dev-env-chart-mount" class="dev-env-chart-mount"&gt;</span>，並設 <span class="code-inline">role="img"</span> 與 <span class="code-inline">aria-label</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>圖表資料</td>
+                <td>在 <span class="code-inline">script.js</span> 的 <span class="code-inline">DEV_ENV_GRAPH</span> 維護 <span class="code-inline">nodes</span>、<span class="code-inline">links</span>、<span class="code-inline">categories</span></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>節點分類</td>
+                <td>0 核心（粉）、1 核心分支（橙）、2 組成部分（深灰圓點）、3 棄用（淺灰虛線）；圖例使用 <span class="code-inline">.dev-env-legend</span></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>版面</td>
+                <td><span class="code-inline">layout: "none"</span> 分區固定座標（<span class="code-inline">DEV_ENV_LAYOUT</span>）；葉節點用短標籤，序號細節放表格；跨區僅 <span class="code-inline">Plugin/SDK → Application</span> 兩條虛線</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>連線規則</td>
+                <td>僅 <span class="code-inline">unity → {1,2,3,4,5,6}</span> 六條連至中心；子節點由所屬分支向外延伸；跨分支整合（如 3rd Party → Application）以虛線表示</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>正文與表格</td>
+                <td>欄目正文描述各組件用途與狀態；圖表節點標籤保持簡短，詳細說明放於下方表格</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>欄目 HTML 掛載點與圖例範例：</p>
+          <pre class="code-example code-block">&lt;ul class="dev-env-legend" aria-label="圖例"&gt;…&lt;/ul&gt;
+&lt;div id="dev-env-chart-mount" class="dev-env-chart-mount"
+     role="img" aria-label="VTM 開發組技術環境關係圖"&gt;&lt;/div&gt;</pre>
+          <p>更新環境組件時，同步修改 <span class="code-inline">DEV_ENV_GRAPH</span> 與欄目內說明表格。</p>
+        </div>
+
+        <div class="content-block">
           <h3>長篇範例載入</h3>
           <p>過長內容不直接內嵌於欄目 HTML，改放 <span class="code-inline">content/examples/</span> 並按需載入：</p>
           <table class="spec-table">
@@ -449,10 +505,15 @@ build.py                    # 打包腳本</pre>
               <tr>
                 <td>8</td>
                 <td>組織架構圖</td>
-                <td>層級架構使用 ECharts 樹狀圖，遵循上方「組織架構樹狀圖」規範；勿以純 CSS 手繪或流程圖語法替代</td>
+                <td>層級架構使用 ECharts <span class="code-inline">tree</span> 系列，遵循「組織架構樹狀圖」規範</td>
               </tr>
               <tr>
                 <td>9</td>
+                <td>開發組環境圖</td>
+                <td>多向依賴關係使用 ECharts <span class="code-inline">graph</span> 系列，遵循「開發組環境關係圖」規範</td>
+              </tr>
+              <tr>
+                <td>10</td>
                 <td>版本與日期</td>
                 <td>重大更新時同步修改 <span class="code-inline">config/nav.json</span> 的 <span class="code-inline">site.version</span> 與 <span class="code-inline">site.updatedAt</span></td>
               </tr>
