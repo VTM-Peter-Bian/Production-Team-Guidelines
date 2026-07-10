@@ -2,7 +2,7 @@
   "site": {
     "title": "VTM開發組規範文檔",
     "subtitle": "Production Team Guidelines",
-    "version": "V0.7.1",
+    "version": "V0.7.2",
     "updatedAt": "2026-07-10",
     "copyright": "© VTM DIGITAL LIMITED"
   },
@@ -22,9 +22,9 @@
       "label": "SharePoint 項目管理規範",
       "children": [
         { "type": "link", "id": "project-progress-management", "label": "SharePoint Planner 總覽" },
-        { "type": "link", "id": "planner-create-task", "label": "創建任務規範" },
-        { "type": "link", "id": "planner-manage-task", "label": "管理任務規範" },
-        { "type": "link", "id": "project-resource-management", "label": "SharePoint Documents 規範" }
+        { "type": "link", "id": "planner-create-task", "label": "創建任務(Task)規範" },
+        { "type": "link", "id": "planner-manage-task", "label": "管理任務(Task)規範" },
+        { "type": "link", "id": "project-resource-management", "label": "管理文檔(Documents)規範" }
       ]
     },
     {

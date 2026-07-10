@@ -98,6 +98,50 @@
     return navConfig?.sections?.[sectionId] || null;
   }
 
+  function buildSectionGroupLabels(navItems) {
+    const map = new Map();
+
+    navItems.forEach((item) => {
+      if (item.type === "group" && item.children) {
+        item.children.forEach((child) => {
+          if (child.type === "link" && child.id) {
+            map.set(child.id, item.label);
+          }
+        });
+        return;
+      }
+
+      if (item.type === "link" && item.id) {
+        map.set(item.id, item.label);
+      }
+    });
+
+    return map;
+  }
+
+  function getSectionGroupLabel(sectionId) {
+    const groupLabels = buildSectionGroupLabels(navConfig.nav);
+    if (groupLabels.has(sectionId)) {
+      return groupLabels.get(sectionId);
+    }
+
+    if (navConfig.footer?.id === sectionId) {
+      return "附錄";
+    }
+
+    return null;
+  }
+
+  function applySectionGroupLabel(sectionId, root) {
+    const label = getSectionGroupLabel(sectionId);
+    if (!label) return;
+
+    const labelEl = root.querySelector(".section-label");
+    if (labelEl) {
+      labelEl.textContent = label;
+    }
+  }
+
   async function loadSectionHtml(sectionId) {
     if (sectionCache.has(sectionId)) {
       return sectionCache.get(sectionId);
@@ -577,6 +621,8 @@
         sectionEl.classList.add(...meta.className.split(/\s+/).filter(Boolean));
       }
     }
+
+    applySectionGroupLabel(sectionId, mainEl);
 
     await loadEmbeddedExamples(mainEl);
     await initOrgChart(mainEl);
