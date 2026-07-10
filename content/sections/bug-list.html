@@ -10,7 +10,7 @@
     <p>Bug List 是項目測試與回饋迭代的<strong>唯一正式缺陷／回饋登記表</strong>，用於：</p>
     <ul class="content-list">
       <li>內部測試、PO 驗收、客戶試用時發現的問題與建議</li>
-      <li>記錄每條回饋的<strong>優先級</strong>（是否必須修改）、<strong>負責人（PIC）</strong>與<strong>工時成本</strong></li>
+      <li>記錄每條回饋的<strong>優先級</strong>（是否必須修改）、<strong>負責人（PIC）</strong>與<strong>預估工時</strong></li>
       <li>追蹤修改完成與<strong>PO / 客戶審批</strong>狀態，並以顏色標示整列進度</li>
       <li>作為 G2 / P2 等後續輪次的工作依據（見 <a href="#development-phases" class="section-ref" data-section="development-phases">開發階段</a>）</li>
     </ul>
@@ -43,15 +43,15 @@
         </tr>
         <tr>
           <td>3</td>
-          <td>指派負責人</td>
-          <td>PO / 項目負責人</td>
-          <td>填寫 G - PIC、P - PIC（及需要的 PO - PIC）</td>
+          <td>指派負責人與預估工時</td>
+          <td>PO / 項目負責人、各 PIC</td>
+          <td>填寫 G - PIC、P - PIC（及需要的 PO - PIC）；<strong>開工前</strong>在 PO / G / P - Cost (hr) 欄填寫各方<strong>預估工時（小時）</strong></td>
         </tr>
         <tr>
           <td>4</td>
           <td>實作修改</td>
           <td>G / P 負責人</td>
-          <td>完成後在「已修改」欄標 <span class="code-inline">o</span>，並填寫對應 Cost (hr)</td>
+          <td>完成後在「已修改」欄標 <span class="code-inline">o</span>；<strong>實際工時</strong>記錄於 SharePoint <strong>T&amp;P</strong>（見 <a href="#project-resource-management" class="section-ref" data-section="project-resource-management">SharePoint Documents 規範</a>），不在 Bug List 填寫</td>
         </tr>
         <tr>
           <td>5</td>
@@ -146,7 +146,7 @@
         <tr>
           <td>12</td>
           <td><strong>PO - Cost (hr)</strong> / <strong>G - Cost (hr)</strong> / <strong>P - Cost (hr)</strong></td>
-          <td>各方處理該條目所花費的<strong>工時（小時）</strong>，完成修改後填寫</td>
+          <td>各方處理該條目的<strong>預估工時（小時）</strong>，須在<strong>開始工作前</strong>填寫，用於排期與資源評估；<strong>非實際工時</strong></td>
         </tr>
         <tr>
           <td>13</td>
@@ -257,6 +257,7 @@
   <div class="content-block">
     <h3>注意事項</h3>
     <ul class="content-list">
+      <li><strong>PO / G / P - Cost (hr)</strong> 為預估工時，開工前填寫；實際花費的工時須記錄於 SharePoint <strong>T&amp;P</strong>（<span class="code-inline">0 Project Management</span>），見 <a href="#daily-workflow" class="section-ref" data-section="daily-workflow">每日工作流程</a></li>
       <li>表格版本升級（如 V2.1.0 → 下一版）時，須由項目負責人統一更換模板，<strong>勿自行增刪欄位</strong>以免條件格式失效</li>
       <li>Version 欄須對應實際測試的安裝包版本，方便回溯問題所在 commit / 發布</li>
       <li>同一問題若跨美術與程式，可在一條 Comments 中說明，或拆成多行並以 Refer 關聯</li>
