@@ -2,7 +2,7 @@
   "site": {
     "title": "VTM開發組規範文檔",
     "subtitle": "Production Team Guidelines",
-    "version": "V0.6.2",
+    "version": "V0.7.0",
     "updatedAt": "2026-07-10",
     "copyright": "© VTM DIGITAL LIMITED"
   },
@@ -19,7 +19,7 @@
     },
     {
       "type": "group",
-      "label": "SharePoint 項目管理",
+      "label": "SharePoint 項目管理規範",
       "children": [
         { "type": "link", "id": "project-progress-management", "label": "SharePoint Planner 總覽" },
         { "type": "link", "id": "planner-create-task", "label": "創建任務規範" },
@@ -29,7 +29,16 @@
     },
     {
       "type": "group",
-      "label": "源代碼與版本控制",
+      "label": "AI 協作開發規範",
+      "children": [
+        { "type": "link", "id": "ai-prompt", "label": "AI Prompt 一覽" },
+        { "type": "link", "id": "unity-ai-coding-standards", "label": "Unity C# AI 編程規範" },
+        { "type": "link", "id": "cursor-ai-assessment", "label": "Cursor AI 評核標準" }
+      ]
+    },
+    {
+      "type": "group",
+      "label": "源代碼與版本控制規範",
       "children": [
         { "type": "link", "id": "github-account", "label": "GitHub 帳戶規範" },
         { "type": "link", "id": "github-repo", "label": "GitHub Repository 創建規範" },
@@ -40,7 +49,7 @@
     },
     {
       "type": "group",
-      "label": "影片資源管理",
+      "label": "影片資源管理規範",
       "children": [
         { "type": "link", "id": "youtube-account", "label": "YouTube 帳戶規範" },
         { "type": "link", "id": "youtube-upload-share", "label": "YouTube 上傳和分享規範" }
@@ -48,16 +57,14 @@
     },
     {
       "type": "group",
-      "label": "AI 協作",
+      "label": "測試規範",
       "children": [
-        { "type": "link", "id": "ai-prompt", "label": "AI Prompt 一覽" },
-        { "type": "link", "id": "unity-ai-coding-standards", "label": "Unity C# AI 編程規範" },
-        { "type": "link", "id": "cursor-ai-assessment", "label": "Cursor AI 評核標準" }
+        { "type": "link", "id": "bug-list", "label": "Bug List 填寫規範" }
       ]
     },
     {
       "type": "group",
-      "label": "品質評分標準",
+      "label": "交付和評分標準",
       "children": [
         { "type": "link", "id": "delivery-standards", "label": "職安培訓交付標準" },
         { "type": "link", "id": "architecture-scoring", "label": "程式架構評分等級" }
@@ -69,7 +76,7 @@
       "children": [
         { "type": "link", "id": "completion", "label": "完成（Completion）" },
         { "type": "link", "id": "due-date", "label": "到期日（Due Date）" },
-        { "type": "link", "id": "development-phases", "label": "開發階段（Pre-Production / G / P）" },
+        { "type": "link", "id": "development-phases", "label": "開發階段（PP / G / P）" },
         { "type": "link", "id": "reds-terminology", "label": "REDS" },
         { "type": "link", "id": "tsa-terminology", "label": "TSA" }
       ]
@@ -104,6 +111,7 @@
     "planner-create-task": { "file": "content/sections/planner-create-task.html" },
     "planner-manage-task": { "file": "content/sections/planner-manage-task.html" },
     "unity-ai-coding-standards": { "file": "content/sections/unity-ai-coding-standards.html" },
-    "tsa-terminology": { "file": "content/sections/tsa-terminology.html" }
+    "tsa-terminology": { "file": "content/sections/tsa-terminology.html" },
+    "bug-list": { "file": "content/sections/bug-list.html" }
   }
 }

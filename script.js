@@ -630,6 +630,7 @@
       return { sectionId: "planner-manage-task", anchorId: hash };
     }
     if (
+      hash === "phase-pp" ||
       hash === "phase-pre-production" ||
       hash === "phase-g1-p1" ||
       hash === "phase-g2-p2" ||

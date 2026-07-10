@@ -1,0 +1,301 @@
+<article class="section" id="bug-list" data-section="bug-list">
+  <header class="section-header">
+    <span class="section-label">測試規範</span>
+    <h2>Bug List 填寫規範</h2>
+    <p class="section-desc">每個項目須維護一份 <strong>Bug List</strong> Excel，統一記錄測試與客戶回饋中發現的問題、優先級、負責人與審批狀態。當前表格版本為 <strong>V2.1.0</strong>，存放於 SharePoint <span class="code-inline">5 Testing</span> 資料夾（見 <a href="#project-resource-management" class="section-ref" data-section="project-resource-management">SharePoint Documents 規範</a>）。</p>
+  </header>
+
+  <div class="content-block">
+    <h3>用途與適用時機</h3>
+    <p>Bug List 是項目測試與回饋迭代的<strong>唯一正式缺陷／回饋登記表</strong>，用於：</p>
+    <ul class="content-list">
+      <li>內部測試、PO 驗收、客戶試用時發現的問題與建議</li>
+      <li>記錄每條回饋的<strong>優先級</strong>（是否必須修改）、<strong>負責人（PIC）</strong>與<strong>工時成本</strong></li>
+      <li>追蹤修改完成與<strong>PO / 客戶審批</strong>狀態，並以顏色標示整列進度</li>
+      <li>作為 G2 / P2 等後續輪次的工作依據（見 <a href="#development-phases" class="section-ref" data-section="development-phases">開發階段</a>）</li>
+    </ul>
+    <p>口頭、Teams 私訊或未登記於 Bug List 的回饋，<strong>不視為已正式立項的修改項</strong>。</p>
+  </div>
+
+  <div class="content-block">
+    <h3>填寫流程</h3>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>步驟</th>
+          <th>負責方</th>
+          <th>動作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>登記回饋</td>
+          <td>測試人員 / PO / 客戶接口人</td>
+          <td>新增一行，填寫 Stage、Log Date、Log Person、Version、Feedback Type、Comments；有材料則補 Ref. Link</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>評估優先級</td>
+          <td>PO（與相關方確認）</td>
+          <td>在「一定要改／可改可唔改／不需要改」中<strong>擇一</strong>標記 <span class="code-inline">o</span>（見下方顏色規則）</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>指派負責人</td>
+          <td>PO / 項目負責人</td>
+          <td>填寫 G - PIC、P - PIC（及需要的 PO - PIC）</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>實作修改</td>
+          <td>G / P 負責人</td>
+          <td>完成後在「已修改」欄標 <span class="code-inline">o</span>，並填寫對應 Cost (hr)</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>PO 驗收</td>
+          <td>PO</td>
+          <td>通過標 <span class="code-inline">o</span>，不通過標 <span class="code-inline">x</span>（列變紅，須返工）</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>客戶驗收</td>
+          <td>客戶接口人</td>
+          <td>通過標 <span class="code-inline">o</span>，不通過標 <span class="code-inline">x</span>；雙方皆 <span class="code-inline">o</span> 時列變深綠，正式結案</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>主表欄位說明</h3>
+    <figure class="guide-screenshot">
+      <div class="guide-screenshot-media">
+        <img src="assets/bug-list-table.png"
+             alt="Bug List 主表示例：含 Stage、Log Date、優先級、PIC、審批狀態等欄位"
+             loading="lazy">
+      </div>
+      <figcaption>Bug List 主表（V2.1.0）— 欄位與狀態顏色示例</figcaption>
+    </figure>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>欄位</th>
+          <th>填寫規則</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Index</strong></td>
+          <td>序號，一條回饋對應一行</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Stage</strong></td>
+          <td>發現問題時所處的開發階段，如 <span class="code-inline">PP</span>、<span class="code-inline">P1</span>、<span class="code-inline">G2</span>（見 <a href="#development-phases" class="section-ref" data-section="development-phases">開發階段</a>）</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>Log Date</strong></td>
+          <td>登記日期，格式 <span class="code-inline">yyyy-mm-dd</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Log Person</strong></td>
+          <td>登記人；從下拉選單選取（團隊成員、<span class="code-inline">Client</span>、<span class="code-inline">Consultant</span>）</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>Version</strong></td>
+          <td>發現問題時的<strong>軟件版本號</strong>（如 <span class="code-inline">0.39.1</span>、<span class="code-inline">1.0.0</span>），須與實際測試包一致（見 <a href="#version-numbering" class="section-ref" data-section="version-numbering">版本號規範</a>）</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>Feedback Type</strong></td>
+          <td>回饋類別，從下拉選單選取：<span class="code-inline">1. 設計</span>、<span class="code-inline">2. 美術</span>、<span class="code-inline">3. 技術</span>、<span class="code-inline">4. 功能</span>、<span class="code-inline">5. 其他</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>Comments / Feedback</strong></td>
+          <td>問題或建議的<strong>具體描述</strong>，須可重現、可理解；避免僅寫「有 bug」等模糊表述</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><strong>Refer</strong></td>
+          <td>關聯其他條目的序號（如重複回饋、拆分項之間的引用）</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><strong>Ref. Link</strong></td>
+          <td>相關截圖、影片、Planner 任務、SharePoint 文件等連結</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><strong>一定要改</strong> / <strong>可改可唔改</strong> / <strong>不需要改</strong></td>
+          <td>優先級三選一：在對應欄位填入 <span class="code-inline">o</span>（見下方「優先級與顏色規則」）</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><strong>PO - PIC</strong> / <strong>G - PIC</strong> / <strong>P - PIC</strong></td>
+          <td>PO、美術、程式各方的<strong>負責人</strong>；依 Feedback Type 與實際分工填寫</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><strong>PO - Cost (hr)</strong> / <strong>G - Cost (hr)</strong> / <strong>P - Cost (hr)</strong></td>
+          <td>各方處理該條目所花費的<strong>工時（小時）</strong>，完成修改後填寫</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td><strong>已修改</strong></td>
+          <td>開發方已完成修改時填入 <span class="code-inline">o</span></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td><strong>PO Approved</strong></td>
+          <td>PO 驗收：<span class="code-inline">o</span> 通過、<span class="code-inline">x</span> 不通過（需返工）</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td><strong>Client Approved</strong></td>
+          <td>客戶驗收：<span class="code-inline">o</span> 通過、<span class="code-inline">x</span> 不通過（需返工）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>優先級與顏色規則</h3>
+    <p>「一定要改」「可改可唔改」「不需要改」三欄<strong>每次只能標記一個</strong> <span class="code-inline">o</span>。標記後，該列背景或文字顏色會依條件格式自動變化。</p>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>優先級</th>
+          <th>標記方式</th>
+          <th>顏色效果</th>
+          <th>含義</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>一定要改</strong></td>
+          <td>在「一定要改」欄填入 <span class="code-inline">o</span></td>
+          <td>預設<strong>白底</strong>（標準列）</td>
+          <td>必須在本輪或約定時限內修正；未完成前保持活躍追蹤</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>可改可唔改</strong></td>
+          <td>在「可改可唔改」欄填入 <span class="code-inline">o</span></td>
+          <td>整列<strong>灰色背景</strong></td>
+          <td>建議改進項；視工時與排期決定是否納入本輪，不阻塞主線交付</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>不需要改</strong></td>
+          <td>在「不需要改」欄填入 <span class="code-inline">o</span></td>
+          <td>文字<strong>變淡／灰色字</strong></td>
+          <td>經評估不予修改；該列視為關閉，不再追蹤</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>修改與審批狀態顏色規則</h3>
+    <p>右側「已修改」「PO Approved」「Client Approved」使用 <span class="code-inline">o</span>（是／通過）、<span class="code-inline">x</span>（驗收不通過）或空白（待處理）。填寫後觸發下列整列顏色：</p>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>條件</th>
+          <th>顏色效果</th>
+          <th>狀態說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>PO Approved</strong> 或 <strong>Client Approved</strong> 為 <span class="code-inline">x</span></td>
+          <td>整列<strong>紅色背景</strong></td>
+          <td>驗收不通過，須返工後重新標記「已修改」並再次提交審批</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>已修改</strong> <span class="code-inline">o</span>，且 <strong>PO Approved</strong> <span class="code-inline">o</span>，且 <strong>Client Approved</strong> <span class="code-inline">o</span></td>
+          <td>整列<strong>深綠色背景</strong></td>
+          <td>修改完成，PO 與客戶均已確認 — <strong>正式結案</strong></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>已修改</strong> <span class="code-inline">o</span>，且 <strong>PO Approved</strong> <span class="code-inline">o</span>，<strong>Client Approved</strong> 為空白</td>
+          <td>整列<strong>淺綠色背景</strong></td>
+          <td>開發與 PO 驗收已通過，<strong>待客戶確認</strong></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>已修改</strong> <span class="code-inline">o</span>，審批欄尚未全部通過（且無 <span class="code-inline">x</span>）</td>
+          <td>維持白底或依表內其他規則</td>
+          <td>已提交修改，<strong>待 PO 或客戶驗收</strong></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>尚未標記「已修改」</td>
+          <td>依優先級規則（白底／灰底／淡字）</td>
+          <td><strong>進行中或待處理</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>顏色由 Excel 條件格式自動套用，<strong>請勿手動改背景色</strong>；若顏色與符號不一致，應檢查是否填錯欄位或遺漏 <span class="code-inline">o</span> / <span class="code-inline">x</span>。</p>
+  </div>
+
+  <div class="content-block">
+    <h3>注意事項</h3>
+    <ul class="content-list">
+      <li>表格版本升級（如 V2.1.0 → 下一版）時，須由項目負責人統一更換模板，<strong>勿自行增刪欄位</strong>以免條件格式失效</li>
+      <li>Version 欄須對應實際測試的安裝包版本，方便回溯問題所在 commit / 發布</li>
+      <li>同一問題若跨美術與程式，可在一條 Comments 中說明，或拆成多行並以 Refer 關聯</li>
+      <li>標為「不需要改」的項目不再進入 G2 / P2 排期；標為「一定要改」且未結案者，應同步反映於 Planner 任務（見 <a href="#planner-manage-task" class="section-ref" data-section="planner-manage-task">管理任務規範</a>）</li>
+      <li>客戶試用或 UAT 階段的新回饋，Log Person 選 <span class="code-inline">Client</span>，並在 Comments 中保留可重現步驟</li>
+    </ul>
+  </div>
+
+  <div class="content-block">
+    <h3>附錄：Config 工作表</h3>
+    <p>Excel 另附 <strong>Config</strong> 工作表，僅作 Log Person、Feedback Type 等欄位的下拉選單來源。日常填寫只需使用主表；若需新增人員或調整分類，由項目負責人在 Config 更新，<strong>勿隨意刪改欄位結構</strong>。</p>
+    <figure class="guide-screenshot">
+      <div class="guide-screenshot-media">
+        <img src="assets/bug-list-config.png"
+             alt="Bug List Config 工作表：Log Person 與 Feedback Type 下拉選項"
+             loading="lazy">
+      </div>
+      <figcaption>Config 工作表 — Log Person 與 Feedback Type 選項</figcaption>
+    </figure>
+    <table class="spec-table spec-table-wide">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>欄位</th>
+          <th>選項</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Log Person</strong></td>
+          <td>Cindy Lau、Eunice Wong、Francesca Li、Justine Lun、Peter Bian、Ray Chen、Tang Li、Terry Dao、Terry Yam、Victor Dao、Yippee Yip、Client、Consultant</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Feedback Type</strong></td>
+          <td><span class="code-inline">1. 設計</span>、<span class="code-inline">2. 美術</span>、<span class="code-inline">3. 技術</span>、<span class="code-inline">4. 功能</span>、<span class="code-inline">5. 其他</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</article>

@@ -1,8 +1,8 @@
 <article class="section" id="development-phases" data-section="development-phases">
   <header class="section-header">
     <span class="section-label">術語定義</span>
-    <h2>開發階段（Pre-Production / G / P）</h2>
-    <p class="section-desc">開發組項目從前置準備到正式製作、再到客戶回饋迭代的階段劃分。<strong>Pre-Production</strong> 在正式開發之前；<strong>G</strong> 代表 Graphic Team 美術輪次；<strong>P</strong> 代表 Program Team 程式輪次；數字 <strong>1 / 2 / 3</strong> 代表第幾輪。</p>
+    <h2>開發階段（PP / G / P）</h2>
+    <p class="section-desc">開發組項目從前置準備到正式製作、再到客戶回饋迭代的階段劃分。<strong>Pre-Production</strong> 縮寫為 <strong>PP</strong>，在正式開發之前；<strong>G</strong> 代表 Graphic Team 美術輪次；<strong>P</strong> 代表 Program Team 程式輪次；數字 <strong>1 / 2 / 3</strong> 代表第幾輪。</p>
   </header>
 
   <div class="content-block">
@@ -11,7 +11,7 @@
     <ul class="content-list">
       <li>讓團隊清楚<strong>現在該做什麼、不該做什麼</strong>（例如：flow 與關鍵技術尚未驗證前，不應直接進入 G1 / P1 正式製作）</li>
       <li>讓 <strong>G</strong> 與 <strong>P</strong> 的完成標準可檢查、可匯報（對應 <a href="#completion" class="section-ref" data-section="completion">完成（Completion）</a>）</li>
-      <li>讓 Planner 任務命名中的 <span class="code-inline">G1</span>、<span class="code-inline">P1</span> 等標記有統一含義（見 <a href="#planner-create-task" class="section-ref" data-section="planner-create-task">創建任務規範</a>）</li>
+      <li>讓 Planner 任務命名中的 <span class="code-inline">PP</span>、<span class="code-inline">G1</span>、<span class="code-inline">P1</span> 等標記有統一含義（見 <a href="#planner-create-task" class="section-ref" data-section="planner-create-task">創建任務規範</a>）</li>
     </ul>
   </div>
 
@@ -31,7 +31,7 @@
         <tr>
           <td>1</td>
           <td>廚師確認廚房裡的工具、材料是否足夠，以及固定菜單上的菜要怎麼做</td>
-          <td><strong>Pre-Production</strong></td>
+          <td><strong>PP</strong>（Pre-Production）</td>
           <td>客人尚未正式點單開炒前的準備；研究、設計、試跑、R&amp;D 都在此完成。完成後可提供參考圖／影片／APK／EXE 等供客戶確認</td>
         </tr>
         <tr>
@@ -59,7 +59,7 @@
   <div class="content-block">
     <h3>階段總覽與理想順序</h3>
     <p>理想情況下的推進順序如下（實際項目可因資源到位情況略有重疊，但完成定義不變）：</p>
-    <p class="code-example">Pre-Production → G1 → P1 →（客戶收到可運行軟件）→ G2 / P2 →（較少）G3 / P3</p>
+    <p class="code-example">PP → G1 → P1 →（客戶收到可運行軟件）→ G2 / P2 →（較少）G3 / P3</p>
     <table class="spec-table spec-table-wide">
       <thead>
         <tr>
@@ -73,7 +73,7 @@
       <tbody>
         <tr>
           <td>1</td>
-          <td><strong>Pre-Production</strong></td>
+          <td><strong>PP</strong>（Pre-Production）</td>
           <td>Graphic / Program（及相關職能）</td>
           <td>G1、P1 正式開始之前</td>
           <td>正式開發前的研究、設計與前置工作已就緒</td>
@@ -122,16 +122,16 @@
         </tr>
       </tbody>
     </table>
-    <p class="ref-line"><strong>G</strong> = Graphics（美術）；<strong>P</strong> = Programming（程式）。同一數字輪次中，G 與 P 可依 feedback 內容並行，但各自有獨立完成定義。</p>
+    <p class="ref-line"><strong>PP</strong> = Pre-Production（前置製作）；<strong>G</strong> = Graphics（美術）；<strong>P</strong> = Programming（程式）。同一數字輪次中，G 與 P 可依 feedback 內容並行，但各自有獨立完成定義。</p>
   </div>
 
-  <div class="topic-block" id="phase-pre-production">
-    <h3 class="topic-title"><span class="topic-num">01</span> Pre-Production（前置製作）</h3>
-    <p><strong>Pre-Production</strong> 位於 <strong>G1</strong> 與 <strong>P1</strong> 之前。凡「正式開始開發前」應處理的工作，都應歸入本階段，而不是混進 G1 / P1 的正式製作工時。</p>
+  <div class="topic-block" id="phase-pp">
+    <h3 class="topic-title"><span class="topic-num">01</span> PP — Pre-Production（前置製作）</h3>
+    <p><strong>PP（Pre-Production）</strong> 位於 <strong>G1</strong> 與 <strong>P1</strong> 之前。凡「正式開始開發前」應處理的工作，都應歸入本階段，而不是混進 G1 / P1 的正式製作工時。</p>
 
     <h4 class="topic-subtitle">階段目的</h4>
     <p>在正式開炒（G1 / P1）之前，把流程、技術風險與製作路徑想清楚、驗證清楚，避免正式開發中途才發現 flow 不通、技術不可行或資源規格未定。以飯店比喻：廚師須先確認<strong>廚房裡的工具是否齊全、材料是否足夠、固定要做的菜怎麼做出來</strong>——以上都須在本階段釐清並驗證。</p>
-    <p>Pre-Production 完成後，通常已可提供<strong>參考圖、影片、APK、EXE</strong>等交付物，供客戶確認方向與規格，再進入 G1 / P1 正式製作。當團隊累積了 <strong>Design Library</strong>、<strong>UI Library</strong>、<strong>Function Library</strong> 後，本階段相對會更簡單、更快完成。</p>
+    <p>PP 完成後，通常已可提供<strong>參考圖、影片、APK、EXE</strong>等交付物，供客戶確認方向與規格，再進入 G1 / P1 正式製作。當團隊累積了 <strong>Design Library</strong>、<strong>UI Library</strong>、<strong>Function Library</strong> 後，本階段相對會更簡單、更快完成。</p>
 
     <h4 class="topic-subtitle">典型工作內容</h4>
     <table class="spec-table spec-table-wide">
@@ -208,7 +208,7 @@
 
   <div class="topic-block" id="phase-g1-p1">
     <h3 class="topic-title"><span class="topic-num">02</span> G1 / P1（正式製作）</h3>
-    <p>這是「接到點單後正式開炒」的階段。Pre-Production 解決的是「做什麼、怎麼做是否可行」；G1 / P1 解決的是「按既定方案把可交付成果做出來」。</p>
+    <p>這是「接到點單後正式開炒」的階段。PP 解決的是「做什麼、怎麼做是否可行」；G1 / P1 解決的是「按既定方案把可交付成果做出來」。</p>
 
     <h4 class="topic-subtitle">G1（Graphic Team 第一輪）</h4>
     <table class="spec-table">
@@ -388,7 +388,7 @@
         </tr>
       </tbody>
     </table>
-    <p class="ref-line">若項目出現超過三輪的持續迭代，仍沿用「G / P + 輪次數字」的命名邏輯溝通，但應同步檢視需求是否反覆變更、Pre-Production / G1 / P1 的完成定義是否當初未真正達標，以及 G2 / P2 的 feedback 評估是否到位。</p>
+    <p class="ref-line">若項目出現超過三輪的持續迭代，仍沿用「PP / G / P + 輪次數字」的命名邏輯溝通，但應同步檢視需求是否反覆變更、PP / G1 / P1 的完成定義是否當初未真正達標，以及 G2 / P2 的 feedback 評估是否到位。</p>
   </div>
 
   <div class="content-block">
@@ -429,8 +429,8 @@
     <h4>注意事項</h4>
     <ul class="content-list">
       <li>任一階段標記為「完成」時，須符合 <a href="#completion" class="section-ref" data-section="completion">完成（Completion）</a>：目標達成、質量達標、可追溯，而不是「做過一部分」。</li>
-      <li>Planner 任務名稱中的 <span class="code-inline">G1</span>、<span class="code-inline">P1</span>、<span class="code-inline">P2</span> 等，即對應本頁階段（範例見 <a href="#planner-create-task" class="section-ref" data-section="planner-create-task">創建任務規範</a>）。</li>
-      <li>理想順序是 Pre-Production → G1 → P1；若因排期必須部分重疊，仍不得降低各階段的完成定義。</li>
+      <li>Planner 任務名稱中的 <span class="code-inline">PP</span>、<span class="code-inline">G1</span>、<span class="code-inline">P1</span>、<span class="code-inline">P2</span> 等，即對應本頁階段（範例見 <a href="#planner-create-task" class="section-ref" data-section="planner-create-task">創建任務規範</a>）。</li>
+      <li>理想順序是 PP → G1 → P1；若因排期必須部分重疊，仍不得降低各階段的完成定義。</li>
       <li>G1 規劃時須預留美術資源<strong>內部領導與客戶審核</strong>、以及 feedback 修改的工時，不可只按「純製作」估算。</li>
       <li>G2 / P2 主要處理<strong>我們做錯、做漏或品質不符</strong>之處；須先評估是否合理、技術可行、工時足夠，確認後才納入本輪；G3 / P3 主要處理嚴重 bug，預計較少進入。</li>
     </ul>
