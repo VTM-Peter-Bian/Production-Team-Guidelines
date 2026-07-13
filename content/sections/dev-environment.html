@@ -2,12 +2,12 @@
   <header class="section-header">
     <span class="section-label">入門與日常</span>
     <h2>開發組環境</h2>
-    <p class="section-desc">開發組以 <strong>Unity 6</strong> 為核心進行項目製作；周邊涵蓋雲端資料、源代碼管理、目標平台、第三方整合、AI 協作工具與內部軟體工廠。</p>
+    <p class="section-desc">開發組以 <strong>Unity 6</strong> 為核心進行項目製作；周邊涵蓋雲端資料、源代碼管理、目標平台、第三方整合、AI 協作工具、內部軟體工廠、開發工具與開發硬體。</p>
   </header>
 
   <div class="content-block">
     <h3>環境總覽圖</h3>
-    <p>關聯圖以 <strong>Unity 6</strong> 為中心，六個核心分支分區展開。<strong>實線</strong>為同分支層級；<strong>弧形虛線</strong>為跨分支關聯。點選節點或連線會高亮：通往 Unity 6 的路徑，以及與該點直接相連的節點（例如點 One-Off 時一併高亮 Library、Standard）；點空白處取消。</p>
+    <p>關聯圖以 <strong>Unity 6</strong> 為中心，八個核心分支分區展開。<strong>實線</strong>為同分支層級；<strong>弧形虛線</strong>為跨分支關聯。點選節點或連線會高亮：通往 Unity 6 的路徑，以及與該點直接相連的節點（例如點 One-Off 時一併高亮 Library、Standard）；點空白處取消。</p>
     <ul class="dev-env-legend" aria-label="圖例">
       <li><span class="dev-env-legend-swatch dev-env-legend-swatch--core"></span>核心</li>
       <li><span class="dev-env-legend-swatch dev-env-legend-swatch--branch"></span>核心分支</li>
@@ -19,7 +19,7 @@
 
   <div class="content-block">
     <h3>核心分支一覽</h3>
-    <p>開發組環境以 <strong>Unity 6</strong> 為核心，僅有六個一級核心分支直接連接 Unity；其餘組件均歸屬於對應分支。</p>
+    <p>開發組環境以 <strong>Unity 6</strong> 為核心，僅有八個一級核心分支直接連接 Unity；其餘組件均歸屬於對應分支。</p>
     <table class="spec-table">
       <thead>
         <tr>
@@ -58,6 +58,16 @@
           <td>6</td>
           <td><strong>3rd Party</strong></td>
           <td>第三方 Plugin、SDK、Hardware；含子分支 <strong>6.1 Plugin</strong>、<strong>6.2 SDK</strong>、<strong>6.3 Hardware</strong></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>Dev Tools</strong></td>
+          <td>美術與程式開發工具；含子分支 <strong>Graphic</strong>（2D／3D）、<strong>Program</strong>（Code 虛線關聯 Cursor）</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><strong>Hardware</strong></td>
+          <td>開發組工作用硬體；Mac Mini、Mac Server、Workstation 分別虛線關聯 VTM-NAS、SVN、Windows</td>
         </tr>
       </tbody>
     </table>
@@ -567,6 +577,124 @@
           <td>組成部分</td>
           <td>使用中</td>
           <td>第三方攝像／採集硬體；與 LCC Unity SDK 配對</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>7. Dev Tools</h3>
+    <p>開發組日常美術與程式製作所使用的桌面工具；<strong>Graphic</strong> 分支涵蓋 2D／3D 設計軟體，<strong>Program</strong> 下含 <strong>Code</strong>，以虛線關聯 <strong>5.1.1 Cursor</strong>（AI Tools）。</p>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>組件</th>
+          <th>類型</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>7</td>
+          <td><strong>Dev Tools</strong></td>
+          <td>核心分支</td>
+          <td>開發工具總類</td>
+        </tr>
+        <tr>
+          <td>7.1</td>
+          <td><strong>Graphic</strong></td>
+          <td>核心分支</td>
+          <td>美術設計工具子分支</td>
+        </tr>
+        <tr>
+          <td>7.1.1</td>
+          <td><strong>2D</strong></td>
+          <td>核心分支</td>
+          <td>平面設計工具</td>
+        </tr>
+        <tr>
+          <td>7.1.1.1</td>
+          <td><strong>Affinity</strong></td>
+          <td>組成部分</td>
+          <td>2D 設計與排版</td>
+        </tr>
+        <tr>
+          <td>7.1.1.2</td>
+          <td><strong>Figma</strong></td>
+          <td>組成部分</td>
+          <td>UI／UX 協作設計</td>
+        </tr>
+        <tr>
+          <td>7.1.2</td>
+          <td><strong>3D</strong></td>
+          <td>核心分支</td>
+          <td>三維建模與貼圖工具</td>
+        </tr>
+        <tr>
+          <td>7.1.2.1</td>
+          <td><strong>Blender</strong></td>
+          <td>組成部分</td>
+          <td>3D 建模與動畫</td>
+        </tr>
+        <tr>
+          <td>7.1.2.2</td>
+          <td><strong>Substance Painter</strong></td>
+          <td>組成部分</td>
+          <td>3D 材質與貼圖繪製</td>
+        </tr>
+        <tr>
+          <td>7.2</td>
+          <td><strong>Program</strong></td>
+          <td>核心分支</td>
+          <td>程式開發工具子分支</td>
+        </tr>
+        <tr>
+          <td>7.2.1</td>
+          <td><strong>Code</strong></td>
+          <td>組成部分</td>
+          <td>程式碼編輯；虛線關聯 Cursor（AI Tools）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>8. Hardware（開發硬體）</h3>
+    <p>開發組日常工作用電腦與伺服器；<strong>Mac Mini</strong> 虛線關聯 <strong>VTM-NAS</strong>（歸檔存取），<strong>Mac Server</strong> 虛線關聯 <strong>SVN</strong>（舊版版本庫），<strong>Workstation</strong> 虛線關聯 <strong>Windows</strong> 平台構建。</p>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>組件</th>
+          <th>類型</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>8</td>
+          <td><strong>Hardware</strong></td>
+          <td>核心分支</td>
+          <td>開發硬體總類</td>
+        </tr>
+        <tr>
+          <td>8.1</td>
+          <td><strong>Mac Mini</strong></td>
+          <td>組成部分</td>
+          <td>開發用 Mac Mini；虛線關聯 VTM-NAS</td>
+        </tr>
+        <tr>
+          <td>8.2</td>
+          <td><strong>Mac Server</strong></td>
+          <td>組成部分</td>
+          <td>開發用 Mac 伺服器；虛線關聯 SVN</td>
+        </tr>
+        <tr>
+          <td>8.3</td>
+          <td><strong>Workstation</strong></td>
+          <td>組成部分</td>
+          <td>Windows 開發工作站；虛線關聯 Windows 平台</td>
         </tr>
       </tbody>
     </table>

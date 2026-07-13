@@ -681,6 +681,22 @@
       devEnvNode("omni-one", "Omni One", 2),
       devEnvNode("webcam", "Webcam", 2),
       devEnvNode("portal-cam", "PortalCam", 2),
+
+      devEnvNode("dev-tools", "7. Dev Tools", 1),
+      devEnvNode("dt-graphic", "Graphic", 1),
+      devEnvNode("dt-program", "Program", 1),
+      devEnvNode("dt-code", "Code", 2),
+      devEnvNode("dt-2d", "2D", 1),
+      devEnvNode("dt-3d", "3D", 1),
+      devEnvNode("affinity", "Affinity", 2),
+      devEnvNode("figma", "Figma", 2),
+      devEnvNode("blender", "Blender", 2),
+      devEnvNode("substance-painter", "Substance Painter", 2),
+
+      devEnvNode("dev-hardware", "8. Hardware", 1),
+      devEnvNode("mac-mini", "Mac Mini", 2),
+      devEnvNode("mac-server", "Mac Server", 2),
+      devEnvNode("workstation", "Workstation", 2),
     ],
     links: [
       { source: "unity", target: "data-mgmt" },
@@ -689,6 +705,8 @@
       { source: "unity", target: "factory" },
       { source: "unity", target: "ai" },
       { source: "unity", target: "third-party" },
+      { source: "unity", target: "dev-tools" },
+      { source: "unity", target: "dev-hardware" },
 
       { source: "data-mgmt", target: "azure-web" },
       { source: "azure-web", target: "azure-db" },
@@ -822,113 +840,188 @@
         target: "application",
         lineStyle: { color: "#c0c0c0", type: "dashed", width: 1.5, opacity: 0.45, curveness: -0.45 },
       },
+
+      { source: "dev-tools", target: "dt-graphic" },
+      { source: "dev-tools", target: "dt-program" },
+      { source: "dt-graphic", target: "dt-2d" },
+      { source: "dt-graphic", target: "dt-3d" },
+      { source: "dt-2d", target: "affinity" },
+      { source: "dt-2d", target: "figma" },
+      { source: "dt-3d", target: "blender" },
+      { source: "dt-3d", target: "substance-painter" },
+      { source: "dt-program", target: "dt-code" },
+      {
+        source: "dt-code",
+        target: "cursor",
+        lineStyle: { type: "dashed", color: "#cccccc", opacity: 0.45, curveness: 0.35 },
+      },
+      {
+        source: "genspark",
+        target: "dt-graphic",
+        lineStyle: { type: "dashed", color: "#cccccc", opacity: 0.45, curveness: -0.3 },
+      },
+
+      { source: "dev-hardware", target: "mac-mini" },
+      { source: "dev-hardware", target: "mac-server" },
+      { source: "dev-hardware", target: "workstation" },
+      {
+        source: "mac-mini",
+        target: "vtm-nas",
+        lineStyle: { type: "dashed", color: "#cccccc", opacity: 0.38, curveness: -0.5 },
+      },
+      {
+        source: "mac-server",
+        target: "svn",
+        lineStyle: { type: "dashed", color: "#cccccc", opacity: 0.38, curveness: -0.55 },
+      },
+      {
+        source: "workstation",
+        target: "windows",
+        lineStyle: { type: "dashed", color: "#cccccc", opacity: 0.38, curveness: 0.3 },
+      },
     ],
   };
 
   /**
-   * 六區固定座標（大幅拉開間距）
+   * 八區放射狀佈局：8 個核心分支以 Unity 6 為圓心、每隔 45° 均分一圈，
+   * 各分支子節點沿扇區向外（forward）與橫向（lateral）展開。
    *
    *              [4 Factory]
-   *   [1 Data]                 [3 Platforms]
-   *              Unity 6
-   *   [2 Source]    [5 AI]     [6 3rd Party]
+   *   [1 Data]              [8 Hardware]
+   *   [2 Source]  Unity 6   [3 Platforms]
+   *   [7 Dev Tools] [5 AI]  [6 3rd Party]
    */
-  const DEV_ENV_LAYOUT = {
-    unity: { x: 0, y: 0 },
+  const DEV_ENV_HUB_RADIUS = 300;
 
-    "data-mgmt": { x: -420, y: -200 },
-    "azure-web": { x: -620, y: -300 },
-    "azure-db": { x: -820, y: -300 },
-    "azure-blob": { x: -620, y: -180 },
-    "aws-web": { x: -620, y: -420 },
-    "aws-db": { x: -820, y: -420 },
-    "aws-s3": { x: -620, y: -60 },
+  function devEnvBranchPos(hubDeg, forward, lateral) {
+    const rad = (hubDeg * Math.PI) / 180;
+    const hubX = DEV_ENV_HUB_RADIUS * Math.sin(rad);
+    const hubY = -DEV_ENV_HUB_RADIUS * Math.cos(rad);
+    const outX = Math.sin(rad);
+    const outY = -Math.cos(rad);
+    const latX = Math.cos(rad);
+    const latY = Math.sin(rad);
+    return {
+      x: Math.round(hubX + forward * outX + lateral * latX),
+      y: Math.round(hubY + forward * outY + lateral * latY),
+    };
+  }
 
-    "src-code": { x: -420, y: 180 },
-    "gh-desktop": { x: -620, y: 80 },
-    github: { x: -820, y: 80 },
-    "back-up": { x: -620, y: 260 },
-    "vtm-nas": { x: -820, y: 260 },
-    "smart-svn": { x: -620, y: 400 },
-    svn: { x: -820, y: 400 },
+  function buildDevEnvLayout() {
+    const put = (deg, forward, lateral) => devEnvBranchPos(deg, forward, lateral);
 
-    platforms: { x: 380, y: -80 },
-    android: { x: 560, y: -260 },
-    hardware: { x: 720, y: -380 },
-    "meta-quest": { x: 880, y: -520 },
-    pico: { x: 880, y: -380 },
-    htc: { x: 880, y: -240 },
-    "api-std": { x: 720, y: -140 },
-    openxr: { x: 1080, y: -380 },
-    windows: { x: 560, y: 40 },
-    application: { x: 760, y: -20 },
-    pcvr: { x: 760, y: 100 },
-    ios: { x: 560, y: 220 },
+    return {
+      unity: { x: 0, y: 0 },
 
-    factory: { x: 0, y: -260 },
-    "sf-library": { x: -280, y: -400 },
-    "design-lib": { x: -420, y: -560 },
-    "function-lib": { x: -280, y: -560 },
-    "ui-lib": { x: -140, y: -560 },
-    "sf-standard": { x: -40, y: -400 },
-    tsa: { x: -100, y: -560 },
-    reds: { x: 40, y: -560 },
-    "sf-template": { x: 220, y: -400 },
-    ctp: { x: 120, y: -560 },
-    pmtp: { x: 220, y: -560 },
-    xra: { x: 320, y: -560 },
-    "sf-one-off": { x: 420, y: -400 },
+      /* 1. Data Management — 315°（左上） */
+      "data-mgmt": put(315, 0, 0),
+      "azure-web": put(315, 150, -90),
+      "azure-db": put(315, 290, -90),
+      "azure-blob": put(315, 150, 50),
+      "aws-web": put(315, 150, -190),
+      "aws-db": put(315, 290, -190),
+      "aws-s3": put(315, 150, 150),
 
-    ai: { x: -80, y: 420 },
-    "ai-tools": { x: -280, y: 560 },
-    cursor: { x: -420, y: 700 },
-    genspark: { x: -280, y: 700 },
-    minimax: { x: -140, y: 700 },
-    "ai-api": { x: 80, y: 560 },
-    deepseek: { x: 20, y: 700 },
-    doubao: { x: 180, y: 700 },
+      /* 2. Source Code — 270°（左） */
+      "src-code": put(270, 0, 0),
+      "gh-desktop": put(270, 150, -90),
+      github: put(270, 290, -90),
+      "back-up": put(270, 150, 90),
+      "vtm-nas": put(270, 290, 90),
+      "smart-svn": put(270, 150, 210),
+      svn: put(270, 290, 210),
 
-    /* 6. 3rd Party：三欄，子節點扇形散開（不成直線） */
-    "third-party": { x: 560, y: 360 },
-    "tp-plugin": { x: 280, y: 520 },
-    opencv: { x: 280, y: 700 },
-    "tp-sdk": { x: 560, y: 520 },
-    "omni-one-sdk": { x: 420, y: 680 },
-    "lcc-unity": { x: 560, y: 820 },
-    votanic: { x: 700, y: 680 },
-    "tp-hardware": { x: 920, y: 520 },
-    "omni-one": { x: 820, y: 680 },
-    "portal-cam": { x: 920, y: 820 },
-    webcam: { x: 1040, y: 680 },
-  };
+      /* 3. Platforms — 90°（右） */
+      platforms: put(90, 0, 0),
+      android: put(90, 150, -100),
+      windows: put(90, 150, 70),
+      ios: put(90, 150, 210),
+      hardware: put(90, 290, -120),
+      "meta-quest": put(90, 430, -180),
+      pico: put(90, 430, -100),
+      htc: put(90, 430, -20),
+      "api-std": put(90, 310, 40),
+      openxr: put(90, 570, 20),
+      application: put(90, 290, 90),
+      pcvr: put(90, 290, 170),
+
+      /* 4. Software Factory — 0°（上） */
+      factory: put(0, 0, 0),
+      "sf-library": put(0, 170, -150),
+      "sf-standard": put(0, 170, 0),
+      "sf-template": put(0, 170, 150),
+      "sf-one-off": put(0, 170, 300),
+      "design-lib": put(0, 310, -210),
+      "function-lib": put(0, 310, -130),
+      "ui-lib": put(0, 310, -50),
+      tsa: put(0, 310, 30),
+      reds: put(0, 310, 110),
+      ctp: put(0, 310, 190),
+      pmtp: put(0, 310, 250),
+      xra: put(0, 310, 330),
+
+      /* 5. AI — 180°（下） */
+      ai: put(180, 0, 0),
+      "ai-tools": put(180, 150, -130),
+      "ai-api": put(180, 150, 130),
+      cursor: put(180, 290, -200),
+      genspark: put(180, 290, -120),
+      minimax: put(180, 290, -40),
+      deepseek: put(180, 290, 80),
+      doubao: put(180, 290, 160),
+
+      /* 6. 3rd Party — 135°（右下） */
+      "third-party": put(135, 0, 0),
+      "tp-plugin": put(135, 170, -130),
+      "tp-sdk": put(135, 170, 0),
+      "tp-hardware": put(135, 170, 130),
+      opencv: put(135, 310, -130),
+      "omni-one-sdk": put(135, 310, -50),
+      "lcc-unity": put(135, 310, 30),
+      votanic: put(135, 310, 110),
+      "omni-one": put(135, 310, 190),
+      "portal-cam": put(135, 310, 250),
+      webcam: put(135, 310, 310),
+
+      /* 7. Dev Tools — 225°（左下） */
+      "dev-tools": put(225, 0, 0),
+      "dt-graphic": put(225, 150, -100),
+      "dt-program": put(225, 150, 100),
+      "dt-code": put(225, 290, 100),
+      "dt-2d": put(225, 290, -150),
+      "dt-3d": put(225, 290, -30),
+      affinity: put(225, 430, -170),
+      figma: put(225, 430, -90),
+      blender: put(225, 430, -10),
+      "substance-painter": put(225, 430, 70),
+
+      /* 8. Hardware — 45°（右上） */
+      "dev-hardware": put(45, 0, 0),
+      "mac-mini": put(45, 150, -80),
+      "mac-server": put(45, 150, 0),
+      workstation: put(45, 150, 80),
+    };
+  }
+
+  const DEV_ENV_LAYOUT = buildDevEnvLayout();
+
+  function devEnvLabelAwayFromCenter(x, y) {
+    if (x === 0 && y === 0) return "bottom";
+    const ax = Math.abs(x);
+    const ay = Math.abs(y);
+    if (ax > ay * 1.35) return x < 0 ? "left" : "right";
+    if (ay > ax * 1.35) return y < 0 ? "top" : "bottom";
+    if (x < 0 && y < 0) return "left";
+    if (x > 0 && y < 0) return "right";
+    if (x < 0 && y > 0) return "left";
+    return "right";
+  }
 
   function buildDevEnvNodes() {
-    const hubLabelPos = {
-      unity: "bottom",
-      "data-mgmt": "top",
-      "src-code": "top",
-      platforms: "top",
-      android: "top",
-      windows: "top",
-      ios: "top",
-      factory: "bottom",
-      "sf-library": "top",
-      "sf-standard": "top",
-      "sf-template": "top",
-      "sf-one-off": "top",
-      ai: "top",
-      "third-party": "top",
-      "back-up": "bottom",
-      "ai-tools": "top",
-      "ai-api": "top",
-      "tp-plugin": "top",
-      "tp-sdk": "top",
-      "tp-hardware": "top",
-    };
-
     return DEV_ENV_GRAPH.nodes.map((node) => {
       const pos = DEV_ENV_LAYOUT[node.id] || { x: 0, y: 0 };
       const isHub = node.category <= 1;
+      const labelPos = devEnvLabelAwayFromCenter(pos.x, pos.y);
 
       return {
         ...node,
@@ -937,8 +1030,8 @@
         fixed: true,
         label: {
           show: true,
-          position: isHub ? hubLabelPos[node.id] || "top" : "bottom",
-          distance: isHub ? 12 : 6,
+          position: labelPos,
+          distance: isHub ? 12 : 7,
           fontSize: node.category === 0 ? 14 : node.category === 1 ? 12 : 10,
           color: node.category === 3 ? "#999999" : "#333333",
           fontWeight: node.category === 0 ? 700 : node.category === 1 ? 600 : 400,
@@ -1068,7 +1161,7 @@
           roam: true,
           draggable: false,
           focusNodeAdjacency: false,
-          scaleLimit: { min: 0.3, max: 2.5 },
+          scaleLimit: { min: 0.22, max: 2.5 },
           edgeSymbol: ["none", "none"],
           lineStyle: {
             color: "#c0c0c0",

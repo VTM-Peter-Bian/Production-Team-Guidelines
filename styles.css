@@ -816,7 +816,7 @@ body.sidebar-open .nav-toggle-icon::after {
 .dev-env-chart-mount {
   margin-top: 0.75rem;
   width: 100%;
-  min-height: 58rem;
+  min-height: 76rem;
   padding: 0.5rem;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
