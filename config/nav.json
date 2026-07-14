@@ -2,7 +2,7 @@
   "site": {
     "title": "VTM開發組規範文檔",
     "subtitle": "Production Team Guidelines",
-    "version": "V0.8.6",
+    "version": "V0.9.0",
     "updatedAt": "2026-07-14",
     "copyright": "© VTM DIGITAL LIMITED"
   },
@@ -75,6 +75,7 @@
       "type": "group",
       "label": "術語定義",
       "children": [
+        { "type": "link", "id": "xr-terminology", "label": "XR" },
         { "type": "link", "id": "completion", "label": "完成（Completion）" },
         { "type": "link", "id": "due-date", "label": "到期日（Due Date）" },
         { "type": "link", "id": "development-phases", "label": "開發階段（PP / G / P）" },
@@ -107,6 +108,7 @@
     "due-date": { "file": "content/sections/due-date.html" },
     "development-phases": { "file": "content/sections/development-phases.html" },
     "reds-terminology": { "file": "content/sections/reds-terminology.html" },
+    "xr-terminology": { "file": "content/sections/xr-terminology.html" },
     "doc-style": { "file": "content/sections/doc-style.html" },
     "project-resource-management": { "file": "content/sections/project-resource-management.html" },
     "project-progress-management": { "file": "content/sections/project-progress-management.html" },

@@ -693,6 +693,8 @@
 
       devEnvNode("dev-tools", "6. Dev Tools", 1),
       devEnvNode("dt-graphic", "Graphic", 1),
+      devEnvNode("dt-design", "Design", 1),
+      devEnvNode("dt-vo", "VO", 2),
       devEnvNode("dt-program", "Program", 1),
       devEnvNode("dt-code", "Code", 2),
       devEnvNode("dt-2d", "2D", 1),
@@ -876,7 +878,9 @@
       },
 
       { source: "dev-tools", target: "dt-graphic" },
+      { source: "dev-tools", target: "dt-design" },
       { source: "dev-tools", target: "dt-program" },
+      { source: "dt-design", target: "dt-vo" },
       { source: "dt-graphic", target: "dt-2d" },
       { source: "dt-graphic", target: "dt-3d" },
       { source: "dt-2d", target: "affinity" },
@@ -903,6 +907,11 @@
         source: "claude-code",
         target: "dt-code",
         lineStyle: { type: "dashed", color: "#cccccc", opacity: 0.45, curveness: 0.2 },
+      },
+      {
+        source: "dt-vo",
+        target: "minimax",
+        lineStyle: { type: "dashed", color: "#cccccc", opacity: 0.45, curveness: 0.25 },
       },
 
       { source: "dev-hardware", target: "mac-mini" },
@@ -1043,11 +1052,13 @@
       votanic: put(160, 310, 130),
       cave: put(160, 430, 130),
 
-      /* 8. Dev Tools — 200°（左下） */
+      /* 6. Dev Tools — 200°（左下） */
       "dev-tools": put(200, 0, 0),
-      "dt-graphic": put(200, 150, -100),
-      "dt-program": put(200, 150, 100),
-      "dt-code": put(200, 290, 100),
+      "dt-graphic": put(200, 150, -120),
+      "dt-design": put(200, 150, 0),
+      "dt-vo": put(200, 290, 0),
+      "dt-program": put(200, 150, 120),
+      "dt-code": put(200, 290, 120),
       "dt-2d": put(200, 290, -150),
       "dt-3d": put(200, 290, -30),
       affinity: put(200, 430, -170),
