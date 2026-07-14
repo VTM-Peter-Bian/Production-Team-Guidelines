@@ -7,7 +7,7 @@
 
   <div class="content-block">
     <h3>環境總覽圖</h3>
-    <p>關聯圖以 <strong>Unity 6</strong> 為中心，八個核心分支分區展開。<strong>實線</strong>為同分支層級；<strong>弧形虛線</strong>為跨分支關聯。點選節點或連線會高亮：通往 Unity 6 的路徑，以及與該點直接相連的節點（例如點 One-Off 時一併高亮 Library、Standard）；點空白處取消。</p>
+    <p>關聯圖以 <strong>Unity 6</strong> 為中心，九個核心分支分區展開。<strong>實線</strong>為同分支層級；<strong>弧形虛線</strong>為跨分支關聯。點選節點或連線會高亮：通往 Unity 6 的路徑，以及與該點直接相連的節點（例如點 One-Off 時一併高亮 Library、Standard）；點空白處取消。</p>
     <ul class="dev-env-legend" aria-label="圖例">
       <li><span class="dev-env-legend-swatch dev-env-legend-swatch--core"></span>核心</li>
       <li><span class="dev-env-legend-swatch dev-env-legend-swatch--branch"></span>核心分支</li>
@@ -19,7 +19,7 @@
 
   <div class="content-block">
     <h3>核心分支一覽</h3>
-    <p>開發組環境以 <strong>Unity 6</strong> 為核心，僅有八個一級核心分支直接連接 Unity；其餘組件均歸屬於對應分支。</p>
+    <p>開發組環境以 <strong>Unity 6</strong> 為核心，僅有九個一級核心分支直接連接 Unity；序號以圖中位置為準，自 <strong>Software Factory</strong> 起順時針編為 1 至 9。</p>
     <table class="spec-table">
       <thead>
         <tr>
@@ -31,43 +31,48 @@
       <tbody>
         <tr>
           <td>1</td>
-          <td><strong>Data Management</strong></td>
-          <td>雲端資料、資料庫與檔案儲存管理</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td><strong>Source Code &amp; Version Control</strong></td>
-          <td>GitHub 託管與日常提交；含子分支 <strong>2.3 Back Up</strong>（完成後 3 個月歸檔至 VTM-NAS）</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td><strong>Platforms</strong></td>
-          <td>Unity 構建產出的目標平台與 VR 一體機硬體適配</td>
-        </tr>
-        <tr>
-          <td>4</td>
           <td><strong>VTM Software Factory</strong></td>
           <td>開發組自研軟體工廠；含子分支 <strong>Library</strong>、<strong>Standard</strong>、<strong>Template</strong>、<strong>One-Off</strong></td>
         </tr>
         <tr>
+          <td>2</td>
+          <td><strong>Hardware</strong></td>
+          <td>開發組工作用硬體；Mac Mini、Mac Server、Workstation、iPad 分別虛線關聯 VTM-NAS、SVN、Windows、app</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>OpenXR</strong></td>
+          <td>跨平台 XR 標準；下接廠商 SDK，再至 VR 一體機硬體（虛線關聯 apk）</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>OS</strong></td>
+          <td>Unity 構建產出的目標作業系統（Android、Windows、iOS）</td>
+        </tr>
+        <tr>
           <td>5</td>
-          <td><strong>AI</strong></td>
-          <td>AI 協作開發工具與 API；含子分支 <strong>5.1 Tools</strong>、<strong>5.2 API</strong></td>
+          <td><strong>3rd Party</strong></td>
+          <td>第三方 Plugin、SDK；硬體緊接於對應 Plugin／SDK 之後（如 OpenCV → Webcam、Omni One SDK → Omni One）</td>
         </tr>
         <tr>
           <td>6</td>
-          <td><strong>3rd Party</strong></td>
-          <td>第三方 Plugin、SDK、Hardware；含子分支 <strong>6.1 Plugin</strong>、<strong>6.2 SDK</strong>、<strong>6.3 Hardware</strong></td>
-        </tr>
-        <tr>
-          <td>7</td>
           <td><strong>Dev Tools</strong></td>
           <td>美術與程式開發工具；含子分支 <strong>Graphic</strong>（2D／3D）、<strong>Program</strong>（Code 虛線關聯 Cursor）</td>
         </tr>
         <tr>
+          <td>7</td>
+          <td><strong>AI</strong></td>
+          <td>AI 協作開發工具與 API；含子分支 <strong>7.1 Tools</strong>、<strong>7.2 API</strong></td>
+        </tr>
+        <tr>
           <td>8</td>
-          <td><strong>Hardware</strong></td>
-          <td>開發組工作用硬體；Mac Mini、Mac Server、Workstation 分別虛線關聯 VTM-NAS、SVN、Windows</td>
+          <td><strong>Source &amp; Version Control</strong></td>
+          <td>GitHub 託管與日常提交（含程式與美術資源）；含子分支 <strong>8.3 Back Up</strong>（完成後 3 個月歸檔至 VTM-NAS）</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><strong>Data Management</strong></td>
+          <td>雲端資料、資料庫與檔案儲存管理</td>
         </tr>
       </tbody>
     </table>
@@ -96,142 +101,162 @@
   </div>
 
   <div class="content-block">
-    <h3>1. Data Management（資料管理）</h3>
-    <p>透過 Azure 雲端服務管理項目資料、資料庫與檔案儲存；Unity 客戶端透過 API 讀寫遠端資料。</p>
+    <h3>1. VTM Software Factory（內部軟體工廠）</h3>
+    <p>開發組自研的共用資產工廠，劃分為 <strong>Library</strong>、<strong>Standard</strong>、<strong>Template</strong>、<strong>One-Off</strong> 四個子分支。<strong>Library</strong> 下分 <strong>Internal</strong>（內部）與 <strong>Production</strong>（生產）；生產分支含 Design Library、Function Library、Graphic Library。Library 依 <a href="#tsa-terminology" class="section-ref" data-section="tsa-terminology">TSA</a>／<a href="#reds-terminology" class="section-ref" data-section="reds-terminology">REDS</a>（Standard）建構；CTP／PMTP／XRA 與 One-Off 均以虛線關聯至 Library 與 Standard。</p>
     <table class="spec-table">
       <thead>
         <tr>
           <th>序號</th>
           <th>組件</th>
           <th>類型</th>
-          <th>狀態</th>
           <th>說明</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>1</td>
-          <td><strong>Data Management</strong></td>
+          <td><strong>VTM Software Factory</strong></td>
           <td>核心分支</td>
-          <td>使用中</td>
-          <td>資料管理總類；匯入 Unity 的雲端資料服務</td>
+          <td>內部軟體工廠總類</td>
         </tr>
         <tr>
           <td>1.1</td>
-          <td><strong>Azure Static Web</strong></td>
+          <td><strong>Library</strong></td>
+          <td>核心分支</td>
+          <td>共用資產庫子分支；分 Internal（內部）與 Production（生產）</td>
+        </tr>
+        <tr>
+          <td>1.1.1</td>
+          <td><strong>Internal</strong></td>
+          <td>核心分支</td>
+          <td>內部用共用資產庫</td>
+        </tr>
+        <tr>
+          <td>1.1.2</td>
+          <td><strong>Production</strong></td>
+          <td>核心分支</td>
+          <td>生產用共用資產庫</td>
+        </tr>
+        <tr>
+          <td>1.1.2.1</td>
+          <td>Design Library</td>
           <td>組成部分</td>
-          <td>使用中</td>
-          <td>透過 API 建立可視化資料管理介面，支援 CRUD 操作</td>
+          <td>設計相關共用資源與工具</td>
+        </tr>
+        <tr>
+          <td>1.1.2.2</td>
+          <td>Function Library</td>
+          <td>組成部分</td>
+          <td>通用功能模組</td>
+        </tr>
+        <tr>
+          <td>1.1.2.3</td>
+          <td>Graphic Library</td>
+          <td>組成部分</td>
+          <td>美術／圖形相關共用資源</td>
         </tr>
         <tr>
           <td>1.2</td>
-          <td><strong>Azure Database</strong></td>
+          <td><strong>Standard</strong></td>
+          <td>核心分支</td>
+          <td>開發標準與架構原則子分支</td>
+        </tr>
+        <tr>
+          <td>1.2.1</td>
+          <td>TSA</td>
           <td>組成部分</td>
-          <td>使用中</td>
-          <td>Azure Database Flexible Server 遠端 MySQL；開發／測試／正式環境分別對應 <span class="code-inline">VTM-FRP</span>、<span class="code-inline">VTM-CPP</span></td>
+          <td>Task · Step · Action 流程拆解標準</td>
+        </tr>
+        <tr>
+          <td>1.2.2</td>
+          <td>REDS</td>
+          <td>組成部分</td>
+          <td>Reusable · Expandable · Data-Driven · Standardization 架構指標</td>
         </tr>
         <tr>
           <td>1.3</td>
-          <td>AWS Web Services</td>
-          <td>棄用</td>
-          <td class="text-muted">棄用</td>
-          <td>舊版 Web 管理介面，已由 Azure Static Web 取代</td>
+          <td><strong>Template</strong></td>
+          <td>核心分支</td>
+          <td>項目模板子分支；虛線關聯至 Library 與 Standard</td>
+        </tr>
+        <tr>
+          <td>1.3.1</td>
+          <td>CTP</td>
+          <td>組成部分</td>
+          <td>項目模板；虛線關聯至 Library 與 Standard</td>
+        </tr>
+        <tr>
+          <td>1.3.2</td>
+          <td>PMTP</td>
+          <td>組成部分</td>
+          <td>項目模板；虛線關聯至 Library 與 Standard</td>
+        </tr>
+        <tr>
+          <td>1.3.3</td>
+          <td>XRA</td>
+          <td>組成部分</td>
+          <td>項目模板；虛線關聯至 Library 與 Standard</td>
         </tr>
         <tr>
           <td>1.4</td>
-          <td>AWS Database</td>
-          <td>棄用</td>
-          <td class="text-muted">棄用</td>
-          <td>舊版遠端 MySQL，已由 Azure Database 取代</td>
-        </tr>
-        <tr>
-          <td>1.5</td>
-          <td><strong>Azure Blob Storage</strong></td>
-          <td>組成部分</td>
-          <td>使用中</td>
-          <td>彈性、安全且具成本效益的雲端儲存（<span class="code-inline">vtm_storage</span>）</td>
-        </tr>
-        <tr>
-          <td>1.6</td>
-          <td>AWS S3 Storage</td>
-          <td>棄用</td>
-          <td class="text-muted">棄用</td>
-          <td>舊版雲端儲存，已由 Azure Blob Storage 取代</td>
+          <td><strong>One-Off</strong></td>
+          <td>核心分支</td>
+          <td>一次性／專案特製資產子分支；虛線關聯至 Library 與 Standard</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="content-block">
-    <h3>2. Source Code &amp; Version Control（源代碼與版本控制）</h3>
-    <p>程式碼與美術資源於項目進行中統一存放於 GitHub，日常提交使用 GitHub Desktop。項目<strong>完成後 3 個月</strong>，PO 會將 Repository 從 GitHub 移除，並由 <strong>Back Up</strong> 流程歸檔至公司 <strong>VTM-NAS</strong>。詳見 <a href="#github-desktop" class="section-ref" data-section="github-desktop">GitHub Desktop 提交規範</a>。</p>
+    <h3>2. Hardware（開發硬體）</h3>
+    <p>開發組日常工作用電腦、伺服器與測試裝置；<strong>Mac Mini</strong> 虛線關聯 <strong>VTM-NAS</strong>（歸檔存取），<strong>Mac Server</strong> 虛線關聯 <strong>SVN</strong>（舊版版本庫），<strong>Workstation</strong> 虛線關聯 <strong>Windows</strong> 平台構建，<strong>iPad</strong> 虛線關聯 <strong>app</strong>（iOS 構建產物）。</p>
     <table class="spec-table">
       <thead>
         <tr>
           <th>序號</th>
           <th>組件</th>
           <th>類型</th>
-          <th>狀態</th>
           <th>說明</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>2</td>
-          <td><strong>Source Code &amp; Version Control</strong></td>
+          <td><strong>Hardware</strong></td>
           <td>核心分支</td>
-          <td>使用中</td>
-          <td>源代碼與版本控制總類；匯入 Unity 的代碼託管服務</td>
+          <td>開發硬體總類</td>
         </tr>
         <tr>
           <td>2.1</td>
-          <td><strong>GitHub Desktop</strong></td>
+          <td><strong>Mac Mini</strong></td>
           <td>組成部分</td>
-          <td>使用中</td>
-          <td>圖形化版本控制客戶端，用於日常 commit 與 push</td>
+          <td>開發用 Mac Mini；虛線關聯 VTM-NAS</td>
         </tr>
         <tr>
           <td>2.2</td>
-          <td><strong>GitHub</strong></td>
+          <td><strong>Mac Server</strong></td>
           <td>組成部分</td>
-          <td>使用中</td>
-          <td>代碼託管、版本控制、團隊協作、Issue 追蹤與權限管理（項目生命週期內）</td>
+          <td>開發用 Mac 伺服器；虛線關聯 SVN</td>
         </tr>
         <tr>
           <td>2.3</td>
-          <td><strong>Back Up</strong></td>
-          <td>核心分支</td>
-          <td>使用中</td>
-          <td>項目完成後的源代碼歸檔分支；PO 於完成後 <strong>3 個月</strong> 將項目從 GitHub 移除，並備份至 VTM-NAS</td>
+          <td><strong>Workstation</strong></td>
+          <td>組成部分</td>
+          <td>Windows 開發工作站；虛線關聯 Windows 平台</td>
         </tr>
         <tr>
           <td>2.4</td>
-          <td><strong>VTM-NAS</strong></td>
+          <td><strong>iPad</strong></td>
           <td>組成部分</td>
-          <td>使用中</td>
-          <td>公司網路儲存（NAS），存放已從 GitHub 下架的項目完整備份</td>
-        </tr>
-        <tr>
-          <td>2.5</td>
-          <td>Smart SVN</td>
-          <td>棄用</td>
-          <td class="text-muted">棄用</td>
-          <td>舊版圖形化 SVN 客戶端</td>
-        </tr>
-        <tr>
-          <td>2.6</td>
-          <td>SVN</td>
-          <td>棄用</td>
-          <td class="text-muted">棄用</td>
-          <td>舊版版本控制系統，已由 GitHub 取代</td>
+          <td>iOS 測試與展示用平板；虛線關聯 app</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="content-block">
-    <h3>3. Platforms（目標平台）</h3>
-    <p>Unity 構建產出部署至 Android、Windows 與 iOS 平台；VR 一體機透過 OpenXR 標準接入。PC 端 Application 可整合 <a href="#dev-env-3rd-party" class="section-ref" data-section="dev-environment" data-anchor="dev-env-3rd-party">3rd Party</a> 提供的 Plugin 與 SDK（如 OpenCV、Omni One SDK）。</p>
+    <h3>3. OpenXR（跨平台 XR 標準）</h3>
+    <p>與 <strong>OS</strong> 同為 Unity 6 的一級核心分支。下接廠商 SDK（Meta XR SDK、Pico SDK、VIVE OpenXR），再至對應 VR 一體機硬體系列；硬體以虛線關聯 <strong>4.1.1 apk</strong>（Android 構建產物）。</p>
     <table class="spec-table">
       <thead>
         <tr>
@@ -244,83 +269,53 @@
       <tbody>
         <tr>
           <td>3</td>
-          <td><strong>Platforms</strong></td>
+          <td><strong>OpenXR</strong></td>
           <td>核心分支</td>
-          <td>目標平台總類；Unity 構建產出的部署方向</td>
+          <td>跨平台 XR 標準；直接連接 Unity 6</td>
         </tr>
         <tr>
           <td>3.1</td>
-          <td><strong>Android</strong></td>
-          <td>核心分支</td>
-          <td>獨立 APK 與 VR 一體機構建目標</td>
+          <td><strong>Meta XR SDK</strong></td>
+          <td>組成部分</td>
+          <td>Meta Quest 廠商 SDK；下接 Meta Quest Series</td>
+        </tr>
+        <tr>
+          <td>3.1.1</td>
+          <td>Meta Quest Series</td>
+          <td>組成部分</td>
+          <td>Quest 系列頭顯；虛線關聯 apk</td>
         </tr>
         <tr>
           <td>3.2</td>
-          <td><strong>XR Headset</strong></td>
+          <td><strong>Pico SDK</strong></td>
           <td>組成部分</td>
-          <td>Android VR 一體機頭顯適配（Meta Quest、Pico、HTC）</td>
+          <td>Pico 廠商 SDK；下接 Pico Series</td>
+        </tr>
+        <tr>
+          <td>3.2.1</td>
+          <td>Pico Series</td>
+          <td>組成部分</td>
+          <td>Pico 系列頭顯；虛線關聯 apk</td>
         </tr>
         <tr>
           <td>3.3</td>
-          <td>Meta Quest</td>
+          <td><strong>VIVE OpenXR</strong></td>
           <td>組成部分</td>
-          <td>Quest 系列頭顯</td>
+          <td>HTC 提供的 OpenXR 廠商擴展 SDK（非 OpenXR 標準本體）；下接 HTC VIVE Series</td>
         </tr>
         <tr>
-          <td>3.4</td>
-          <td>Pico</td>
+          <td>3.3.1</td>
+          <td>HTC VIVE Series</td>
           <td>組成部分</td>
-          <td>Pico 系列頭顯</td>
-        </tr>
-        <tr>
-          <td>3.5</td>
-          <td>HTC</td>
-          <td>組成部分</td>
-          <td>HTC Vive 系列頭顯</td>
-        </tr>
-        <tr>
-          <td>3.6</td>
-          <td><strong>API Standard</strong></td>
-          <td>組成部分</td>
-          <td>Android 端 XR API 抽象層</td>
-        </tr>
-        <tr>
-          <td>3.7</td>
-          <td><strong>OpenXR</strong></td>
-          <td>組成部分</td>
-          <td>跨平台 XR 標準；Meta Quest／Pico／HTC、API Standard 與 PCVR 均接入</td>
-        </tr>
-        <tr>
-          <td>3.8</td>
-          <td><strong>Windows</strong></td>
-          <td>核心分支</td>
-          <td>桌面應用與 PCVR 構建目標</td>
-        </tr>
-        <tr>
-          <td>3.9</td>
-          <td>Application</td>
-          <td>組成部分</td>
-          <td>一般 Windows 應用程式；整合 3rd Party Plugin／SDK（如 OpenCV、Omni One SDK）</td>
-        </tr>
-        <tr>
-          <td>3.10</td>
-          <td>PCVR</td>
-          <td>組成部分</td>
-          <td>PC 端 VR 體驗</td>
-        </tr>
-        <tr>
-          <td>3.11</td>
-          <td><strong>iOS</strong></td>
-          <td>核心分支</td>
-          <td>iOS 平台構建目標</td>
+          <td>HTC Vive 系列頭顯；虛線關聯 apk</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="content-block">
-    <h3>4. VTM Software Factory（內部軟體工廠）</h3>
-    <p>開發組自研的共用資產工廠，劃分為 <strong>Library</strong>、<strong>Standard</strong>、<strong>Template</strong>、<strong>One-Off</strong> 四個子分支。Library 依 <a href="#tsa-terminology" class="section-ref" data-section="tsa-terminology">TSA</a>／<a href="#reds-terminology" class="section-ref" data-section="reds-terminology">REDS</a>（Standard）建構；CTP／PMTP／XRA 與 One-Off 均以虛線關聯至 Library 與 Standard。跨分支以虛線連至彙總節點。</p>
+    <h3>4. OS（目標作業系統）</h3>
+    <p>Unity 構建產出部署至 Android、Windows 與 iOS；<strong>Android</strong> 下接構建產物 <strong>apk</strong>，<strong>iOS</strong> 下接 <strong>app</strong>。<strong>PCVR</strong> 分為兩類：<strong>Native PCVR</strong>（PC 端 exe 直連頭顯）與 <strong>PC + Standalone VR</strong>（透過 Steam Link、Meta Horizon Link 等串流至一體機）。PC 端 Application 可整合 <a href="#dev-env-3rd-party" class="section-ref" data-section="dev-environment" data-anchor="dev-env-3rd-party">3rd Party</a> 提供的 Plugin 與 SDK。</p>
     <table class="spec-table">
       <thead>
         <tr>
@@ -333,89 +328,71 @@
       <tbody>
         <tr>
           <td>4</td>
-          <td><strong>VTM Software Factory</strong></td>
+          <td><strong>OS</strong></td>
           <td>核心分支</td>
-          <td>內部軟體工廠總類</td>
+          <td>目標作業系統總類；Unity 構建產出的部署方向</td>
         </tr>
         <tr>
           <td>4.1</td>
-          <td><strong>Library</strong></td>
+          <td><strong>Android</strong></td>
           <td>核心分支</td>
-          <td>共用程式庫子分支；依 Standard（TSA／REDS）建構</td>
+          <td>Android 平台構建目標</td>
         </tr>
         <tr>
           <td>4.1.1</td>
-          <td>Design Library</td>
+          <td>apk</td>
           <td>組成部分</td>
-          <td>設計相關共用資源與工具</td>
-        </tr>
-        <tr>
-          <td>4.1.2</td>
-          <td>Function Library</td>
-          <td>組成部分</td>
-          <td>通用功能模組</td>
-        </tr>
-        <tr>
-          <td>4.1.3</td>
-          <td>UI Library</td>
-          <td>組成部分</td>
-          <td>共用 UI 元件與樣式</td>
+          <td>Android 構建產物（獨立 APK）；XR 一體機硬體以虛線關聯</td>
         </tr>
         <tr>
           <td>4.2</td>
-          <td><strong>Standard</strong></td>
+          <td><strong>Windows</strong></td>
           <td>核心分支</td>
-          <td>開發標準與架構原則子分支</td>
+          <td>桌面應用與 PCVR 構建目標</td>
         </tr>
         <tr>
           <td>4.2.1</td>
-          <td>TSA</td>
+          <td>Application</td>
           <td>組成部分</td>
-          <td>Task · Step · Action 流程拆解標準</td>
+          <td>一般 Windows 應用程式；整合 3rd Party Plugin／SDK（如 OpenCV、Omni One SDK）</td>
         </tr>
         <tr>
           <td>4.2.2</td>
-          <td>REDS</td>
+          <td><strong>PCVR</strong></td>
+          <td>核心分支</td>
+          <td>PC 端 VR 體驗子分支</td>
+        </tr>
+        <tr>
+          <td>4.2.2.1</td>
+          <td><strong>Native PCVR</strong></td>
           <td>組成部分</td>
-          <td>Reusable · Expandable · Data-Driven · Standardization 架構指標</td>
+          <td>PC 端 exe 運行，頭顯與控制器直連 PC（如 VIVE 有線／接收器）；虛線關聯 OpenXR、HTC VIVE Series</td>
+        </tr>
+        <tr>
+          <td>4.2.2.2</td>
+          <td><strong>PC + Standalone VR</strong></td>
+          <td>組成部分</td>
+          <td>PC 端 exe 渲染，透過 Steam Link、Meta Horizon Link 等串流至一體機顯示並回傳追蹤／輸入；虛線關聯 Meta Quest Series、Pico Series</td>
         </tr>
         <tr>
           <td>4.3</td>
-          <td><strong>Template</strong></td>
+          <td><strong>iOS</strong></td>
           <td>核心分支</td>
-          <td>項目模板子分支；虛線關聯至 Library 與 Standard</td>
+          <td>iOS 平台構建目標</td>
         </tr>
         <tr>
           <td>4.3.1</td>
-          <td>CTP</td>
+          <td>app</td>
           <td>組成部分</td>
-          <td>項目模板；虛線關聯至 Library 與 Standard</td>
-        </tr>
-        <tr>
-          <td>4.3.2</td>
-          <td>PMTP</td>
-          <td>組成部分</td>
-          <td>項目模板；虛線關聯至 Library 與 Standard</td>
-        </tr>
-        <tr>
-          <td>4.3.3</td>
-          <td>XRA</td>
-          <td>組成部分</td>
-          <td>項目模板；虛線關聯至 Library 與 Standard</td>
-        </tr>
-        <tr>
-          <td>4.4</td>
-          <td><strong>One-Off</strong></td>
-          <td>核心分支</td>
-          <td>一次性／專案特製資產子分支；虛線關聯至 Library 與 Standard</td>
+          <td>iOS 構建產物（.app / App Store 發布包）；iPad 以虛線關聯</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="content-block">
-    <h3>5. AI（人工智慧協作）</h3>
-    <p>開發組使用 AI 工具輔助程式撰寫、研究與文檔整理；分為<strong>Tools</strong>（桌面／網頁工具）與 <strong>API</strong>（模型服務接口）兩類。Cursor 使用規範詳見 <a href="#cursor-ai-assessment" class="section-ref" data-section="cursor-ai-assessment">Cursor AI 評核標準</a>；Prompt 彙總見 <a href="#ai-prompt" class="section-ref" data-section="ai-prompt">AI Prompt 一覽</a>。</p>
+  <div class="content-block" id="dev-env-3rd-party">
+    <h3>5. 3rd Party（第三方整合）</h3>
+    <p>外部廠商提供的 Plugin 與 SDK，以 Unity Package 或原生庫形式整合至項目。對應硬體緊接於各 Plugin／SDK 之後（如 OpenCV → Webcam、Omni One SDK → Omni One、LCC Unity SDK → PortalCam、Votanic SDK → CAVE）；SDK／Plugin 再跨分支連接 <strong>4.2.1 Application</strong>。</p>
     <table class="spec-table">
       <thead>
         <tr>
@@ -429,67 +406,165 @@
       <tbody>
         <tr>
           <td>5</td>
-          <td><strong>AI</strong></td>
+          <td><strong>3rd Party</strong></td>
           <td>核心分支</td>
           <td>使用中</td>
-          <td>AI 協作開發總類；輔助 Unity 項目開發與日常文檔工作</td>
+          <td>第三方整合總類；Plugin、SDK 匯入 Unity，硬體緊接於對應 Plugin／SDK</td>
         </tr>
         <tr>
           <td>5.1</td>
-          <td><strong>Tools</strong></td>
+          <td><strong>Plugin</strong></td>
           <td>核心分支</td>
           <td>使用中</td>
-          <td>AI 協作工具子分支</td>
+          <td>第三方 Unity Plugin 子分支</td>
         </tr>
         <tr>
           <td>5.1.1</td>
-          <td><strong>Cursor</strong></td>
+          <td><strong>OpenCV</strong></td>
           <td>組成部分</td>
           <td>使用中</td>
-          <td>IDE 內嵌 AI 編程助手，用於 C#／Unity 日常開發</td>
+          <td>電腦視覺 Plugin；下接 Webcam 硬體，並跨分支連接 PC Application</td>
         </tr>
         <tr>
           <td>5.1.2</td>
-          <td><strong>Genspark</strong></td>
+          <td><strong>Webcam</strong></td>
           <td>組成部分</td>
           <td>使用中</td>
-          <td>AI 搜尋與研究輔助工具</td>
-        </tr>
-        <tr>
-          <td>5.1.3</td>
-          <td><strong>MiniMax</strong></td>
-          <td>組成部分</td>
-          <td>使用中</td>
-          <td>AI 對話與內容生成工具</td>
+          <td>PC 外接攝像頭；緊接 OpenCV Plugin，用於 PC Application</td>
         </tr>
         <tr>
           <td>5.2</td>
-          <td><strong>API</strong></td>
+          <td><strong>SDK</strong></td>
           <td>核心分支</td>
           <td>使用中</td>
-          <td>AI 模型 API 子分支</td>
+          <td>第三方廠商 SDK 子分支</td>
         </tr>
         <tr>
           <td>5.2.1</td>
-          <td><strong>DeepSeek</strong></td>
+          <td><strong>Omni One SDK</strong></td>
           <td>組成部分</td>
           <td>使用中</td>
-          <td>DeepSeek 大語言模型 API</td>
+          <td>Omni One 廠商 SDK；下接 Omni One 硬體，連接 PC Application 開發 PCVR 內容</td>
         </tr>
         <tr>
           <td>5.2.2</td>
-          <td><strong>Doubao</strong></td>
+          <td><strong>LCC Unity SDK</strong></td>
           <td>組成部分</td>
           <td>使用中</td>
-          <td>豆包（字節跳動）大語言模型 API</td>
+          <td>PortalCam 配套 Unity SDK；下接 PortalCam 硬體，連接 PC Application</td>
+        </tr>
+        <tr>
+          <td>5.2.3</td>
+          <td><strong>Votanic SDK</strong></td>
+          <td>組成部分</td>
+          <td>使用中</td>
+          <td>第三方 Unity SDK；下接 CAVE 硬體，連接 Windows Application</td>
+        </tr>
+        <tr>
+          <td>5.2.4</td>
+          <td><strong>Omni One</strong></td>
+          <td>組成部分</td>
+          <td>使用中</td>
+          <td>第三方 PCVR 硬體；緊接 Omni One SDK</td>
+        </tr>
+        <tr>
+          <td>5.2.5</td>
+          <td><strong>PortalCam</strong></td>
+          <td>組成部分</td>
+          <td>使用中</td>
+          <td>第三方攝像／採集硬體；緊接 LCC Unity SDK</td>
+        </tr>
+        <tr>
+          <td>5.2.6</td>
+          <td><strong>CAVE</strong></td>
+          <td>組成部分</td>
+          <td>使用中</td>
+          <td>沉浸式投影硬體；緊接 Votanic SDK</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="content-block" id="dev-env-3rd-party">
-    <h3>6. 3rd Party（第三方整合）</h3>
-    <p>外部廠商提供的 Plugin、SDK 與 Hardware，以 Unity Package 或原生庫形式整合至項目。硬體與 SDK 通常成對出現（如 Omni One／Omni One SDK、PortalCam／LCC Unity）；Webcam 連接 OpenCV Plugin；SDK／Plugin 再跨分支連接 <strong>3.9 Application</strong>。</p>
+  <div class="content-block">
+    <h3>6. Dev Tools</h3>
+    <p>開發組日常美術與程式製作所使用的桌面工具；<strong>Graphic</strong> 分支涵蓋 2D／3D 設計軟體，<strong>Program</strong> 下含 <strong>Code</strong>，以虛線關聯 <strong>7.1.1 Cursor</strong>、<strong>7.1.2 Claude Code</strong>（AI Tools）；<strong>Genspark</strong> 亦以虛線關聯 Graphic。</p>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>組件</th>
+          <th>類型</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>6</td>
+          <td><strong>Dev Tools</strong></td>
+          <td>核心分支</td>
+          <td>開發工具總類</td>
+        </tr>
+        <tr>
+          <td>6.1</td>
+          <td><strong>Graphic</strong></td>
+          <td>核心分支</td>
+          <td>美術設計工具子分支</td>
+        </tr>
+        <tr>
+          <td>6.1.1</td>
+          <td><strong>2D</strong></td>
+          <td>核心分支</td>
+          <td>平面設計工具</td>
+        </tr>
+        <tr>
+          <td>6.1.1.1</td>
+          <td><strong>Affinity</strong></td>
+          <td>組成部分</td>
+          <td>2D 設計與排版</td>
+        </tr>
+        <tr>
+          <td>6.1.1.2</td>
+          <td><strong>Figma</strong></td>
+          <td>組成部分</td>
+          <td>UI／UX 協作設計</td>
+        </tr>
+        <tr>
+          <td>6.1.2</td>
+          <td><strong>3D</strong></td>
+          <td>核心分支</td>
+          <td>三維建模與貼圖工具</td>
+        </tr>
+        <tr>
+          <td>6.1.2.1</td>
+          <td><strong>Blender</strong></td>
+          <td>組成部分</td>
+          <td>3D 建模與動畫</td>
+        </tr>
+        <tr>
+          <td>6.1.2.2</td>
+          <td><strong>Substance Painter</strong></td>
+          <td>組成部分</td>
+          <td>3D 材質與貼圖繪製</td>
+        </tr>
+        <tr>
+          <td>6.2</td>
+          <td><strong>Program</strong></td>
+          <td>核心分支</td>
+          <td>程式開發工具子分支</td>
+        </tr>
+        <tr>
+          <td>6.2.1</td>
+          <td><strong>Code</strong></td>
+          <td>組成部分</td>
+          <td>程式碼編輯；虛線關聯 Cursor、Claude Code（AI Tools）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>7. AI（人工智慧協作）</h3>
+    <p>開發組使用 AI 工具輔助程式撰寫、研究與文檔整理；分為<strong>Tools</strong>（桌面／網頁工具）與 <strong>API</strong>（模型服務接口）兩類。Cursor 使用規範詳見 <a href="#cursor-ai-assessment" class="section-ref" data-section="cursor-ai-assessment">Cursor AI 評核標準</a>；Prompt 彙總見 <a href="#ai-prompt" class="section-ref" data-section="ai-prompt">AI Prompt 一覽</a>。</p>
     <table class="spec-table">
       <thead>
         <tr>
@@ -502,199 +577,201 @@
       </thead>
       <tbody>
         <tr>
-          <td>6</td>
-          <td><strong>3rd Party</strong></td>
-          <td>核心分支</td>
-          <td>使用中</td>
-          <td>第三方整合總類；Plugin、SDK、Hardware 匯入 Unity</td>
-        </tr>
-        <tr>
-          <td>6.1</td>
-          <td><strong>Plugin</strong></td>
-          <td>核心分支</td>
-          <td>使用中</td>
-          <td>第三方 Unity Plugin 子分支</td>
-        </tr>
-        <tr>
-          <td>6.1.1</td>
-          <td><strong>OpenCV</strong></td>
-          <td>組成部分</td>
-          <td>使用中</td>
-          <td>電腦視覺 Plugin；連接 Webcam 硬體，並跨分支連接 PC Application</td>
-        </tr>
-        <tr>
-          <td>6.2</td>
-          <td><strong>SDK</strong></td>
-          <td>核心分支</td>
-          <td>使用中</td>
-          <td>第三方廠商 SDK 子分支</td>
-        </tr>
-        <tr>
-          <td>6.2.1</td>
-          <td><strong>Omni One SDK</strong></td>
-          <td>組成部分</td>
-          <td>使用中</td>
-          <td>Omni One 廠商 SDK；與 Omni One 硬體配對，連接 PC Application 開發 PCVR 內容</td>
-        </tr>
-        <tr>
-          <td>6.2.2</td>
-          <td><strong>LCC Unity</strong></td>
-          <td>組成部分</td>
-          <td>使用中</td>
-          <td>PortalCam 配套 Unity SDK；與 PortalCam 硬體配對，連接 PC Application</td>
-        </tr>
-        <tr>
-          <td>6.2.3</td>
-          <td><strong>Votanic</strong></td>
-          <td>組成部分</td>
-          <td>使用中</td>
-          <td>第三方 Unity SDK；連接 Windows Application</td>
-        </tr>
-        <tr>
-          <td>6.3</td>
-          <td><strong>Hardware</strong></td>
-          <td>核心分支</td>
-          <td>使用中</td>
-          <td>第三方硬體子分支</td>
-        </tr>
-        <tr>
-          <td>6.3.1</td>
-          <td><strong>Omni One</strong></td>
-          <td>組成部分</td>
-          <td>使用中</td>
-          <td>第三方 PCVR 硬體；與 Omni One SDK 配對</td>
-        </tr>
-        <tr>
-          <td>6.3.2</td>
-          <td><strong>Webcam</strong></td>
-          <td>組成部分</td>
-          <td>使用中</td>
-          <td>PC 外接攝像頭；連接 OpenCV Plugin，用於 PC Application</td>
-        </tr>
-        <tr>
-          <td>6.3.3</td>
-          <td><strong>PortalCam</strong></td>
-          <td>組成部分</td>
-          <td>使用中</td>
-          <td>第三方攝像／採集硬體；與 LCC Unity SDK 配對</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="content-block">
-    <h3>7. Dev Tools</h3>
-    <p>開發組日常美術與程式製作所使用的桌面工具；<strong>Graphic</strong> 分支涵蓋 2D／3D 設計軟體，<strong>Program</strong> 下含 <strong>Code</strong>，以虛線關聯 <strong>5.1.1 Cursor</strong>（AI Tools）。</p>
-    <table class="spec-table">
-      <thead>
-        <tr>
-          <th>序號</th>
-          <th>組件</th>
-          <th>類型</th>
-          <th>說明</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
           <td>7</td>
-          <td><strong>Dev Tools</strong></td>
+          <td><strong>AI</strong></td>
           <td>核心分支</td>
-          <td>開發工具總類</td>
+          <td>使用中</td>
+          <td>AI 協作開發總類；輔助 Unity 項目開發與日常文檔工作</td>
         </tr>
         <tr>
           <td>7.1</td>
-          <td><strong>Graphic</strong></td>
+          <td><strong>Tools</strong></td>
           <td>核心分支</td>
-          <td>美術設計工具子分支</td>
+          <td>使用中</td>
+          <td>AI 協作工具子分支</td>
         </tr>
         <tr>
           <td>7.1.1</td>
-          <td><strong>2D</strong></td>
-          <td>核心分支</td>
-          <td>平面設計工具</td>
-        </tr>
-        <tr>
-          <td>7.1.1.1</td>
-          <td><strong>Affinity</strong></td>
+          <td><strong>Cursor</strong></td>
           <td>組成部分</td>
-          <td>2D 設計與排版</td>
-        </tr>
-        <tr>
-          <td>7.1.1.2</td>
-          <td><strong>Figma</strong></td>
-          <td>組成部分</td>
-          <td>UI／UX 協作設計</td>
+          <td>使用中</td>
+          <td>IDE 內嵌 AI 編程助手，用於 C#／Unity 日常開發</td>
         </tr>
         <tr>
           <td>7.1.2</td>
-          <td><strong>3D</strong></td>
-          <td>核心分支</td>
-          <td>三維建模與貼圖工具</td>
+          <td><strong>Claude Code</strong></td>
+          <td>組成部分</td>
+          <td>使用中</td>
+          <td>終端 AI 編程助手；虛線關聯 Code、Graphic（Dev Tools）</td>
         </tr>
         <tr>
-          <td>7.1.2.1</td>
-          <td><strong>Blender</strong></td>
+          <td>7.1.3</td>
+          <td><strong>Genspark</strong></td>
           <td>組成部分</td>
-          <td>3D 建模與動畫</td>
+          <td>使用中</td>
+          <td>AI 搜尋與研究輔助工具</td>
         </tr>
         <tr>
-          <td>7.1.2.2</td>
-          <td><strong>Substance Painter</strong></td>
+          <td>7.1.4</td>
+          <td><strong>MiniMax</strong></td>
           <td>組成部分</td>
-          <td>3D 材質與貼圖繪製</td>
+          <td>使用中</td>
+          <td>AI 對話與內容生成工具</td>
         </tr>
         <tr>
           <td>7.2</td>
-          <td><strong>Program</strong></td>
+          <td><strong>API</strong></td>
           <td>核心分支</td>
-          <td>程式開發工具子分支</td>
+          <td>使用中</td>
+          <td>AI 模型 API 子分支</td>
         </tr>
         <tr>
           <td>7.2.1</td>
-          <td><strong>Code</strong></td>
+          <td><strong>DeepSeek</strong></td>
           <td>組成部分</td>
-          <td>程式碼編輯；虛線關聯 Cursor（AI Tools）</td>
+          <td>使用中</td>
+          <td>DeepSeek 大語言模型 API</td>
+        </tr>
+        <tr>
+          <td>7.2.2</td>
+          <td><strong>Doubao</strong></td>
+          <td>組成部分</td>
+          <td>使用中</td>
+          <td>豆包（字節跳動）大語言模型 API</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="content-block">
-    <h3>8. Hardware（開發硬體）</h3>
-    <p>開發組日常工作用電腦與伺服器；<strong>Mac Mini</strong> 虛線關聯 <strong>VTM-NAS</strong>（歸檔存取），<strong>Mac Server</strong> 虛線關聯 <strong>SVN</strong>（舊版版本庫），<strong>Workstation</strong> 虛線關聯 <strong>Windows</strong> 平台構建。</p>
+    <h3>8. Source &amp; Version Control（源與版本控制）</h3>
+    <p>程式碼與美術資源於項目進行中統一存放於 GitHub，日常提交使用 GitHub Desktop。項目<strong>完成後 3 個月</strong>，PO 會將 Repository 從 GitHub 移除，並由 <strong>Back Up</strong> 流程歸檔至公司 <strong>VTM-NAS</strong>。詳見 <a href="#github-desktop" class="section-ref" data-section="github-desktop">GitHub Desktop 提交規範</a>。</p>
     <table class="spec-table">
       <thead>
         <tr>
           <th>序號</th>
           <th>組件</th>
           <th>類型</th>
+          <th>狀態</th>
           <th>說明</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>8</td>
-          <td><strong>Hardware</strong></td>
+          <td><strong>Source &amp; Version Control</strong></td>
           <td>核心分支</td>
-          <td>開發硬體總類</td>
+          <td>使用中</td>
+          <td>源與版本控制總類；程式與美術資源託管服務</td>
         </tr>
         <tr>
           <td>8.1</td>
-          <td><strong>Mac Mini</strong></td>
+          <td><strong>GitHub Desktop</strong></td>
           <td>組成部分</td>
-          <td>開發用 Mac Mini；虛線關聯 VTM-NAS</td>
+          <td>使用中</td>
+          <td>圖形化版本控制客戶端，用於日常 commit 與 push</td>
         </tr>
         <tr>
           <td>8.2</td>
-          <td><strong>Mac Server</strong></td>
+          <td><strong>GitHub</strong></td>
           <td>組成部分</td>
-          <td>開發用 Mac 伺服器；虛線關聯 SVN</td>
+          <td>使用中</td>
+          <td>代碼託管、版本控制、團隊協作、Issue 追蹤與權限管理（項目生命週期內）</td>
         </tr>
         <tr>
           <td>8.3</td>
-          <td><strong>Workstation</strong></td>
+          <td><strong>Back Up</strong></td>
+          <td>核心分支</td>
+          <td>使用中</td>
+          <td>項目完成後的源代碼歸檔分支；PO 於完成後 <strong>4 個月</strong> 將項目從 GitHub 移除，並備份至 VTM-NAS</td>
+        </tr>
+        <tr>
+          <td>8.4</td>
+          <td><strong>VTM-NAS</strong></td>
           <td>組成部分</td>
-          <td>Windows 開發工作站；虛線關聯 Windows 平台</td>
+          <td>使用中</td>
+          <td>公司網路儲存（NAS），存放已從 GitHub 下架的項目完整備份</td>
+        </tr>
+        <tr>
+          <td>8.5</td>
+          <td>Smart SVN</td>
+          <td>棄用</td>
+          <td class="text-muted">棄用</td>
+          <td>舊版圖形化 SVN 客戶端</td>
+        </tr>
+        <tr>
+          <td>8.6</td>
+          <td>SVN</td>
+          <td>棄用</td>
+          <td class="text-muted">棄用</td>
+          <td>舊版版本控制系統，已由 GitHub 取代</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="content-block">
+    <h3>9. Data Management（資料管理）</h3>
+    <p>透過 Azure 雲端服務管理項目資料、資料庫與檔案儲存；Unity 客戶端透過 API 讀寫遠端資料。</p>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>序號</th>
+          <th>組件</th>
+          <th>類型</th>
+          <th>狀態</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>9</td>
+          <td><strong>Data Management</strong></td>
+          <td>核心分支</td>
+          <td>使用中</td>
+          <td>資料管理總類；匯入 Unity 的雲端資料服務</td>
+        </tr>
+        <tr>
+          <td>9.1</td>
+          <td><strong>Azure Static Web</strong></td>
+          <td>組成部分</td>
+          <td>使用中</td>
+          <td>透過 API 建立可視化資料管理介面，支援 CRUD 操作</td>
+        </tr>
+        <tr>
+          <td>9.2</td>
+          <td><strong>Azure Database</strong></td>
+          <td>組成部分</td>
+          <td>使用中</td>
+          <td>Azure Database Flexible Server 遠端 MySQL；開發／測試／正式環境分別對應 <span class="code-inline">VTM-FRP</span>、<span class="code-inline">VTM-CPP</span></td>
+        </tr>
+        <tr>
+          <td>9.3</td>
+          <td>AWS Web Services</td>
+          <td>棄用</td>
+          <td class="text-muted">棄用</td>
+          <td>舊版 Web 管理介面，已由 Azure Static Web 取代</td>
+        </tr>
+        <tr>
+          <td>9.4</td>
+          <td>AWS Database</td>
+          <td>棄用</td>
+          <td class="text-muted">棄用</td>
+          <td>舊版遠端 MySQL，已由 Azure Database 取代</td>
+        </tr>
+        <tr>
+          <td>9.5</td>
+          <td><strong>Azure Blob Storage</strong></td>
+          <td>組成部分</td>
+          <td>使用中</td>
+          <td>彈性、安全且具成本效益的雲端儲存（<span class="code-inline">vtm_storage</span>）</td>
+        </tr>
+        <tr>
+          <td>9.6</td>
+          <td>AWS S3 Storage</td>
+          <td>棄用</td>
+          <td class="text-muted">棄用</td>
+          <td>舊版雲端儲存，已由 Azure Blob Storage 取代</td>
         </tr>
       </tbody>
     </table>
